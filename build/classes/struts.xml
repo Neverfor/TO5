@@ -7,10 +7,14 @@
 
 	<constant name="struts.devMode" value="true" />
 
-	<package name="basicstruts2" extends="struts-default">
-
+	<package name="basicstruts2" extends="struts-default"
+		namespace="/">
+		<result-types>
+			<result-type name="tiles"
+				class="org.apache.struts2.views.tiles.TilesResult" />
+		</result-types>
 		<action name="index">
-			<result>/index.jsp</result>
+			<result type="tiles">welcome</result>
 		</action>
 
 	</package>
