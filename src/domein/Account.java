@@ -2,11 +2,6 @@ package domein;
 
 public class Account {
 
-}
-package domein;
-
-public class Account {
-
 	private int id;
 	private String emailadres;
 	private String wachtwoord;
