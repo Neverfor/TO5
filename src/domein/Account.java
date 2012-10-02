@@ -2,7 +2,8 @@ package domein;
 
 public class Account {
 
-	private String email;
+	private int id;
+	private String emailadres;
 	private String wachtwoord;
 	private String voornaam;
 	private String tussenvoegsel;
@@ -13,11 +14,11 @@ public class Account {
 	private int huisnummer;
 	private String plaats;
 	
-	public String getEmail() {
-		return email;
+	public String getEmailadres() {
+		return emailadres;
 	}
-	public void setEmail(String email) {
-		this.email = email;
+	public void setEmailadres(String emailadres) {
+		this.emailadres = emailadres;
 	}
 	public String getWachtwoord() {
 		return wachtwoord;
