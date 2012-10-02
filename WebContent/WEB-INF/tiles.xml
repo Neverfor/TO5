@@ -21,8 +21,4 @@
 		<put-attribute name="title" value="Registreren" />
 		<put-attribute name="body" value="/account/registreren.jsp" />
 	</definition>
-	<definition name="registreren" extends="baseLayout">
-		<put-attribute name="title" value="Registreren" />
-		<put-attribute name="body" value="/account/registreren.jsp" />
-	</definition>
 </tiles-definitions>
