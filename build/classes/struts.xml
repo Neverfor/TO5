@@ -16,6 +16,9 @@
 		<action name="index">
 			<result type="tiles">welcome</result>
 		</action>
+		<action name="registreren">
+			<result type="tiles">registreren</result>
+		</action>
 
 	</package>
 
