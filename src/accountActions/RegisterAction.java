@@ -12,14 +12,38 @@ public class RegisterAction extends ActionSupport implements ModelDriven<Account
 	 */
 	private static final long serialVersionUID = -2534446146222716771L;
 	private Account account = new Account();
-	private AccountDAO accountDAO = new AccountDAO();
+	private String wachtwoordBevestiging;
+	private AccountDAO accountDAO;
+	
+	public RegisterAction(){
+		accountDAO = new AccountDAO();
+	}
+	public String getWachtwoordBevestiging() {
+		return wachtwoordBevestiging;
+	}
 
-	public String execute() throws Exception {
-		accountDAO.saveAccount(account);
-		return SUCCESS;
+	public void setWachtwoordBevestiging(String wachtwoordBevestiging) {
+		this.wachtwoordBevestiging = wachtwoordBevestiging;
+	}
+
+	public String execute() {
+		if(accountDAO.saveAccount(account)){
+			return SUCCESS;
+		}
+		return INPUT;
 	}	
 	
 	public Account getModel() {
 		return account;
+	}
+	
+	public String submit(){
+		return SUCCESS;
+	}
+	
+	public void validate(){
+		if(accountDAO.emailadresExists(account.getEmailadres())){
+			addFieldError( "emailadres", "Emailadres al in gebruik" );
+		}
 	}
 }

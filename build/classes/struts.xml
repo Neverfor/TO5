@@ -7,7 +7,7 @@
 
 	<constant name="struts.devMode" value="true" />
 
-	<package name="basicstruts2" extends="struts-default"
+	<package name="default" extends="struts-default"
 		namespace="/">
 		<result-types>
 			<result-type name="tiles"
@@ -16,8 +16,14 @@
 		<action name="index">
 			<result type="tiles">welcome</result>
 		</action>
-		<action name="registreren">
-			<result type="tiles">registreren</result>
+		
+		<action name="registreren" class="accountActions.RegisterAction">
+			<result name="input" type="tiles" >registreren</result>
+			<result name="succes" type="tiles" >registreren</result>
+		</action>
+		
+		<action name="*Page">
+			<result type="tiles">{1}</result>
 		</action>
 
 	</package>
