@@ -69,5 +69,5 @@ public class LoginAction extends ActionSupport implements SessionAware {
 		return account;
 	}
 
-
+	//kijk een conflict
 }
