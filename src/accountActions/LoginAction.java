@@ -27,6 +27,8 @@ public class LoginAction extends ActionSupport implements SessionAware {
 		session.put( "account", account );
 		return SUCCESS;
 	}
+	//New regel
+	//New regel2
 
 	public void validate(){		
 		account = accountDAO.getAccount(emailadres, wachtwoord);
@@ -61,5 +63,5 @@ public class LoginAction extends ActionSupport implements SessionAware {
 		return account;
 	}
 
-
+	//kijk een conflict
 }

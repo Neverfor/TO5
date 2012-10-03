@@ -19,8 +19,7 @@ public class AccountDAO {
 		
 		public AccountDAO(){
 			try{
-				Configuration configuration = new Configuration();
-				configuration.configure();
+				Configuration configuration = new Configuration().configure();
 				serviceRegistry = new ServiceRegistryBuilder().applySettings(configuration.getProperties()).buildServiceRegistry();        
 				SessionFactory sessionFactory = configuration.buildSessionFactory(serviceRegistry);
 	            session = sessionFactory.openSession();            
@@ -46,6 +45,10 @@ public class AccountDAO {
 	        }
 		}
 		
+		public Account getAccount(Integer id){
+			return (Account) session.createQuery("from Account where id = ?").setInteger(0, id).uniqueResult();
+
+		}
 		public boolean emailadresExists(String emailadres){
 			int count = ((Long)session.createQuery("select count(*) from Account where Emailadres = :emailaddr ")
 					.setParameter("emailaddr", emailadres)

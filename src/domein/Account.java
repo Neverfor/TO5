@@ -74,11 +74,11 @@ public class Account {
 	public void setHuisnummer(String huisnummer) {
 		this.huisnummer = huisnummer;
 	}
-	public String getPlaats() {
+	public String getWoonplaats() {
 		return woonplaats;
 	}
-	public void setPlaats(String plaats) {
-		this.woonplaats = plaats;
+	public void setWoonplaats(String woonplaats) {
+		this.woonplaats = woonplaats;
 	}
 	
 	
