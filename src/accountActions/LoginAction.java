@@ -24,6 +24,7 @@ public class LoginAction extends ActionSupport implements SessionAware {
 //			return "membermenu";
 		return SUCCESS;
 	}
+	//New regel
 
 	public void validate(){
 		
