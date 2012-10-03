@@ -6,6 +6,7 @@ import org.apache.struts2.interceptor.SessionAware;
 
 import com.opensymphony.xwork2.ActionSupport;
 
+import dao.AccountDAO;
 import domein.Account;
 
 public class LoginAction extends ActionSupport implements SessionAware {
@@ -13,55 +14,47 @@ public class LoginAction extends ActionSupport implements SessionAware {
 	private static final long serialVersionUID = 1L;
 	private Account account;
 	private Map<String, Object> session;
-	private String email;
+	private String emailadres;
 	private String wachtwoord;
+	private AccountDAO accountDAO;
 	
+	public LoginAction(){
+		accountDAO = new AccountDAO();
+	}
+		
+
 	public String execute(){
 		session.put( "account", account );
-//		if (account.getUr().equals(accountRole.Administrator))
-//			return "administratormenu";
-//		if (account.getUr().equals(accountRole.Member))
-//			return "membermenu";
 		return SUCCESS;
 	}
 
-	public void validate(){
-		
-		wachtwoord = wachtwoord.trim();
-		email = email.trim();
-		
-		if ( email.length() == 0 ){			
-			addFieldError( "email", "naam is verplicht");
+	public void validate(){		
+		account = accountDAO.getAccount(emailadres, wachtwoord);
+		if(account == null){
+			addActionError("Geen geldige username of wachtwoord");
 		}
-		if ( wachtwoord.length() == 0 ){			
-			addFieldError( "password", "wachtwoord is verplicht" );
-		}
-		
-//	    account = ivs.getaccountByaccountname(accountname);
-//		if ((account == null) || !(account.getPassword().equals(password))){
-//			addFieldError("accountname", "naam of wachtwoord is niet juist");
-//		}
 	}
 	
-	public String getEmail() {
-		return email;
+	public String getEmailadres() {
+		return emailadres;
 	}
 	
-	public void setEmail(String email) {
-		this.email = email;
+	public void setEmailadres(String emailadres) {
+		this.emailadres = emailadres;
 	}
 	
-//	public String getPassword() {
-//		return password;
-//	}
-	
-	public void setPassword(String wachtwoord) {
-		this.wachtwoord = wachtwoord;
-	}
-	
+
 	public void setSession(Map<String, Object> session) {
 		this.session = session;
 		
+	}
+	
+	public String getWachtwoord() {
+		return wachtwoord;
+	}
+
+	public void setWachtwoord(String wachtwoord) {
+		this.wachtwoord = wachtwoord;
 	}
 	
 	public Account getaccount() {

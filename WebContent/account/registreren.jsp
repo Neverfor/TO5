@@ -12,7 +12,7 @@
 <s:actionerror theme="bootstrap"/>
 <s:actionmessage theme="bootstrap"/>
 
-<s:form action="registreren" cssClass="form-horizontal" theme="bootstrap">
+<s:form action="registrerenDo" cssClass="form-horizontal" theme="bootstrap">
 	<s:textfield name="emailadres" label="Email" />
 	<s:password name="wachtwoord" label="Wachtwoord" />
 	<s:password name="wachtwoordBevestiging" label="Wachtwoord bevestiging" />

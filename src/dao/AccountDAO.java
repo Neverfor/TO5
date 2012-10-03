@@ -47,11 +47,20 @@ public class AccountDAO {
 		}
 		
 		public boolean emailadresExists(String emailadres){
-			Query query = session.createQuery("select count(*) from Account where Emailadres = :emailaddr ");
-			query.setParameter("emailaddr", emailadres);
-			if(((Long)query.uniqueResult()).intValue() > 0){
+			int count = ((Long)session.createQuery("select count(*) from Account where Emailadres = :emailaddr ")
+					.setParameter("emailaddr", emailadres)
+					.uniqueResult()	)
+					.intValue();
+			
+			if(count > 0)
 				return true;
-			}
 			return false;
+		}
+		
+		public Account getAccount(String emailadres, String wachtwoord){
+			return (Account) session.createQuery("from Account where Emailadres = ? and Wachtwoord = ?")
+					.setParameter(0, emailadres)
+					.setParameter(1, wachtwoord)
+					.uniqueResult();			
 		}
 }
