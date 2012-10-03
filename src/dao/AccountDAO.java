@@ -18,8 +18,7 @@ public class AccountDAO {
 		
 		public AccountDAO(){
 			try{
-				Configuration configuration = new Configuration();
-				configuration.configure();
+				Configuration configuration = new Configuration().configure();
 				serviceRegistry = new ServiceRegistryBuilder().applySettings(configuration.getProperties()).buildServiceRegistry();        
 				SessionFactory sessionFactory = configuration.buildSessionFactory(serviceRegistry);
 	            session = sessionFactory.openSession();            
@@ -42,5 +41,9 @@ public class AccountDAO {
 	            session.close();
 	
 	        }
+		}
+		
+		public Account getAccount(Integer id){
+			return (Account) session.createQuery("from Account where id = ?").setInteger(0, id).uniqueResult();
 		}
 }

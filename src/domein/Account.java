@@ -3,6 +3,12 @@ package domein;
 public class Account {
 
 	private int id;
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
 	private String emailadres;
 	private String wachtwoord;
 	private String voornaam;
@@ -11,7 +17,7 @@ public class Account {
 	private String postcode;
 	private String telefoonnummer;
 	private String straat;
-	private int huisnummer;
+	private String huisnummer;
 	private String plaats;
 	
 	public String getEmailadres() {
@@ -62,10 +68,10 @@ public class Account {
 	public void setStraat(String straat) {
 		this.straat = straat;
 	}
-	public int getHuisnummer() {
+	public String getHuisnummer() {
 		return huisnummer;
 	}
-	public void setHuisnummer(int huisnummer) {
+	public void setHuisnummer(String huisnummer) {
 		this.huisnummer = huisnummer;
 	}
 	public String getPlaats() {
