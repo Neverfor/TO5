@@ -1,6 +1,7 @@
 package dao;
 
 import org.hibernate.HibernateException;
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -31,19 +32,29 @@ public class AccountDAO {
 	
 		}
 	 
-		public void saveAccount(Account account){
+		public boolean saveAccount(Account account){
 			try{
 				Transaction transaction = session.beginTransaction();
 	            session.saveOrUpdate(account);
 	            transaction.commit();
+	            return true;
 			}catch (HibernateException hibernateException) {
 	            System.out.println(hibernateException.getMessage());
 	            session.close();
-	
+	            return false;
 	        }
 		}
 		
 		public Account getAccount(Integer id){
 			return (Account) session.createQuery("from Account where id = ?").setInteger(0, id).uniqueResult();
+
+		}
+		public boolean emailadresExists(String emailadres){
+			Query query = session.createQuery("select count(*) from Account where Emailadres = :emailaddr ");
+			query.setParameter("emailaddr", emailadres);
+			if(((Long)query.uniqueResult()).intValue() > 0){
+				return true;
+			}
+			return false;
 		}
 }

@@ -18,7 +18,7 @@ public class Account {
 	private String telefoonnummer;
 	private String straat;
 	private String huisnummer;
-	private String plaats;
+	private String woonplaats;
 	
 	public String getEmailadres() {
 		return emailadres;
@@ -74,11 +74,11 @@ public class Account {
 	public void setHuisnummer(String huisnummer) {
 		this.huisnummer = huisnummer;
 	}
-	public String getPlaats() {
-		return plaats;
+	public String getWoonplaats() {
+		return woonplaats;
 	}
-	public void setPlaats(String plaats) {
-		this.plaats = plaats;
+	public void setWoonplaats(String woonplaats) {
+		this.woonplaats = woonplaats;
 	}
 	
 	
