@@ -1,14 +1,10 @@
 package domein;
 
+import java.util.ArrayList;
+
 public class Account {
 
-	private int id;
-	public int getId() {
-		return id;
-	}
-	public void setId(int id) {
-		this.id = id;
-	}
+	private int id;	
 	private String emailadres;
 	private String wachtwoord;
 	private String voornaam;
@@ -19,6 +15,13 @@ public class Account {
 	private String straat;
 	private String huisnummer;
 	private String woonplaats;
+	
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
 	
 	public String getEmailadres() {
 		return emailadres;
@@ -79,6 +82,11 @@ public class Account {
 	}
 	public void setWoonplaats(String woonplaats) {
 		this.woonplaats = woonplaats;
+	}
+	public ArrayList<String> getRechten() {
+		ArrayList<String> rtn = new ArrayList<String>();
+		rtn.add("Test");
+		return rtn;
 	}
 	
 	
