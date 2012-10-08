@@ -22,7 +22,7 @@
 	</package>
 
 	<!-- package frame voor actions achter login-muur -->
-	<package name="userAware" extends="default">
+	<package name="accountAware" extends="struts-default">
 		<!-- interceptor regelt authenticatie controle -->
 		<interceptors>
 			<interceptor name="securityInterceptor" class="utils.SecurityInterceptor" />

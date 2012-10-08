@@ -1,11 +1,8 @@
 package accountActions;
 
 import java.util.Map;
-
 import org.apache.struts2.interceptor.SessionAware;
-
 import com.opensymphony.xwork2.ActionSupport;
-
 import dao.AccountDAO;
 import domein.Account;
 
@@ -24,14 +21,19 @@ public class LoginAction extends ActionSupport implements SessionAware {
 		
 
 	public String execute(){
+		System.out.println("test " + emailadres);
+		System.out.println(account.getVoornaam());
 		session.put( "account", account );
+//		session.put("voornaam", account.getVoornaam());
+//		account = (Account)session.get(account);
+		System.out.println(account.getAchternaam());
 		return SUCCESS;
 	}
-	//New regel
-	//New regel2
 
 	public void validate(){		
 		account = accountDAO.getAccount(emailadres, wachtwoord);
+		System.out.println("test " + emailadres); //Komt bij de validate
+		System.out.println(account.getVoornaam());//Pakt ook de voornaam
 		if(account == null){
 			addActionError("Geen geldige username of wachtwoord");
 		}
@@ -59,9 +61,7 @@ public class LoginAction extends ActionSupport implements SessionAware {
 		this.wachtwoord = wachtwoord;
 	}
 	
-	public Account getaccount() {
+	public Account getAccount() {
 		return account;
 	}
-
-	//kijk een conflict
 }

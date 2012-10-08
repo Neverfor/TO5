@@ -27,9 +27,9 @@
 		</action>
 	</package>
 
-	<package name="accountLoggedIn" extends="userAware" namespace="/gebruiker">		
-		<action name="gebruikerspanel">
-			<result type="tiles">memberLayout</result>
+	<package name="accountLoggedIn" extends="accountAware" namespace="/gebruiker">		
+		<action name="gebruikerspanel" class="accountActions.AccountPage">
+			<result type="tiles"></result>
 		</action>
 	</package>
 </struts>

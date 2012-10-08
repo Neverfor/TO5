@@ -8,11 +8,11 @@
         <property name="connection.driver_class">
             oracle.jdbc.driver.OracleDriver
         </property>
-        <property name="connection.url">
-            
+       <property name="connection.url">
+            jdbc:oracle:thin:@ondora01.hu.nl:8521:cursus01
         </property>
-        <property name="connection.username"></property>
-        <property name="connection.password"></property>
+        <property name="connection.username">THO5_2012_2A_TEAM3</property>
+        <property name="connection.password">THO5_2012_2A_TEAM3</property>
         <property name="connection.pool_size">1</property>
 		<property name="hibernate.hbm2ddl.auto">update</property>
         <property name="hibernate.show_sql">true</property>

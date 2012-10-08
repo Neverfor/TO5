@@ -6,6 +6,8 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 </head>
+
+<p>Dit is een test login pagina. Hier gebeurt niks.</p>
 <body>
 
 </body>

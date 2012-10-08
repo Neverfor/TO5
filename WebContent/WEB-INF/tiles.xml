@@ -37,6 +37,12 @@
 		<put-attribute name="body" value="/account/loggedin.jsp" />
 		<put-attribute name="menu" value="/account/menu.jsp" />
 	</definition>
+	
+	<definition name="memberLayout" extends="baseLayout">
+		<put-attribute name="title" value="Welkom terug" />
+		<put-attribute name="body" value="/account/loggedin.jsp" />
+		<put-attribute name="menu" value="/account/menu.jsp" />
+	</definition>
 	<!-- End Account -->
 
 	<!-- Veilig -->
