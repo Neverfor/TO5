@@ -13,7 +13,10 @@
 
 		<action name="loginDo" class="accountActions.LoginAction">
 			<result name="input" type="tiles">login</result>
-			<result name="success" type="tiles">memberLayout</result>
+			<result name="success" type="redirectAction">
+				<param name="actionName">gebruikerspanel</param>
+				<param name="namespace">/gebruiker</param>
+			</result>
 		</action>
 
 		<action name="registreren">
@@ -24,10 +27,9 @@
 		</action>
 	</package>
 
-	<package name="accountLoggedIn" extends="default" namespace="/account">
-		<!-- accountPage -->
-		<action name="accountpage" class="accountActions.AccountPage">
-			<result type="tiles">accountPage</result>
+	<package name="accountLoggedIn" extends="accountAware" namespace="/gebruiker">		
+		<action name="gebruikerspanel" class="accountActions.AccountPage">
+			<result type="tiles"></result>
 		</action>
 	</package>
 </struts>

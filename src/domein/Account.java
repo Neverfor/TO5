@@ -1,7 +1,7 @@
 package domein;
 
 public class Account {
-
+	private int id;
 	private String emailadres;
 	private String wachtwoord;
 	private String voornaam;
@@ -32,9 +32,7 @@ public class Account {
 	}
 	
 	public Account (){}
-	
-	
-	private int id;
+		
 	public int getId() {
 		return id;
 	}

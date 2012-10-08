@@ -18,7 +18,8 @@
         padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
       }
     </style>
-    <link href="<s:url value='/css/bootstrap-responsive.css'/>" rel="stylesheet"/>
+    <link href="<s:url value="/css/bootstrap-responsive.css"/>" rel="stylesheet"/>
+	<link href="<s:url value="/css/ui-lightness/jquery-ui.css"/>" rel="stylesheet"/>
 
     <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
@@ -27,10 +28,11 @@
 
     <!-- Le fav and touch icons -->
     <link rel="shortcut icon" href="ico/favicon.ico">
-    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="ico/apple-touch-icon-144-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="ico/apple-touch-icon-114-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="ico/apple-touch-icon-72-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" href="ico/apple-touch-icon-57-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="<s:url value="/ico/apple-touch-icon-144-precomposed.png"/>"/>
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="<s:url value="ico/apple-touch-icon-114-precomposed.png"/>"/>
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="<s:url value="ico/apple-touch-icon-72-precomposed.png"/>"/>
+    <link rel="apple-touch-icon-precomposed" href="<s:url value="ico/apple-touch-icon-57-precomposed.png"/>"/>
+    <script src="<s:url value="/js/jquery.js"/>"></script>
   </head>
 
   <body>
