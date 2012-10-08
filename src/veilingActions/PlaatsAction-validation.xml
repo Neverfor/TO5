@@ -1,0 +1,14 @@
+<!DOCTYPE validators PUBLIC "-//Apache Struts//XWork Validator 1.0.3//EN"
+		"http://struts.apache.org/dtds/xwork-validator-1.0.3.dtd">
+<validators>
+	<field name="titel">
+		<field-validator type="requiredstring">
+			<message>You cannot leave the title field empty.</message>
+		</field-validator>
+	</field>
+	<field name="minimumBod">
+		<field-validator type="required">
+			<message>Wachtwoord bevestiging is required </message>
+		</field-validator>
+	</field>
+</validators>

@@ -22,10 +22,10 @@
 	</package>
 
 	<!-- package frame voor actions achter login-muur -->
-	<package name="userAware" extends="struts-default">
+	<package name="userAware" extends="default">
 		<!-- interceptor regelt authenticatie controle -->
 		<interceptors>
-			<interceptor name="securityInterceptor" class="SecurityInterceptor" />
+			<interceptor name="securityInterceptor" class="utils.SecurityInterceptor" />
 			<interceptor-stack name="securityStack">
 				<interceptor-ref name="securityInterceptor" />
 				<interceptor-ref name="defaultStack" />
@@ -38,11 +38,12 @@
 				<param name="actionName">gebruikerspanel</param>
 				<param name="namespace">/gebruiker</param>
 			</result>
-			<result name="error" type="tyles">error</result>
+			<result name="error" type="tiles">error</result>
 		</global-results>
 	</package>
 
 	<!-- Includes -->
 	<include file="accountActions/account-struts.xml" />
+	<include file="veilingActions/veiling-struts.xml" />
 
 </struts>

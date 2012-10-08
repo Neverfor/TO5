@@ -24,10 +24,10 @@ public class SecurityInterceptor implements Interceptor {
 
 	@Override
 	public String intercept(ActionInvocation actionInvocation) throws Exception {
-		Object action = actionInvocation.getAction();
-		if (action instanceof SecurableAction) {
-			((SecurableAction) action).checkSecurity();
-		}
+//		Object action = actionInvocation.getAction();
+//		if (action instanceof SecurableAction) {
+//			((SecurableAction) action).checkSecurity();
+//		}
 
 		return actionInvocation.invoke();
 	}
