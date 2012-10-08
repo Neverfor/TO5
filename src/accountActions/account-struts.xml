@@ -4,9 +4,8 @@
     "http://struts.apache.org/dtds/struts-2.0.dtd">
 
 <struts>
-	<package name="accountLoggedoff" extends="default"
-		namespace="/">
-		
+	<package name="accountLoggedoff" extends="default" namespace="/">
+
 		<action name="registrerenDo" class="accountActions.RegisterAction">
 			<result name="input" type="tiles">registreren</result>
 			<result name="success" type="tiles">registreerBevestiging</result>
@@ -19,9 +18,16 @@
 
 		<action name="registreren">
 			<result type="tiles">registreren</result>
-		</action>		
+		</action>
 		<action name="login">
 			<result type="tiles">login</result>
+		</action>
+	</package>
+
+	<package name="accountLoggedIn" extends="default" namespace="/account">
+		<!-- accountPage -->
+		<action name="accountpage" class="accountActions.AccountPage">
+			<result type="tiles">accountPage</result>
 		</action>
 	</package>
 </struts>
