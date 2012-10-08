@@ -15,6 +15,6 @@
     <property column="TELEFOONNUMMER" name="telefoonnummer" type="string"/>
     <property column="STRAAT" name="straat" type="string"/>
     <property column="HUISNUMMER" name="huisnummer" type="string"/>
-    <property column="PLAATS" name="plaats" type="string"/>
+    <property column="WOONPLAATS" name="woonplaats" type="string"/>
   </class>
 </hibernate-mapping>

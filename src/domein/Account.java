@@ -2,13 +2,6 @@ package domein;
 
 public class Account {
 
-	private int id;
-	public int getId() {
-		return id;
-	}
-	public void setId(int id) {
-		this.id = id;
-	}
 	private String emailadres;
 	private String wachtwoord;
 	private String voornaam;
@@ -19,6 +12,36 @@ public class Account {
 	private String straat;
 	private String huisnummer;
 	private String woonplaats;
+	
+	public Account(int id, String emailadres, String wachtwoord,
+			String voornaam, String tussenvoegsel, String achternaam,
+			String postcode, String telefoonnummer, String straat,
+			String huisnummer, String woonplaats) {
+		super();
+		this.id = id;
+		this.emailadres = emailadres;
+		this.wachtwoord = wachtwoord;
+		this.voornaam = voornaam;
+		this.tussenvoegsel = tussenvoegsel;
+		this.achternaam = achternaam;
+		this.postcode = postcode;
+		this.telefoonnummer = telefoonnummer;
+		this.straat = straat;
+		this.huisnummer = huisnummer;
+		this.woonplaats = woonplaats;
+	}
+	
+	public Account (){}
+	
+	
+	private int id;
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
+
 	
 	public String getEmailadres() {
 		return emailadres;
