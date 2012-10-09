@@ -33,7 +33,7 @@
 	</definition>	
 	
 	<definition name="gebruikerspaneel" extends="baseLayout">
-		<put-attribute name="title" value="Gebruikerspaneel pagina" />
+		<put-attribute name="title" value="Account overzicht pagina" />
 		<put-attribute name="body" value="/account/gebruikerspaneel.jsp" />
 	</definition>	
 	

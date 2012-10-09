@@ -1,31 +1,34 @@
 <%@ taglib prefix="s" uri="/struts-tags"%>
 
-<h1>Je account overzicht</h1>
+<span class="mijnKopText"> Je account overzicht</span> </br>
 
 ${request.requestURL}
 
 <s:actionerror theme="bootstrap"/>
 <s:actionmessage theme="bootstrap"/>
 
-<p>Welkom, <s:property value="account.voornaam"/>! </br>
+<p class="welkomSpan">Welkom, <s:property value="account.voornaam"/>! </br> </br>
 
-Je gegevens zijn geregistreerd als volgt:
-<table>
-<tr>
-<td>Naam: </td> <td> <s:property value="account.voornaam"/>  </td>
+<span class="mijnGrootText"> Je gegevens zijn geregistreerd als volgt: </span>
+<table class="myborder">
+<tr class="mycolor">
+<td class="mycolor">Naam: </td> <td> <s:property value="account.voornaam"/>  </td>
 </tr>
-<tr>
-<td>Adres: </td> <td> <s:property value="account.woonplaats"/>, <s:property value="account.straat"/>, <s:property value="account.huisnummer"/>   </td>
+<tr class="mycolor">
+<td class="mycolor">Adres: </td> <td> <s:property value="account.woonplaats"/>, <s:property value="account.straat"/>, <s:property value="account.huisnummer"/>   </td>
+</tr class="mycolor">
+<tr class="mycolor">
+<td class="mycolor">Postcode: </td> <td> <s:property value="account.postcode"/>, <s:property value="account.huisnummer"/>  </td>
 </tr>
-<tr>
-<td>Postcode: </td> <td> <s:property value="account.postcode"/>, <s:property value="account.huisnummer"/>  </td>
+<tr class="mycolor">
+<td class="mycolor">Email: </td> <td> <s:property value="account.emailadres"/>  </td>
 </tr>
-<tr>
-<td>Email: </td> <td> <s:property value="account.emailadres"/>  </td>
-</tr>
-<tr>
-<td>Telefoonnummer: </td> <td> <s:property value="account.telefoonnummer"/>  </td>
+<tr class="mycolor">
+<td class="mycolor">Telefoonnummer: </td> <td> <s:property value="account.telefoonnummer"/>  </td>
 </tr>
 </table>
+</br>
+<span class="geldText">Op je rekening staan: <s:property value="account.credits"/> credits! </span>
+Niet genoeg? Koop ze hier of start met bieden.
 
 </p>
