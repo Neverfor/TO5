@@ -1,6 +1,10 @@
-<%@ taglib prefix="s" uri="/struts-tags" %>
-<h1>Bootstrap starter template</h1>
+
+<h1>Welkom bij de VeilingSite.</h1>
 <p>
-	Use this document as a way to quick start any new project.<br> All
-	you get is this message and a barebones HTML document.
+	<i>News 9-10-2012</i></br>
+	Overzicht van gegevens werkt. </br></br>
+	<i>News 5-10-2012</i></br>
+	Inlog werkt</br></br>
+	<i>News 3-10-2012</i></br>
+	Registreren werkt. Account wordt binnen de database bewaard.</br></br>
 </p>
