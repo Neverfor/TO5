@@ -14,7 +14,7 @@
 		<action name="loginDo" class="accountActions.LoginAction">
 			<result name="input" type="tiles">login</result>
 			<result name="success" type="redirectAction">
-				<param name="actionName">gebruikerspanel</param>
+				<param name="actionName">gebruikerspaneel</param>
 				<param name="namespace">/gebruiker</param>
 			</result>
 		</action>
@@ -28,8 +28,8 @@
 	</package>
 
 	<package name="accountLoggedIn" extends="accountAware" namespace="/gebruiker">		
-		<action name="gebruikerspanel" class="accountActions.AccountPage">
-			<result type="tiles"></result>
+		<action name="gebruikerspaneel" class="accountActions.AccountPage">
+			<result type="tiles">gebruikerspaneel</result>
 		</action>
 	</package>
 </struts>

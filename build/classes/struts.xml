@@ -22,10 +22,10 @@
 	</package>
 
 	<!-- package frame voor actions achter login-muur -->
-	<package name="accountAware" extends="struts-default">
+	<package name="accountAware" extends="default">
 		<!-- interceptor regelt authenticatie controle -->
 		<interceptors>
-			<interceptor name="securityInterceptor" class="SecurityInterceptor" />
+			<interceptor name="securityInterceptor" class="utils.SecurityInterceptor" />
 			<interceptor-stack name="securityStack">
 				<interceptor-ref name="securityInterceptor" />
 				<interceptor-ref name="defaultStack" />
@@ -35,10 +35,10 @@
 		<!-- Global results zijn globale error en/of fallback pagina's -->
 		<global-results>
 			<result name="login" type="redirectAction">
-				<param name="actionName">gebruikerspanel</param>
+				<param name="actionName">gebruikerspaneel</param>
 				<param name="namespace">/gebruiker</param>
 			</result>
-			<result name="error" type="tiles">error</result>
+			<!-- <result name="error" type="tiles">error</result>-->
 		</global-results>
 	</package>
 
