@@ -3,11 +3,8 @@ package actions.veiling;
 
 import java.util.List;
 import java.util.Map;
-
 import org.apache.struts2.interceptor.SessionAware;
-
 import com.opensymphony.xwork2.ActionSupport;
-
 import dao.VeilingDAO;
 import domein.Account;
 import domein.Veiling;

@@ -18,7 +18,7 @@ ${request.requestURL}
 <td class="mycolor">Adres: </td> <td> <s:property value="account.woonplaats"/>, <s:property value="account.straat"/>, <s:property value="account.huisnummer"/>   </td>
 </tr class="mycolor">
 <tr class="mycolor">
-<td class="mycolor">Postcode: </td> <td> <s:property value="account.postcode"/>, <s:property value="account.huisnummer"/>  </td>
+<td class="mycolor">Postcode: </td> <td> <s:property value="account.postcode"/> </td>
 </tr>
 <tr class="mycolor">
 <td class="mycolor">Email: </td> <td> <s:property value="account.emailadres"/>  </td>
