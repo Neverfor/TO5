@@ -2,8 +2,8 @@
 <div class="nav-collapse collapse">
 	<ul class="nav">
 		<li class="active"><a href="#">Home</a></li>
-		<li><a href="#about">About</a></li>
-		<li><a href="#contact">Contact</a></li>
+		<li><a href="<s:url namespace='/gebruiker' action='gebruikerspaneel'/>">Gebruikerspaneel</a></li>
+		<li><a href="<s:url namespace='/veilingen' action='mijn-veilingen' />">Mijn advertenties</a></li>
 	</ul>	
 </div>
 <!--/.nav-collapse -->

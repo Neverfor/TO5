@@ -1,4 +1,4 @@
-package accountActions;
+package actions.account;
 
 import java.util.Map;
 

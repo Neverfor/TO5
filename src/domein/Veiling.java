@@ -1,5 +1,8 @@
 package domein;
 
+import java.util.Date;
+
+
 public class Veiling {
 
 	private int id;
@@ -11,12 +14,27 @@ public class Veiling {
 	}
 	private String titel;
 	private String omschrijving;
-	private String rubriek;
-	private int minimumBod;
-	//private Date endDate;
-	//private Date beginDate;
-	//private String status;
+	private Rubriek rubriek;
+	private String status;
 	
+	private int minimumBod;
+	private Account account;
+	//private Date endDate;
+	private Date beginDatum;
+	
+	public String getStatus() {
+		return status;
+	}
+	public void setStatus(String status) {
+		this.status = status;
+	}
+	
+	public Account getAccount() {
+		return account;
+	}
+	public void setAccount(Account account) {
+		this.account = account;
+	}
 	public String getTitel() {
 		return titel;
 	}
@@ -29,10 +47,10 @@ public class Veiling {
 	public void setOmschrijving(String omschrijving) {
 		this.omschrijving = omschrijving;
 	}
-	public String getRubriek() {
+	public Rubriek getRubriek() {
 		return rubriek;
 	}
-	public void setRubriek(String rubriek) {
+	public void setRubriek(Rubriek rubriek) {
 		this.rubriek = rubriek;
 	}
 	public int getMinimumBod() {
@@ -47,12 +65,16 @@ public class Veiling {
 	public void setEndDate(Date endDate) {
 		this.endDate = endDate;
 	}
-	public Date getBeginDate() {
-		return beginDate;
+	*/
+	
+	public Date getBeginDatum() {
+		return beginDatum;
 	}
-	public void setBeginDate(Date beginDate) {
-		this.beginDate = beginDate;
+	public void setBeginDatum(Date beginDatum) {
+		this.beginDatum = beginDatum;
 	}
+	
+	/*
 	public String getStatus() {
 		return status;
 	}

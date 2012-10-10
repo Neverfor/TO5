@@ -1,4 +1,4 @@
-package accountActions;
+package actions.account;
 
 import java.util.Map;
 import org.apache.struts2.interceptor.SessionAware;
@@ -32,8 +32,6 @@ public class LoginAction extends ActionSupport implements SessionAware {
 
 	public void validate(){		
 		account = accountDAO.getAccount(emailadres, wachtwoord);
-		System.out.println("test " + emailadres); //Komt bij de validate
-		System.out.println(account.getVoornaam());//Pakt ook de voornaam
 		if(account == null){
 			addActionError("Geen geldige username of wachtwoord");
 		}

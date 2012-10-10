@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="domein.Rubriek" table="RUBRIEK">
+		<id column="ID" name="id" type="int">
+			<generator class="increment" />
+		</id>
+		<property column="NAAM" name="naam" type="string" />			
+		<many-to-one name="parent" class="domein.Rubriek"
+			not-null="false" cascade="save-update" unique="false">
+			<column name="PARENTID" />
+		</many-to-one>
+	</class>
+</hibernate-mapping>

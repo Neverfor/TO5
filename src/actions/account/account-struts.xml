@@ -6,16 +6,16 @@
 <struts>
 	<package name="accountLoggedoff" extends="default" namespace="/">
 
-		<action name="registrerenDo" class="accountActions.RegisterAction">
+		<action name="registrerenDo" class="actions.account.RegisterAction">
 			<result name="input" type="tiles">registreren</result>
 			<result name="success" type="tiles">registreerBevestiging</result>
 		</action>
 
-		<action name="loginDo" class="accountActions.LoginAction">
+		<action name="loginDo" class="actions.account.LoginAction">
 			<result name="input" type="tiles">login</result>
 			<result name="success" type="redirectAction">
 				<param name="actionName">gebruikerspaneel</param>
-				<!--  --><param name="namespace">/gebruiker</param>
+				<param name="namespace">/gebruiker</param>
 			</result>
 		</action>
 
@@ -28,7 +28,7 @@
 	</package>
 
 	<package name="accountLoggedIn" extends="accountAware" namespace="/gebruiker">		
-		<action name="gebruikerspaneel" class="accountActions.AccountPage">
+		<action name="gebruikerspaneel" class="actions.account.AccountPage">
 			<result type="tiles">gebruikerspaneel</result>
 		</action>
 	</package>

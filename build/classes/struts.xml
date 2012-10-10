@@ -35,14 +35,15 @@
 		<!-- Global results zijn globale error en/of fallback pagina's -->
 		<global-results>
 			<result name="login" type="redirectAction">
-				<param name="actionName">gebruikerspaneel</param>
+				<param name="actionName">gebruikerspanel</param>
 				<param name="namespace">/gebruiker</param>
 			</result>
-			<!-- <result name="error" type="tiles">error</result>-->
+			<result name="error" type="tiles">error</result>
 		</global-results>
 	</package>
 
 	<!-- Includes -->
-	<include file="accountActions/account-struts.xml" />
+	<include file="actions/account/account-struts.xml" />
+	<include file="actions/veiling/veiling-struts.xml" />
 
 </struts>

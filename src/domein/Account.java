@@ -9,21 +9,13 @@ public class Account {
 	private String achternaam;
 	private String postcode;
 	private String telefoonnummer;
-	private String credits;
-	public String getCredits() {
-		return credits;
-	}
-
-	public void setCredits(String credits) {
-		this.credits = credits;
-	}
 	private String straat;
 	private String huisnummer;
 	private String woonplaats;
 	
 	public Account(int id, String emailadres, String wachtwoord,
 			String voornaam, String tussenvoegsel, String achternaam,
-			String postcode, String telefoonnummer, String credits, String straat,
+			String postcode, String telefoonnummer, String straat,
 			String huisnummer, String woonplaats) {
 		super();
 		this.id = id;
@@ -34,7 +26,6 @@ public class Account {
 		this.achternaam = achternaam;
 		this.postcode = postcode;
 		this.telefoonnummer = telefoonnummer;
-		this.credits = credits;
 		this.straat = straat;
 		this.huisnummer = huisnummer;
 		this.woonplaats = woonplaats;

@@ -8,7 +8,7 @@
 	</field>
 	<field name="minimumBod">
 		<field-validator type="required">
-			<message>Wachtwoord bevestiging is required </message>
+			<message>Vul een minimum bod in.</message>
 		</field-validator>
 	</field>
 </validators>

@@ -6,9 +6,18 @@
 <struts>
 	<package name="veilingPlaatsen" extends="default"
 		namespace="/veiling">
-		<action name="plaatsenDo" class="veilingActions.PlaatsAction">
+		<action name="plaatsenDo" class="actions.veiling.PlaatsAction">
 			<result name="input" type="tiles">plaatsen</result>
 			<result name="success" type="tiles">registreerBevestiging</result>
+		</action>
+		<action name="plaatsen">
+			<result type="tiles">plaatsen</result>			
+		</action>
+	</package>
+	
+	<package name="showVeilingen" extends="default" namespace="/veilingen">
+		<action name="mijn-veilingen" class="actions.veiling.Show">
+			<result type="tiles">showVeilingen</result>
 		</action>
 	</package>
 </struts>

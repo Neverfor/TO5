@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="domein.Veiling" table="VEILING">
+		<id column="ID" name="id" type="int">
+			<generator class="increment" />
+		</id>
+		<property column="TITEL" name="titel" type="string" />
+		<property column="OMSCHRIJVING" name="omschrijving" type="string" />
+		<property column="VEILINGSTATUS" name="status" type="string" />
+		<property column="MINIMUMBOD" name="minimumBod" type="int" />
+		<property column="BEGINDATUM" name="beginDatum" type="date" />
+		<many-to-one name="account" class="domein.Account"
+			not-null="true" cascade="save-update" unique="false">
+			<column name="ACCOUNT_ID" />
+		</many-to-one>
+		<many-to-one name="rubriek" class="domein.Rubriek"
+			not-null="true" cascade="save-update" unique="false">
+			<column name="RUBRIEK_ID" />
+		</many-to-one>
+	</class>
+</hibernate-mapping>

@@ -14,13 +14,13 @@
 <s:form action="plaatsenDo" cssClass="form-horizontal" theme="bootstrap">
 	<s:textfield name="titel" label="Titel" />
 	<s:textfield name="omschrijving" label="Omschrijving" />
-	<s:combobox
+	<!--<s:combobox
     label="Rubriek"
     name="rubriek"
     list="{'auto','televisie','laptop','smartphone'}"
     headerKey="-1"
     headerValue="--- Kies een rubriek ---"
-    value="" />
+    value="" />-->
 	<hr/>
 	<s:textfield name="minimumBod" label="Minimum bod" />
 	<div class="form-actions">

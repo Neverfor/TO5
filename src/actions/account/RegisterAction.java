@@ -1,4 +1,4 @@
-package accountActions;
+package actions.account;
 
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
