@@ -36,7 +36,7 @@ public class Show extends ActionSupport implements SessionAware{
 
 	@Override
 	public void setSession(Map<String, Object> session) {
-		account = (Account)session.get("account");
+		account = (Account)session.get("account.");
 		
 	}
 }

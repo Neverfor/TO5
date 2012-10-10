@@ -38,8 +38,7 @@ public class VeilingDAO {
 		
 		public List<Veiling> getVeilingen(Account account){
 			List<Veiling> uniqueResult = (List<Veiling>) session.createQuery("from Veiling where ACCOUNT_ID = ?")
-					.setInteger(0, account.getId())
-					.list();
+					.setInteger(0, account.getId()).list();
 			return uniqueResult;
 		}
 	 
