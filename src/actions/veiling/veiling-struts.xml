@@ -8,7 +8,7 @@
 		namespace="/veiling">
 		<action name="plaatsenDo" class="actions.veiling.PlaatsAction">
 			<result name="input" type="tiles">plaatsen</result>
-			<result name="success" type="tiles">registreerBevestiging</result>
+			<result name="success" type="tiles">plaatsenBevestiging</result>
 		</action>
 		<action name="plaatsen">
 			<result type="tiles">plaatsen</result>			

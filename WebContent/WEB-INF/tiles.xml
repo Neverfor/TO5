@@ -50,16 +50,16 @@
 	<!-- End Account -->
 
 	<!-- Veilig -->
-	<definition name="plaatsen" extends="baseLayout">
+	<definition name="plaatsen" extends="memberLayout">
 		<put-attribute name="title" value="plaatsen mislukt" />
 		<put-attribute name="body" value="/veiling/plaatsen.jsp" />
 	</definition>
-	<definition name="plaatsenBevestiging" extends="baseLayout">
+	<definition name="plaatsenBevestiging" extends="memberLayout">
 		<put-attribute name="title" value="plaatsen succesvol" />
 		<put-attribute name="body" value="/veiling/plaatsenBevestiging.jsp" />
 	</definition>
 	
-	<definition name="showVeilingen" extends="baseLayout">
+	<definition name="showVeilingen" extends="memberLayout">
 		<put-attribute name="title" value="Mijn Veilingen" />
 		<put-attribute name="body" value="/veiling/showVeilingen.jsp" />
 	</definition>

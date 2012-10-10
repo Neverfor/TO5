@@ -26,7 +26,7 @@ public class LoginAction extends ActionSupport implements SessionAware {
 		session.put( "account", account );
 //		session.put("voornaam", account.getVoornaam());
 //		account = (Account)session.get(account);
-		System.out.println(account.getAchternaam());
+		//System.out.println(account.getAchternaam());
 		return SUCCESS;
 	}
 
