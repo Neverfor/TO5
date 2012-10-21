@@ -10,43 +10,18 @@ ${request.requestURL}
 <p class="welkomSpan">Hier kunt u uw gegevens wijzigen! </br> </br>
 
 <!--<span class="mijnGrootText"> Je gegevens zijn geregistreerd als volgt: </span>-->
-<table class="myborder">
-	<tr class="mycolor">
-		<td class="mycolor">Naam: </td> 
-		<td> <s:property value="account.voornaam"/>  </td> 
-		<td> </td>
-	</tr>
-	<tr class="mycolor">
-		<td class="mycolor">Adres: </td> 
-		<td> <s:property value="account.woonplaats"/>, <s:property value="account.straat"/>, <s:property value="account.huisnummer"/>   </td>
-	</tr class="mycolor">
-	<tr class="mycolor">
-		<td class="mycolor">Postcode: </td> 
-		<td> <s:property value="account.postcode"/> </td>
-	</tr>
-	<tr class="mycolor">
-		<td class="mycolor">Email: </td> 
-		<td> <s:property value="account.emailadres"/>  </td>
-	</tr>
-	<tr class="mycolor">
-		<td class="mycolor">Telefoonnummer: </td> 
-		<td> <s:property value="account.telefoonnummer"/>  </td>
-	</tr>
-</table>
 </br>
-
+ <s:property value="account.voornaam"/>
 <s:form action="wijzigenGegevens" cssClass="form-horizontal" theme="bootstrap">
-	<s:textfield name="em" 		label="Email" /> 
-	<s:password  name="pass" 	label="Wachtwoord" />
-	<s:textfield name="vnm" 	label="Voornaam" />
-	<s:textfield name="anm" 	label="Achternaam" />	
-	<hr/>
-
-	<s:textfield name="tln" 	label="Telefoonnummer" />
-	<s:textfield name="pl" 		label="Woonplaats" />
-	<s:textfield name="pcode" 	label="Postcode" cssClass="input-small" />
-	<s:textfield name="str" 	label="Straat" />
-	<s:textfield name="hsn" 	label="Huisnummer" cssClass="input-mini"/>
+	<s:textfield key="account.email" 		label="Email" value="%{account.emailadres}"/> 
+	<s:password  name="account.wacthwoord" 	label="Wachtwoord" value="%{account.wachtwoord}"/>
+	<s:textfield name="account.voornaam" 	label="Voornaam"  value="%{account.voornaam}"/>
+	<s:textfield name="account.achternaam" 	label="Achternaam"  value="%{account.achternaam}"/>	
+	<s:textfield name="account.telefoonnummer" 	label="Telefoonnummer" value="%{account.telefoonnummer}"/>
+	<s:textfield name="account.woonplaats" 		label="Woonplaats"  value="%{account.woonplaats}"/>
+	<s:textfield name="account.postcode" 	label="Postcode" cssClass="input-small"  value="%{account.postcode}"/>
+	<s:textfield name="account.straat" 	label="Straat"  value="%{account.straat}"/>
+	<s:textfield name="account.huisnummer" 	label="Huisnummer" cssClass="input-mini" value="%{account.huisnummer}"/>
 
 	<div class="form-actions">
 			<s:submit cssClass="btn"/>
