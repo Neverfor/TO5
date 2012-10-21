@@ -66,4 +66,24 @@ public class AccountDAO {
 					.setParameter(1, wachtwoord)
 					.uniqueResult();			
 		}
+		
+		public void setPassword(String pass, int idd){
+//			try{
+				Transaction tr = session.beginTransaction();
+	            Query sp = session.createQuery("update Account set wachtwoord ='"+pass+"' where id = :iddd").setParameter("iddd", idd);
+	            sp.executeUpdate();
+	            transaction.commit();
+				
+//			}
+//			catch (HibernateException hibernateException) {
+//	            System.out.println(hibernateException.getMessage());
+//	            session.close();
+//	        }
+		}
+//
+//		public static void setWachtwoord(String pass, int id) {
+//			// TODO Auto-generated method stub
+//			
+//		}
+
 }

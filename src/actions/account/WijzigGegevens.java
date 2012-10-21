@@ -1,44 +1,61 @@
 package actions.account;
 
 import java.util.Map;
+
+import javax.persistence.Query;
+import org.hibernate.*;
 import org.apache.struts2.interceptor.SessionAware;
 import com.opensymphony.xwork2.ActionSupport;
 import domein.Account;
+import dao.AccountDAO;
 
 public class WijzigGegevens extends ActionSupport implements SessionAware {
 
 	private static final long serialVersionUID = 1L;
 	private Account account;
 	private String pcode, pass, pl, str, vnm, anm, tln, hsn, em;
+	private AccountDAO accountDAO;
+	private Session session;
 
 	public String execute(){
-		if (pass != null || !pass.equals("")){
+		if (!(pass == null && pass.equals(""))){
+//			Query sp = /*session.createQuery*/("update Account set wachtwoord ='"+pass+"' where id = '"+idd+"'");
+			//AccountDAO.setPassword(pass, account.getId());
 			account.setWachtwoord(pass);
+//			accountDAO.saveAccount(account);
+//			accountDAO.setPassword(pass, account.getId());
 		}
-		if (pcode != null || !pcode.equals("")){
+		if (!(pcode == null && pcode.equals(""))){
 			account.setPostcode(pcode);
+//			accountDAO.getAccount(account.getId());
+//			accountDAO.saveAccount(account);
 		}
-		if (pl != null || !pl.equals("")){
+		if (!(pl == null && pl.equals(""))){
 			account.setWoonplaats(pl);
 		}
-		if (str != null || !str.equals("")){
+		if (!(str == null && str.equals(""))){
 			account.setStraat(str);
 		}
-		if (hsn != null || !hsn.equals("")){
+		if (!(hsn == null && hsn.equals(""))){
 			account.setHuisnummer(hsn);
 		}
-		if (tln != null || !tln.equals("")){
+		if (!(tln == null && tln.equals(""))){
 			account.setTelefoonnummer(tln);
 		}
-		if (vnm != null || !vnm.equals("")){
+		if (!(vnm == null && vnm.equals(""))){
 			account.setVoornaam(vnm);
 		}
-		if (anm != null || !anm.equals("")){
+		if (!(anm == null && anm.equals(""))){
 			account.setAchternaam(anm);
 		}
-		if (em != null || !em.equals("")){
+		if (!(em == null && em.equals(""))){
+			System.out.println(account.getVoornaam());
+			System.out.println(account.getEmailadres());
 			account.setEmailadres(em);
+			System.out.println(account.getVoornaam());
+			System.out.println(account.getEmailadres());
 		}
+//		setAccount(account);
 		return SUCCESS;
 	}
 	
@@ -47,10 +64,11 @@ public class WijzigGegevens extends ActionSupport implements SessionAware {
 	}
 
 	public void setAccount(Account account) {
+//		session.getEntityName(account);
 		this.account = account;
 	}
 
-	@Override
+//	@Override
 	public void setSession(Map<String, Object> session) {
 		account = (Account)session.get("account");
 		

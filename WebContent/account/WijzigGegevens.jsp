@@ -9,7 +9,7 @@ ${request.requestURL}
 
 <p class="welkomSpan">Hier kunt u uw gegevens wijzigen! </br> </br>
 
-<span class="mijnGrootText"> Je gegevens zijn geregistreerd als volgt: </span>
+<!--<span class="mijnGrootText"> Je gegevens zijn geregistreerd als volgt: </span>-->
 <table class="myborder">
 	<tr class="mycolor">
 		<td class="mycolor">Naam: </td> 
@@ -37,7 +37,7 @@ ${request.requestURL}
 
 <s:form action="wijzigenGegevens" cssClass="form-horizontal" theme="bootstrap">
 	<s:textfield name="em" 		label="Email" /> 
-	<s:password name="pass" 	label="Wachtwoord" />
+	<s:password  name="pass" 	label="Wachtwoord" />
 	<s:textfield name="vnm" 	label="Voornaam" />
 	<s:textfield name="anm" 	label="Achternaam" />	
 	<hr/>

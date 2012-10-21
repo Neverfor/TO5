@@ -35,6 +35,8 @@
 			<result name="input" type="redirectAction">wgegevens</result>
 			<result name="success" type="redirectAction">gebruikerspaneel</result>
 		</action>
-		
+		<action name="gotowgegevens" class="actions.account.WijzigForm">
+			<result type="tiles">wgegevens</result>
+		</action>
 	</package>
 </struts>
