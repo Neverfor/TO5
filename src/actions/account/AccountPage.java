@@ -3,6 +3,7 @@ package actions.account;
 import java.util.Map;
 import org.apache.struts2.interceptor.SessionAware;
 import com.opensymphony.xwork2.ActionSupport;
+
 import domein.Account;
 
 public class AccountPage extends ActionSupport implements SessionAware {

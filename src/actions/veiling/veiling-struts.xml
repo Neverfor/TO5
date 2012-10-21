@@ -10,12 +10,16 @@
 			<result name="success" type="tiles">plaatsenBevestiging</result>
 		</action>
 		<action name="plaatsen">
-			<result type="tiles">plaatsen</result>			
+			<result type="tiles">plaatsen</result>
 		</action>
 	</package>
-	
-	<package name="showVeilingen" extends="default" namespace="/veilingen">
+
+	<package name="accountVeilingen" extends="accountAware"
+		namespace="/veilingen">
 		<action name="mijn-veilingen" class="actions.veiling.Show">
+			<interceptor-ref name="securityInterceptor">
+				<param name="userRole">Aanbieder</param>
+			</interceptor-ref>
 			<result type="tiles">showVeilingen</result>
 		</action>
 	</package>
