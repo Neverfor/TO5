@@ -51,7 +51,12 @@
 		<put-attribute name="title" value="Wijzig je gegevens hier!" />
 		<put-attribute name="body" value="/account/WijzigGegevens.jsp" />
 	</definition>
-	
+
+	<definition name="wgpass" extends="memberLayout">
+		<put-attribute name="title" value="Wijzig je wachtwoord hier!" />
+		<put-attribute name="body" value="/account/WijzigPass.jsp" />
+	</definition>
+
 	<definition name="ckopen" extends="memberLayout">
 		<put-attribute name="title" value="Koop credits hier!" />
 		<put-attribute name="body" value="/account/creditsKopen.jsp" />
