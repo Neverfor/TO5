@@ -14,10 +14,10 @@
 		</action>
 	</package>
 
-	<package name="showVeilingen" extends="default" namespace="/veilingen">
+	<package name="showVeilingen" extends="accountAware" namespace="/veilingen">
 		<action name="mijn-veilingen" class="actions.veiling.Show">
 			<interceptor-ref name="securityInterceptor">
-				<param name="userRole">Aanbieder</param>
+				<param name="recht">aanbieder</param>
 			</interceptor-ref>
 			<result type="tiles">showVeilingen</result>
 		</action>
