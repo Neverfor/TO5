@@ -16,7 +16,7 @@ ${request.requestURL}
 <table class="myborder">
 	<tr class="mycolor">
 		<td class="mycolor">Naam:</td>
-		<td><s:property value="account.voornaam" /></td>
+		<td><s:property value="account.voornaam" /> <s:property value="account.achternaam" /></td>
 	</tr>
 	<tr class="mycolor">
 		<td class="mycolor">Adres:</td>
