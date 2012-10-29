@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+  <class name="domein.Account" table="ACCOUNT">
+    <id column="ID" name="id" type="int">
+      <generator class="increment"/>
+    </id>
+    <property column="EMAILADRES" name="emailadres" type="string"/>
+    <property column="WACHTWOORD" name="wachtwoord" type="string"/>
+    <property column="VOORNAAM" name="voornaam" type="string"/>
+    <property column="ACHTERNAAM" name="achternaam" type="string"/>
+    <property column="TUSSENVOEGSEL" name="tussenvoegsel" type="string"/>
+    <property column="POSTCODE" name="postcode" type="string"/>
+    <property column="TELEFOONNUMMER" name="telefoonnummer" type="string"/>
+    <property column="STRAAT" name="straat" type="string"/>
+    <property column="HUISNUMMER" name="huisnummer" type="string"/>
+    <property column="WOONPLAATS" name="woonplaats" type="string"/>
+  </class>
+</hibernate-mapping>
