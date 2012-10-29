@@ -74,6 +74,17 @@
 		<put-attribute name="body" value="/veiling/showVeilingen.jsp" />
 	</definition>
 	<!-- End Veiling -->
+	
+	<!-- Beheer -->
+	<definition name="beheerLayout" extends="baseLayout">
+		<put-attribute name="title" value="Beheer" />
+		<put-attribute name="body" value="/beheer/home.jsp" />
+		<put-attribute name="menu" value="/beheer/menu.jsp" />
+	</definition>
+	<definition name="beheerAccounts" extends="beheerLayout">
+		<put-attribute name="title" value="Beheer Accounts" />
+		<put-attribute name="body" value="/beheer/accountLijst.jsp" />
+	</definition>
 
 
 </tiles-definitions>

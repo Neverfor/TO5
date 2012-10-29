@@ -28,6 +28,8 @@ ${request.requestURL}
 </tr>
 </table>
 </br>
+<s:iterator value="account.rechten">
+<s:property value="beschrijving"/></s:iterator>
 <span class="geldText">Op je rekening staan: <s:property value="account.credits"/> credits! </span>
 Niet genoeg? Koop ze hier of start met bieden.
 Klopt iets niet bij je gegevens? Dan wijzig ze <a href='<s:url action="wijzigenGegevens" namespace="/gebruiker"/>'>hier</a>.

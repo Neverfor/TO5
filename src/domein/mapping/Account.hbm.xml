@@ -16,5 +16,9 @@
     <property column="STRAAT" name="straat" type="string"/>
     <property column="HUISNUMMER" name="huisnummer" type="string"/>
     <property column="WOONPLAATS" name="woonplaats" type="string"/>
+  	<set name="rechten" table="ACCOUNT_RECHT" cascade="all">
+		<key column="ACCOUNT_ID" />
+		<many-to-many column="RECHT_ID" unique="true" class="domein.Recht" />
+	</set>
   </class>
 </hibernate-mapping>

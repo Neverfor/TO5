@@ -19,20 +19,20 @@
 		<action name="index">
 			<result type="tiles">welcome</result>
 		</action>
-		
+
 	</package>
 
 	<!-- package frame voor actions achter login-muur -->
 	<package name="accountAware" extends="default">
 		<!-- interceptor regelt authenticatie controle -->
 		<interceptors>
-			<interceptor name="securityInterceptor" class="utils.SecurityInterceptor" />		
+			<interceptor name="securityInterceptor" class="utils.SecurityInterceptor" />
 			<interceptor-stack name="securityStack">
 				<interceptor-ref name="securityInterceptor" />
 				<interceptor-ref name="defaultStack" />
 			</interceptor-stack>
 		</interceptors>
-
+		<default-interceptor-ref name="securityStack"></default-interceptor-ref>
 		<!-- Global results zijn globale error en/of fallback pagina's -->
 		<global-results>
 			<result name="login" type="redirectAction">
@@ -46,5 +46,6 @@
 	<!-- Includes -->
 	<include file="actions/account/account-struts.xml" />
 	<include file="actions/veiling/veiling-struts.xml" />
+	<include file="actions/beheren/beheer-struts.xml" />
 
 </struts>

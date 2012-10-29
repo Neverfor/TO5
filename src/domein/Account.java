@@ -1,6 +1,8 @@
 package domein;
 
 import java.util.ArrayList;
+import java.util.Set;
+import java.util.HashSet;
 
 public class Account {
 	private String achternaam;
@@ -14,7 +16,7 @@ public class Account {
 	private String voornaam;
 	private String wachtwoord;
 	private String woonplaats;
-    private ArrayList<String> roles;
+    private Set<Recht> rechten = new HashSet<Recht>();
     
 	public Account (){}
 	
@@ -104,11 +106,11 @@ public class Account {
 		this.woonplaats = woonplaats;
 	}
 
-	public ArrayList<String> getRoles() {
-		return roles;
+	public Set<Recht> getRechten() {
+		return rechten;
 	}
 
-	public void setRoles(ArrayList<String> roles) {
-		this.roles = roles;
+	public void setRechten(Set<Recht> rechten) {
+		this.rechten = rechten;
 	}
 }
