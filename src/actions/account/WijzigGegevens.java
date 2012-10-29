@@ -31,8 +31,5 @@ public class WijzigGegevens extends ActionSupport implements SessionAware {
 	@Override
 	public void setSession(Map<String, Object> session) {
 		account = (Account)session.get("account");
-		
 	}
-	
-	
 }

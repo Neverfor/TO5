@@ -10,7 +10,6 @@ public class WijzigForm extends ActionSupport implements SessionAware {
 	private static final long serialVersionUID = 1L;
 	private Account account = new Account();
 
-
 	public String execute(){
 		return SUCCESS;
 	}

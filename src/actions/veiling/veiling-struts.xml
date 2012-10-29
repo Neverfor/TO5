@@ -10,10 +10,10 @@
 			<result name="success" type="tiles">plaatsenBevestiging</result>
 		</action>
 		<action name="plaatsen">
-			<result type="tiles">plaatsen</result>			
+			<result type="tiles">plaatsen</result>
 		</action>
 	</package>
-	
+
 	<package name="showVeilingen" extends="default" namespace="/veilingen">
 		<action name="mijn-veilingen" class="actions.veiling.Show">
 			<result type="tiles">showVeilingen</result>

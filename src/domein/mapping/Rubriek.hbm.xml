@@ -6,7 +6,7 @@
 		<id column="ID" name="id" type="int">
 			<generator class="increment" />
 		</id>
-		<property column="NAAM" name="naam" type="string" />			
+		<property column="NAAM" name="naam" type="string" />
 		<many-to-one name="parent" class="domein.Rubriek"
 			not-null="false" cascade="save-update" unique="false">
 			<column name="PARENTID" />

@@ -9,13 +9,13 @@
 			<message>The email address you entered is not valid.</message>
 		</field-validator>
 	</field>
-	
+
 	<field name="achternaam">
 		<field-validator type="requiredstring">
 			<message>You cannot leave the achternaam field empty.</message>
 		</field-validator>
 	</field>
-	
+
 	<field name="wachtwoordBevestiging">
 		<field-validator type="requiredstring">
 			<message>Wachtwoord bevestiging is required </message>

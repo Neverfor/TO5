@@ -12,6 +12,7 @@ public class Account {
 	private String straat;
 	private String huisnummer;
 	private String woonplaats;
+	private int credits;
 	
 	public Account(int id, String emailadres, String wachtwoord,
 			String voornaam, String tussenvoegsel, String achternaam,
@@ -29,6 +30,7 @@ public class Account {
 		this.straat = straat;
 		this.huisnummer = huisnummer;
 		this.woonplaats = woonplaats;
+		this.credits = 0;
 	}
 	
 	public Account (){}
@@ -40,7 +42,6 @@ public class Account {
 		this.id = id;
 	}
 
-	
 	public String getEmailadres() {
 		return emailadres;
 	}
@@ -101,7 +102,12 @@ public class Account {
 	public void setWoonplaats(String woonplaats) {
 		this.woonplaats = woonplaats;
 	}
-	
-	
-	
+
+	public int getCredits() {
+		return credits;
+	}
+
+	public void setCredits(int credits) {
+		this.credits = credits;
+	}
 }

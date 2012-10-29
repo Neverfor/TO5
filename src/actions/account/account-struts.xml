@@ -27,7 +27,8 @@
 		</action>
 	</package>
 
-	<package name="accountLoggedIn" extends="accountAware" namespace="/gebruiker">		
+	<package name="accountLoggedIn" extends="accountAware"
+		namespace="/gebruiker">
 		<action name="gebruikerspaneel" class="actions.account.AccountPage">
 			<result type="tiles">gebruikerspaneel</result>
 		</action>
@@ -37,6 +38,13 @@
 		</action>
 		<action name="gotowgegevens" class="actions.account.WijzigForm">
 			<result type="tiles">wgegevens</result>
+		</action>
+		<action name="creditsKopen" class="actions.account.CreditsKopen">
+			<result name="input" type="redirectAction">ckopen</result>
+			<result name="success" type="redirectAction">gebruikerspaneel</result>
+		</action>
+		<action name="gotockopen" class="actions.account.CreditForm">
+			<result type="tiles">ckopen</result>
 		</action>
 	</package>
 </struts>
