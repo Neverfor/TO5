@@ -45,7 +45,12 @@
 	<definition name="gebruikerspaneel" extends="memberLayout">
 		<put-attribute name="title" value="Account overzicht pagina" />
 		<put-attribute name="body" value="/account/gebruikerspaneel.jsp" />
-	</definition>	
+	</definition>
+	
+	<definition name="wgegevens" extends="memberLayout">
+		<put-attribute name="title" value="Wijzig je gegevens hier!" />
+		<put-attribute name="body" value="/account/WijzigGegevens.jsp" />
+	</definition>		
 	
 	<definition name="creditskopen" extends="memberLayout">
 		<put-attribute name="title" value="Koop credits hier!" />

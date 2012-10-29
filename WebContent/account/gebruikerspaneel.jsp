@@ -30,5 +30,6 @@ ${request.requestURL}
 </br>
 <span class="geldText">Op je rekening staan: <s:property value="account.credits"/> credits! </span>
 Niet genoeg? Koop ze hier of start met bieden.
+Klopt iets niet bij je gegevens? Dan wijzig ze <a href='<s:url action="gotowgegevens" namespace="/gebruiker"/>'>hier</a>.
 
 </p>
