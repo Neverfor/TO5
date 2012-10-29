@@ -57,11 +57,6 @@
 		<put-attribute name="body" value="/account/creditsKopen.jsp" />
 	</definition>
 
-	<!-- <definition name="creditskopen" extends="memberLayout">
-		<put-attribute name="title" value="Koop credits hier!" />
-		<put-attribute name="body" value="/account/creditskopen.jsp" />
-	</definition> -->
-
 	<!-- End Account -->
 
 	<!-- Veilig -->
