@@ -7,9 +7,11 @@ import com.opensymphony.xwork2.ActionInvocation;
 import com.opensymphony.xwork2.interceptor.Interceptor;
 
 import domein.Account;
+import domein.Recht;
 
 public class SecurityInterceptor implements Interceptor {
-
+	private Recht recht;
+	
 	@Override
 	public void destroy() {
 		// TODO Auto-generated method stub
@@ -23,12 +25,21 @@ public class SecurityInterceptor implements Interceptor {
 	}
 
 	@Override
-	public String intercept(ActionInvocation actionInvocation) throws Exception {
-//		Object action = actionInvocation.getAction();
-//		if (action instanceof SecurableAction) {
-//			((SecurableAction) action).checkSecurity();
-//		}
+	public String intercept(ActionInvocation actionInvocation) throws Exception {		
+		Account account = (Account) actionInvocation.getInvocationContext().getSession().get("account");		
+		if(account == null || (recht != null && !account.getRechten().contains(recht))){
+			return Action.LOGIN;
+		}
 
 		return actionInvocation.invoke();
 	}
+
+	public Recht getRecht() {
+		return recht;
+	}
+
+	public void setRecht(String recht) {
+		this.recht = new Recht(recht);
+	}
+	
 }

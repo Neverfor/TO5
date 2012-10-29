@@ -10,7 +10,7 @@ public class Bod {
 
   public Date datumTijd;
 
-    public Bieder account;
+    public Account account;
     public Veiling veiling;
 
 }
