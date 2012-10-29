@@ -35,8 +35,16 @@
 			<result name="input" type="redirectAction">wgegevens</result>
 			<result name="success" type="redirectAction">gebruikerspaneel</result>
 		</action>
+			<action name="wijzigenPp" class="actions.account.WijzigPass">
+			<result name="input" type="tiles">wgpass</result>
+			<result name="success" type="redirectAction">gebruikerspaneel</result>
+		</action>
 		<action name="gotowgegevens" class="actions.account.WijzigForm">
 			<result type="tiles">wgegevens</result>
 		</action>
+		<action name="gotowijzigpass" class="actions.account.WijzigForm">
+			<result type="tiles">wgpass</result>
+		</action>
+		
 	</package>
 </struts>
