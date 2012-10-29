@@ -1,0 +1,24 @@
+<!DOCTYPE validators PUBLIC "-//Apache Struts//XWork Validator 1.0.3//EN"
+		"http://struts.apache.org/dtds/xwork-validator-1.0.3.dtd">
+<validators>
+	<field name="wachtwoordBevestiging">
+		<field-validator type="requiredstring">
+			<message>Wachtwoord bevestiging is required </message>
+		</field-validator>
+		<field-validator type="fieldexpression">
+			<param name="expression">wachtwoord.equals(wachtwoordBevestiging)</param>
+			<message>Password and confirm password do not match!</message>
+		</field-validator>
+	</field>
+	<field name="wachtwoord">
+		<field-validator type="requiredstring">
+			<message>Password is required </message>
+		</field-validator>
+
+		<field-validator type="stringlength">
+			<param name="minLength">5</param>
+			<message>Password must contain at least ${minLength} characters
+			</message>
+		</field-validator>
+	</field>
+</validators>
