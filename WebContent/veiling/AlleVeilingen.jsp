@@ -5,8 +5,8 @@
 		<th style="width: 40%">Omschrijving</th>
 		<th style="width: 10%">Minimum bod</th>
 		<th style="width: 10%">Rubriek</th>
-		<th style="width: 10%">Resterende tijd</th>
-		<th style="width: 10%">Bid</th>
+		<!-- <th style="width: 10%">Resterende tijd</th> -->
+		<th style="width: 20%">Bid</th>
 	</tr>
 	<s:iterator value="veilingen">
 		<tr>
