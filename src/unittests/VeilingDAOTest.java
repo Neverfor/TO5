@@ -27,7 +27,6 @@ public class VeilingDAOTest  {
 	public static void setUpBeforeClass(){
 		veilingDAO = new VeilingDAO();
 		accountDAO = new AccountDAO();
-		
 	}
 	
 	@Before
@@ -53,7 +52,6 @@ public class VeilingDAOTest  {
 		radioVeiling.setStatus("actief");
 		radioVeiling.setBeginDatum(new Date());
 		radioVeiling.setTitel("Bijna nieuwe radio");
-		
 	}
 	
 	@After
@@ -64,7 +62,6 @@ public class VeilingDAOTest  {
 	
 	@AfterClass
 	public static void tearDownAfterClass(){
-		
 	}
 
 	@Test
@@ -81,5 +78,4 @@ public class VeilingDAOTest  {
 			fail("Dit account hoort 1 veiling te hebben");
 		}
 	}
-
 }
