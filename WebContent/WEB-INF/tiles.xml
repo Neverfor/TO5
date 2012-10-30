@@ -6,100 +6,100 @@
 <tiles-definitions>
 	<!-- Base Layout -->
 	<definition name="baseLayout" template="/skelet/baseLayout.jsp">
-		<put-attribute name="title" value="" />
-		<put-attribute name="header" value="/skelet/header.jsp" />
-		<put-attribute name="menu" value="/skelet/menu.jsp" />
-		<put-attribute name="body" value="/skelet/body.jsp" />
-		<put-attribute name="footer" value="/skelet/footer.jsp" />
+		<put-attribute name="title" 	value="" />
+		<put-attribute name="header" 	value="/skelet/header.jsp" />
+		<put-attribute name="menu" 		value="/skelet/menu.jsp" />
+		<put-attribute name="body" 		value="/skelet/body.jsp" />
+		<put-attribute name="footer" 	value="/skelet/footer.jsp" />
 	</definition>
-	<definition name="welcome" extends="baseLayout">
-		<put-attribute name="title" value="Welcome" />
-		<put-attribute name="body" value="/skelet/body.jsp" />
+	<definition 		name="welcome" 	extends="baseLayout">
+		<put-attribute 	name="title" 	value="Welcome" />
+		<put-attribute 	name="body" 	value="/skelet/body.jsp" />
 	</definition>
-	<definition name="error" extends="baseLayout">
-		<put-attribute name="title" value="Error" />
-		<put-attribute name="body" value="/algemeen/error.jsp" />
+	<definition 		name="error" 	extends="baseLayout">
+		<put-attribute  name="title" 	value="Error" />
+		<put-attribute  name="body" 	value="/algemeen/error.jsp" />
 	</definition>
 	<!-- End Base Layout -->
 
 	<!-- Account -->
 	<definition name="registreren" extends="baseLayout">
-		<put-attribute name="title" value="Registreren" />
-		<put-attribute name="body" value="/account/registreren.jsp" />
+		<put-attribute name="title" 	value="Registreren" />
+		<put-attribute name="body" 		value="/account/registreren.jsp" />
 	</definition>
 	<definition name="registreerBevestiging" extends="baseLayout">
-		<put-attribute name="title" value="Registreren succesvol" />
-		<put-attribute name="body" value="/account/registreerBevestiging.jsp" />
+		<put-attribute name="title" 	value="Registreren succesvol" />
+		<put-attribute name="body" 		value="/account/registreerBevestiging.jsp" />
 	</definition>
 	<definition name="login" extends="baseLayout">
-		<put-attribute name="title" value="Login" />
-		<put-attribute name="body" value="/account/login.jsp" />
+		<put-attribute name="title" 	value="Login" />
+		<put-attribute name="body" 		value="/account/login.jsp" />
 	</definition>
 
 	<definition name="memberLayout" extends="baseLayout">
-		<put-attribute name="title" value="Welkom terug" />
-		<put-attribute name="body" value="/account/loggedin.jsp" />
-		<put-attribute name="menu" value="/account/menu.jsp" />
+		<put-attribute name="title" 	value="Welkom terug" />
+		<put-attribute name="body" 		value="/account/loggedin.jsp" />
+		<put-attribute name="menu" 		value="/account/menu.jsp" />
 	</definition>
 
 	<definition name="gebruikerspaneel" extends="memberLayout">
-		<put-attribute name="title" value="Account overzicht pagina" />
-		<put-attribute name="body" value="/account/gebruikerspaneel.jsp" />
+		<put-attribute name="title" 	value="Account overzicht pagina" />
+		<put-attribute name="body" 		value="/account/gebruikerspaneel.jsp" />
 	</definition>
 
 	<definition name="wgegevens" extends="memberLayout">
-		<put-attribute name="title" value="Wijzig je gegevens hier!" />
-		<put-attribute name="body" value="/account/WijzigGegevens.jsp" />
+		<put-attribute name="title"		value="Wijzig je gegevens hier!" />
+		<put-attribute name="body" 		value="/account/WijzigGegevens.jsp" />
 	</definition>
 
 	<definition name="wgpass" extends="memberLayout">
-		<put-attribute name="title" value="Wijzig je wachtwoord hier!" />
-		<put-attribute name="body" value="/account/WijzigPass.jsp" />
+		<put-attribute name="title" 	value="Wijzig je wachtwoord hier!" />
+		<put-attribute name="body" 		value="/account/WijzigPass.jsp" />
 	</definition>
 
 	<definition name="ckopen" extends="memberLayout">
-		<put-attribute name="title" value="Koop credits hier!" />
-		<put-attribute name="body" value="/account/creditsKopen.jsp" />
+		<put-attribute name="title" 	value="Koop credits hier!" />
+		<put-attribute name="body" 		value="/account/creditsKopen.jsp" />
 	</definition>
 
 	<!-- End Account -->
 
 	<!-- Veilig -->
 	<definition name="plaatsen" extends="memberLayout">
-		<put-attribute name="title" value="plaatsen mislukt" />
-		<put-attribute name="body" value="/veiling/plaatsen.jsp" />
+		<put-attribute name="title" 	value="plaatsen mislukt" />
+		<put-attribute name="body" 		value="/veiling/plaatsen.jsp" />
 	</definition>
 	<definition name="plaatsenBevestiging" extends="memberLayout">
-		<put-attribute name="title" value="plaatsen succesvol" />
-		<put-attribute name="body" value="/veiling/plaatsenBevestiging.jsp" />
+		<put-attribute name="title" 	value="plaatsen succesvol" />
+		<put-attribute name="body" 		value="/veiling/plaatsenBevestiging.jsp" />
 	</definition>
 
 	<definition name="showVeilingen" extends="memberLayout">
-		<put-attribute name="title" value="Mijn Veilingen" />
-		<put-attribute name="body" value="/veiling/showVeilingen.jsp" />
+		<put-attribute name="title" 	value="Mijn Veilingen" />
+		<put-attribute name="body" 		value="/veiling/showVeilingen.jsp" />
 	</definition>
 	
 	<definition name="veilingInfo" extends="memberLayout">
-		<put-attribute name="title" value="Uitgebreide informatie over de veiling" />
-		<put-attribute name="body" value="/veiling/veilingInfo.jsp" />
+		<put-attribute name="title" 	value="Uitgebreide informatie over de veiling" />
+		<put-attribute name="body" 		value="/veiling/veilingInfo.jsp" />
 	</definition>
 	
 	<definition name="alleVeilingen" extends="memberLayout">
-		<put-attribute name="title" value="Overzicht van alle veilingen" />
-		<put-attribute name="body" value="/veiling/AlleVeilingen.jsp" />
+		<put-attribute name="title" 	value="Overzicht van alle veilingen" />
+		<put-attribute name="body" 		value="/veiling/AlleVeilingen.jsp" />
 	</definition>
 	
 	<!-- End Veiling -->
 	
 	<!-- Beheer -->
 	<definition name="beheerLayout" extends="baseLayout">
-		<put-attribute name="title" value="Beheer" />
-		<put-attribute name="body" value="/beheer/home.jsp" />
-		<put-attribute name="menu" value="/beheer/menu.jsp" />
+		<put-attribute name="title" 	value="Beheer" />
+		<put-attribute name="body" 		value="/beheer/home.jsp" />
+		<put-attribute name="menu" 		value="/beheer/menu.jsp" />
 	</definition>
 	<definition name="beheerAccounts" extends="beheerLayout">
-		<put-attribute name="title" value="Beheer Accounts" />
-		<put-attribute name="body" value="/beheer/accountLijst.jsp" />
+		<put-attribute name="title" 	value="Beheer Accounts" />
+		<put-attribute name="body" 		value="/beheer/accountLijst.jsp" />
 	</definition>
 
 
