@@ -39,6 +39,7 @@ public class AccountDAO {
 				Transaction transaction = session.beginTransaction();
 	            session.saveOrUpdate(account);
 	            transaction.commit();
+	            session.close();
 	            return true;
 			}catch (HibernateException hibernateException) {
 	            System.out.println(hibernateException.getMessage());
@@ -67,11 +68,15 @@ public class AccountDAO {
 		}
 		
 		public Account getAccount(String emailadres, String wachtwoord){
-			return (Account) session.createQuery("from Account where Emailadres = ? and Wachtwoord = ?")
+			
+			
+			Account account = (Account) session.createQuery("from Account where Emailadres = ? and Wachtwoord = ?")
 					.setParameter(0, emailadres)
 					.setParameter(1, wachtwoord)
-					.uniqueResult();			
-		}
+					.uniqueResult();
+			session.close();
+			return account;
+			}
 		
 		public void setPassword(String pass, int idd){
 //			try{

@@ -15,7 +15,7 @@ ${request.requestURL}
 </br>
  <s:property value="account.voornaam"/>
 <s:form action="wijzigenGegevens" cssClass="form-horizontal" theme="bootstrap">
-	<s:textfield key="account.email" 			label="Email" 			value="%{account.emailadres}"/> 
+	<s:textfield key="account.emailadres" 			label="Email" 			value="%{account.emailadres}"/> 
 	<s:hidden    name="account.wachtwoord" 		label="Wachtwoord" 		value="%{account.wachtwoord}"/>
 	<s:textfield name="account.voornaam" 		label="Voornaam"  		value="%{account.voornaam}"/>
 	<s:textfield name="account.achternaam" 		label="Achternaam"  	value="%{account.achternaam}"/>	
