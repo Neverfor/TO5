@@ -1,11 +1,28 @@
 <%@ taglib prefix="s" uri="/struts-tags"%>
 <div class="nav-collapse collapse">
 	<ul class="nav">
-		<li class="active"><a href="#">Home</a></li>
-		<li><a href="<s:url namespace='/gebruiker' action='gebruikerspaneel'/>">Gebruikerspaneel</a>	</li>
-		<li><a href="<s:url namespace='/veilingen' action='mijn-veilingen' />">Mijn advertenties</a>	</li>
-		<li><a href="<s:url namespace='/veiling' action='plaatsen' />">Advertentie plaatsen</a>			</li>
-		<li><a href="<s:url namespace='/veilingen' action='alleVeil' />">Bekijk alle veilingen</a>	</li>
-	</ul>
+<<<<<<< HEAD
+	<s:url var="currenturl" escapeAmp="false" />
+	<s:url var="url" action="index" escapeAmp="false" />
+		<li <s:if test="#url.startsWith(#currenturl)">class="active"</s:if> >
+			<a href="<s:property value="#url"/>">Home</a>
+		</li>
+		<s:url var="url" namespace='/gebruiker' action="gebruikerspaneel" escapeAmp="false" />
+		<li <s:if test="#url.startsWith(#currenturl)">class="active"</s:if> >
+			<a href="<s:property value="#url"/>">Gebruikerspaneel</a>
+		</li>
+		<s:url var="url" namespace='/veilingen' action="mijn-veilingen" escapeAmp="false" />
+		<li <s:if test="#url.startsWith(#currenturl)">class="active"</s:if> >
+			<a href="<s:property value="#url"/>">Mijn Veilingen</a>
+		</li>
+		<s:url var="url" namespace='/veiling' action="plaatsen" escapeAmp="false" />
+		<li <s:if test="#url.startsWith(#currenturl)">class="active"</s:if> >
+			<a href="<s:property value="#url"/>">Veiling Plaatsen</a>
+		</li>
+			<s:url var="url" namespace='/veiling' action="alleVeil" escapeAmp="false" />
+		<li <s:if test="#url.startsWith(#currenturl)">class="active"</s:if> >
+			<a href="<s:property value="#url"/>">Bekijk alle veilingen</a>
+		</li>
+	</ul>	
 </div>
 <!--/.nav-collapse -->
