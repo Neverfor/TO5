@@ -59,6 +59,16 @@ public class VeilingDAO {
 			return (Veiling) session.createQuery("from Veiling where id = ?").setInteger(0, id).uniqueResult();
 		}
 		
+//		public Veiling getAlleVeilingen(String status){
+//			return (Veiling) session.createQuery("from Veiling where veilingstatus =?").setString(0, status);
+//		}
+		
+		public List<Veiling> getAlleVeilingen(String status){
+			List<Veiling> uniqueResult = (List<Veiling>) session.createQuery("from Veiling where VEILINGSTATUS = ?")
+					.setString(0, "actief").list();
+			return uniqueResult;
+		}
+		
 		public boolean deleteVeiling(Veiling veiling){
 			try{
 				transaction = session.beginTransaction();		

@@ -21,5 +21,8 @@
 			</interceptor-ref>
 			<result type="tiles">showVeilingen</result>
 		</action>
+		<action name="alleVeil" class="actions.veiling.ShowAlle">
+			<result type="tiles">alleVeilingen</result>
+		</action>
 	</package>
 </struts>

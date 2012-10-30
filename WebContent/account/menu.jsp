@@ -1,6 +1,7 @@
 <%@ taglib prefix="s" uri="/struts-tags"%>
 <div class="nav-collapse collapse">
 	<ul class="nav">
+<<<<<<< HEAD
 	<s:url var="currenturl" escapeAmp="false" />
 	<s:url var="url" action="index" escapeAmp="false" />
 		<li <s:if test="#url.startsWith(#currenturl)">class="active"</s:if> >
@@ -18,7 +19,10 @@
 		<li <s:if test="#url.startsWith(#currenturl)">class="active"</s:if> >
 			<a href="<s:property value="#url"/>">Veiling Plaatsen</a>
 		</li>
+			<s:url var="url" namespace='/veiling' action="alleVeil" escapeAmp="false" />
+		<li <s:if test="#url.startsWith(#currenturl)">class="active"</s:if> >
+			<a href="<s:property value="#url"/>">Bekijk alle veilingen</a>
+		</li>
 	</ul>	
-
 </div>
 <!--/.nav-collapse -->
