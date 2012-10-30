@@ -1,5 +1,7 @@
 package dao;
 
+import java.util.List;
+
 import org.hibernate.HibernateException;
 import org.hibernate.Query;
 import org.hibernate.Session;
@@ -43,6 +45,10 @@ public class AccountDAO {
 	            session.close();
 	            return false;
 	        }
+		}
+		
+		public List<Account> getAccounts(){
+			return ((List<Account>) session.createQuery("from Account").list());
 		}
 		
 		public Account getAccount(Integer id){
