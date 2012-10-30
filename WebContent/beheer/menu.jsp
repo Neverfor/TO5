@@ -1,10 +1,23 @@
 <%@ taglib prefix="s" uri="/struts-tags" %>
 <div class="nav-collapse collapse">
 	<ul class="nav">
-		<li class="active"><a href="/beheer">Home</a></li>
-		<li><a href="<s:url namespace='/beheer' action='accounts'/>">Beheer Accounts</a></li>
-		<li><a href="<s:url namespace='/beheer' action='veilingen' />">Beheer Veilingen</a></li>
-		<li><a href="<s:url namespace='/beheer' action='rubrieken' />">Beheer Rubrieken</a></li>
+		<s:url var="currenturl" escapeAmp="false" />
+		<s:url var="url" action="index" escapeAmp="false" />
+		<li <s:if test="#url.startsWith(#currenturl)">class="active"</s:if> >
+			<a href="<s:property value="#url"/>">Home</a>
+		</li>
+		<s:url var="url" action="accounts" escapeAmp="false" />
+		<li <s:if test="#url.startsWith(#currenturl)">class="active"</s:if> >
+			<a href="<s:property value="#url"/>">Beheer Accounts</a>
+		</li>
+		<s:url var="url" action="veilingen" escapeAmp="false" />
+		<li <s:if test="#url.startsWith(#currenturl)">class="active"</s:if> >
+			<a href="<s:property value="#url"/>">Beheer Veilingen</a>
+		</li>
+		<s:url var="url" action="rubrieken" escapeAmp="false" />
+		<li <s:if test="#url.startsWith(#currenturl)">class="active"</s:if> >
+			<a href="<s:property value="#url"/>">Beheer Rubrieken</a>
+		</li>
 	</ul>	
 </div>
 <!--/.nav-collapse -->
