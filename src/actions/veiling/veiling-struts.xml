@@ -18,5 +18,8 @@
 		<action name="mijn-veilingen" class="actions.veiling.Show">
 			<result type="tiles">showVeilingen</result>
 		</action>
+		<action name="alleVeil" class="actions.veiling.Show">
+			<result type="tiles">alleVeilingen</result>
+		</action>
 	</package>
 </struts>
