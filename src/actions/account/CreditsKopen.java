@@ -43,8 +43,6 @@ public class CreditsKopen extends ActionSupport implements SessionAware {
 	public Account getAccount() {
 		return account;
 	}
-
-	
 	
 	public void setAccount(Account account) {
 		this.account = account;

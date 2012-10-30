@@ -102,5 +102,4 @@
 		<put-attribute name="body" 		value="/beheer/accountLijst.jsp" />
 	</definition>
 
-
 </tiles-definitions>
