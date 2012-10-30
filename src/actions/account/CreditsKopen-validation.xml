@@ -1,0 +1,10 @@
+<!DOCTYPE validators PUBLIC "-//Apache Struts//XWork Validator 1.0.3//EN"
+		"http://struts.apache.org/dtds/xwork-validator-1.0.3.dtd">
+<validators>
+	<field name="cNieuw">
+		<field-validator type="int">
+			<param name="min">1</param>
+			<message>Waarde moet positief zijn</message>
+		</field-validator>
+	</field>
+</validators>
