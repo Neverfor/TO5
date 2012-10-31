@@ -5683,6 +5683,24 @@ table.myborder {
 	font-size: 1em;
 }
 
+table.mybordertwo {
+	border-color: #600;
+	border-left-width: 1px;
+	border-top-width: 1px;
+	border-bottom-width: 4px;
+	border-style: solid;
+	border-right-color: orangered; /* line color*/
+	border-right-style: dotted; /* line style */
+	border-right-width: 10px; /* Line border */
+	/*    padding-right: 40px;  */ /* Distance between line and text */
+	/*Alleen voor tekst */
+	/*   margin-right: 100px; */ /* zal waarschn niet gebruikt worden */
+	/*padding:15px; */
+	font-family: Georgia;
+	font-size: 1em;
+	text-align: center;
+}
+
 .mijnGrootText {
 	font-family: Georgia;
 	color: rgba(69, 54, 37, 0.6);
