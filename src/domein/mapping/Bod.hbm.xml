@@ -2,10 +2,21 @@
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
-	<class name="domein.Recht" table="RECHT">
+	<class name="domein.Veiling" table="VEILING">
 		<id column="ID" name="id" type="int">
 			<generator class="increment" />
 		</id>
-		<property column="BESCHRIJVING" name="beschrijving" type="string" />
+		<property column="ID" name="id" type="string" />
+		<property column="DATUMTIJD" name="datumTijd" type="string" />
+		<property column="BOD" name="bod" type="string" />
+		<many-to-one name="account" class="domein.Account"
+			not-null="true" cascade="save-update" unique="false">
+			<column name="ACCOUNT_ID" />
+		</many-to-one>
+		<many-to-one name="veiling" class="domein.Veiling"
+			not-null="true" cascade="save-update" unique="false">
+			<column name="VEILING_ID" />
+		</many-to-one>
+
 	</class>
 </hibernate-mapping>
