@@ -61,8 +61,7 @@ public class VeilingDAO {
 //		}
 		
 		public List<Veiling> getAlleVeilingen(String status){
-			List<Veiling> uniqueResult = (List<Veiling>) session.createQuery("from Veiling where VEILINGSTATUS = ?")
-					.setString(0, "actief").list();
+			List<Veiling> uniqueResult = (List<Veiling>) session.createQuery("from Veiling where VEILINGSTATUS = ?").setString(0, "actief").list();
 			return uniqueResult;
 		}
 		
