@@ -4,9 +4,6 @@
 
 	<s:url var="currenturl" escapeAmp="false" />
 	<s:url var="url" action="index" escapeAmp="false" />
-		<li <s:if test="#url.startsWith(#currenturl)">class="active"</s:if> >
-			<a href="<s:property value="#url"/>">Home</a>
-		</li>
 		<s:url var="url" namespace='/gebruiker' action="gebruikerspaneel" escapeAmp="false" />
 		<li <s:if test="#url.startsWith(#currenturl)">class="active"</s:if> >
 			<a href="<s:property value="#url"/>">Gebruikerspaneel</a>
@@ -19,9 +16,13 @@
 		<li <s:if test="#url.startsWith(#currenturl)">class="active"</s:if> >
 			<a href="<s:property value="#url"/>">Veiling Plaatsen</a>
 		</li>
-			<s:url var="url" namespace='/veilingen' action="alleVeil" escapeAmp="false" />
+		<s:url var="url" namespace='/veilingen' action="alleVeil" escapeAmp="false" />
 		<li <s:if test="#url.startsWith(#currenturl)">class="active"</s:if> >
 			<a href="<s:property value="#url"/>">Bekijk alle veilingen</a>
+		</li>
+		<s:url var="url" namespace='/veilingen' action="zoeken" escapeAmp="false" />
+		<li <s:if test="#url.startsWith(#currenturl)">class="active"</s:if> >
+			<a href="<s:property value="#url"/>">Zoeken</a>
 		</li>
 	</ul>	
 </div>

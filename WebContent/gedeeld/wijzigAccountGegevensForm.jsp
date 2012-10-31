@@ -1,21 +1,9 @@
 <%@ taglib prefix="s" uri="/struts-tags"%>
+<%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles"%>
 
-<span class="mijnKopText"> Je account overzicht</span>
-</br>
-
-${request.requestURL}
-
-<s:actionerror theme="bootstrap" />
-<s:actionmessage theme="bootstrap" />
-
-<p class="welkomSpan">
-	Hier kunt u uw gegevens wijzigen! </br> </br>
-
-<!--<span class="mijnGrootText"> Je gegevens zijn geregistreerd als volgt: </span>-->
-</br>
- <s:property value="account.voornaam"/>
-<s:form action="wijzigenGegevens" cssClass="form-horizontal" theme="bootstrap">
-	<s:textfield key="account.emailadres" 			label="Email" 			value="%{account.emailadres}"/> 
+<tiles:importAttribute name="formAction"/>
+<s:form action="%{#attr['formAction']}" cssClass="form-horizontal" theme="bootstrap">
+	<s:textfield key="account.emailadres" 		label="Email" 			value="%{account.emailadres}"/> 
 	<s:hidden    name="account.wachtwoord" 		label="Wachtwoord" 		value="%{account.wachtwoord}"/>
 	<s:textfield name="account.voornaam" 		label="Voornaam"  		value="%{account.voornaam}"/>
 	<s:textfield name="account.achternaam" 		label="Achternaam"  	value="%{account.achternaam}"/>	
@@ -24,10 +12,7 @@ ${request.requestURL}
 	<s:textfield name="account.postcode" 		label="Postcode" 		value="%{account.postcode}" cssClass="input-small" />
 	<s:textfield name="account.straat" 			label="Straat"  		value="%{account.straat}"/>
 	<s:textfield name="account.huisnummer" 		label="Huisnummer" 		value="%{account.huisnummer}" cssClass="input-mini" />
-
-		<div class="form-actions">
-			<s:submit cssClass="btn" />
-		</div>
-	</s:form>
-
-</p>
+	<div class="form-actions">
+		<s:submit cssClass="btn" />
+	</div>
+</s:form>
