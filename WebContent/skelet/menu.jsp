@@ -19,6 +19,10 @@
 		<li <s:if test="#url.startsWith(#currenturl)">class="active"</s:if> >
 			<a href="<s:property value="#url"/>">Contact</a>
 		</li>
+		<s:url var="url" namespace='/zoeken' action="zoeken" escapeAmp="false" />
+		<li <s:if test="#url.startsWith(#currenturl)">class="active"</s:if> >
+			<a href="<s:property value="#url"/>">Zoeken</a>
+		</li>
 	</ul>
 	<s:form action="loginDo" cssClass="navbar-form pull-right"
 		theme="simple">
