@@ -20,10 +20,10 @@ public class Veiling {
 	private int minimumBod;
 	private Account account;
 	private Date einddatum;
-	public Date getEinddatum() {
+	public Date getEindDatum() {
 		return einddatum;
 	}
-	public void setEinddatum(Date einddatum) {
+	public void setEindDatum(Date einddatum) {
 		this.einddatum = einddatum;
 	}
 	private Date beginDatum;

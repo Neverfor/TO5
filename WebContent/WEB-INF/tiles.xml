@@ -75,7 +75,11 @@
 	<!-- End Account -->
 
 	<!-- Veiling -->
-	<definition name="plaatsen" extends="memberLayout">
+	<definition name="plaatsenPagina" extends="memberLayout">
+		<put-attribute name="title" value="plaatsen" />
+		<put-attribute name="body" value="/veiling/plaatsen.jsp" />
+	</definition>
+		<definition name="plaatsenMislukt" extends="memberLayout">
 		<put-attribute name="title" value="plaatsen mislukt" />
 		<put-attribute name="body" value="/veiling/plaatsen.jsp" />
 	</definition>

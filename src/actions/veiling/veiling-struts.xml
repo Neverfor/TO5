@@ -9,8 +9,8 @@
 			<result name="input" type="tiles">plaatsen</result>
 			<result name="success" type="tiles">plaatsenBevestiging</result>
 		</action>
-		<action name="plaatsen">
-			<result type="tiles">plaatsen</result>
+		<action name="plaatsen" class="actions.veiling.getRubrieken">
+			<result type="tiles">plaatsenPagina</result>
 		</action>
 	</package>
 
