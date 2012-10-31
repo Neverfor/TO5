@@ -24,5 +24,8 @@
 		<action name="alleVeil" class="actions.veiling.ShowAlle">
 			<result type="tiles">alleVeilingen</result>
 		</action>
+		<action name="veilingInfo" class="actions.veiling.ShowEen">
+			<result type="tiles">veilingInfo</result>
+		</action>
 	</package>
 </struts>

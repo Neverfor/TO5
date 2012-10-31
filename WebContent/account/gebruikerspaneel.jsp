@@ -56,6 +56,7 @@ geen
 <s:else>
   credits.
 </s:else> </span>
+
 Niet genoeg? Koop ze <a href='<s:url action="gotockopen" namespace="/gebruiker"/>'>hier</a> of start met bieden. </br>
 Klopt iets niet bij je gegevens? Dan wijzig ze <a href='<s:url action="gotowgegevens" namespace="/gebruiker"/>'>hier</a>.</br>
 Wachtwoord wijzigen kan <a href='<s:url action="gotowijzigpass" namespace="/gebruiker"/>'>hier</a>.
