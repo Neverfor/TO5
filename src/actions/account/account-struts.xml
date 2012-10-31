@@ -53,5 +53,8 @@
 		<action name="gotowijzigpass" class="actions.account.WijzigForm">
 			<result type="tiles">wgpass</result>
 		</action>
+		<action name="">
+			<result type="redirectAction">gebruikerspaneel</result>
+		</action>
 	</package>
 </struts>

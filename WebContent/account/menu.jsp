@@ -4,9 +4,6 @@
 
 	<s:url var="currenturl" escapeAmp="false" />
 	<s:url var="url" action="index" escapeAmp="false" />
-		<li <s:if test="#url.startsWith(#currenturl)">class="active"</s:if> >
-			<a href="<s:property value="#url"/>">Home</a>
-		</li>
 		<s:url var="url" namespace='/gebruiker' action="gebruikerspaneel" escapeAmp="false" />
 		<li <s:if test="#url.startsWith(#currenturl)">class="active"</s:if> >
 			<a href="<s:property value="#url"/>">Gebruikerspaneel</a>
