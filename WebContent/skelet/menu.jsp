@@ -4,6 +4,9 @@
 		<s:url var="currenturl" escapeAmp="false" />
 		
 		<s:url var="url" action="index" escapeAmp="false" />
+		<s:if test="%{#currenturl == '/themaopdracht5/'}">
+			<s:url var="currenturl" escapeAmp="false" action="index" />
+		</s:if>
 		<li <s:if test="#url.startsWith(#currenturl)">class="active"</s:if> >
 			<a href="<s:property value="#url"/>">Home</a>
 		</li>
