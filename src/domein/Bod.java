@@ -3,10 +3,11 @@ package domein;
 import java.util.Date;
 
 public class Bod {
-	  private Integer id;
+	  private int id;
 	  private Date datumTijd;
 	  private Account account;
 	  private Veiling veiling;
+	  private double bod;
 	  
   public Bod(Integer id, Date datumTijd, Account account, Veiling veiling,
 			Double bod) {
@@ -25,7 +26,6 @@ public class Bod {
     public void setId(Integer id) {
     	this.id = id;
     }
-    public Double bod;
 
       public Double getBod() {
     	return bod;

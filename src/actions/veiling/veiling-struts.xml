@@ -16,13 +16,16 @@
 
 	<package name="showVeilingen" extends="accountAware" namespace="/veilingen">
 		<action name="mijn-veilingen" class="actions.veiling.Show">
-			<interceptor-ref name="securityInterceptor">
+			<!-- <interceptor-ref name="securityInterceptor">
 				<param name="recht">aanbieder</param>
-			</interceptor-ref>
+			</interceptor-ref> -->
 			<result type="tiles">showVeilingen</result>
 		</action>
 		<action name="alleVeil" class="actions.veiling.ShowAlle">
-			<result type="tiles">alleVeilingen</result>
+			<result type="tiles">showVeilingen</result>
+		</action>
+		<action name="veilingInfo" class="actions.veiling.ShowEen">
+			<result type="tiles">veilingInfo</result>
 		</action>
 	</package>
 </struts>

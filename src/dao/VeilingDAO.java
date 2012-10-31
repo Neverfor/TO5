@@ -31,14 +31,11 @@ public class VeilingDAO {
 	            System.out.println(hibernateException.getMessage());
 	            hibernateException.printStackTrace();
 	            session.close();
-	
 	        }
-	
 		}
 		
 		public List<Veiling> getVeilingen(Account account){
-			List<Veiling> uniqueResult = (List<Veiling>) session.createQuery("from Veiling where ACCOUNT_ID = ?")
-					.setInteger(0, account.getId()).list();
+			List<Veiling> uniqueResult = (List<Veiling>) session.createQuery("from Veiling where ACCOUNT_ID = ?").setInteger(0, account.getId()).list();
 			return uniqueResult;
 		}
 	 
@@ -56,7 +53,7 @@ public class VeilingDAO {
 		}
 		
 		public Veiling getVeiling(Integer id){
-			return (Veiling) session.createQuery("from Veiling where id = ?").setInteger(0, id).uniqueResult();
+			return (Veiling) session.createQuery("from Veiling where ID = ?").setInteger(0, id).uniqueResult();
 		}
 		
 //		public Veiling getAlleVeilingen(String status){
@@ -64,8 +61,7 @@ public class VeilingDAO {
 //		}
 		
 		public List<Veiling> getAlleVeilingen(String status){
-			List<Veiling> uniqueResult = (List<Veiling>) session.createQuery("from Veiling where VEILINGSTATUS = ?")
-					.setString(0, "actief").list();
+			List<Veiling> uniqueResult = (List<Veiling>) session.createQuery("from Veiling where VEILINGSTATUS = ?").setString(0, "actief").list();
 			return uniqueResult;
 		}
 		
@@ -79,7 +75,6 @@ public class VeilingDAO {
 				System.out.println(hibernateException.getMessage());
 				transaction.rollback();
 	            return false;
-			}
-				
+			}	
 		}
 }
