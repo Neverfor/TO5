@@ -27,5 +27,9 @@
 		<action name="veilingInfo" class="actions.veiling.ShowEen">
 			<result type="tiles">veilingInfo</result>
 		</action>
+		<action name="biedAction" class="actions.veiling.BiedAction">
+			<result name="success" type="redirectAction">showVeilingen</result>
+			<result name="input" type="tiles">veilingInfo</result>
+		</action>
 	</package>
 </struts>

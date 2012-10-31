@@ -1,23 +1,26 @@
 package domein;
 
 import java.util.Date;
+import java.util.Map;
 
 public class Bod {
 	  private int id;
 	  private Date datumTijd;
 	  private Account account;
 	  private Veiling veiling;
-	  private double bod;
+	  private Double geld;
 	  
-  public Bod(Integer id, Date datumTijd, Account account, Veiling veiling,
-			Double bod) {
-		super();
+	  public Bod(Integer id, Date datumTijd, Account account, Veiling veiling,
+			Double geld) {
+//		super();
 		this.id = id;
 		this.datumTijd = datumTijd;
 		this.account = account;
 		this.veiling = veiling;
-		this.bod = bod;
+		this.geld = geld;
 	}
+	  
+	  public Bod () {}
 
   
     public Integer getId() {
@@ -27,11 +30,11 @@ public class Bod {
     	this.id = id;
     }
 
-      public Double getBod() {
-    	return bod;
+      public Double getGeld() {
+    	return geld;
     }
-    public void setBod(Double bod) {
-    	this.bod = bod;
+    public void setGeld(Double geld) {
+    	this.geld = geld;
     }
     public Date getDatumTijd() {
     	return datumTijd;
@@ -45,5 +48,11 @@ public class Bod {
     public void setVeiling(Veiling veiling) {
     	this.veiling = veiling;
     }
+	  public Account getAccount() {
+		return account;
+	}
 
+	public void setAccount(Account account) {
+		this.account = account;
+	}
 }

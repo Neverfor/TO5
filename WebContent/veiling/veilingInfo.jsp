@@ -42,3 +42,13 @@
 		<td><s:property value="veiling.bod.bod" /></td>
 	</tr>
 </table>
+
+<s:form action="biedAction" theme="bootstrap">
+	<hr />
+	<s:textfield name="geld" label="Je bodt" />
+	<s:hidden name="veilingId" value="%{veiling.id}"/>
+	<hr />
+	<div class="form-actions">
+		<s:submit cssClass="btn" />
+	</div>
+</s:form>

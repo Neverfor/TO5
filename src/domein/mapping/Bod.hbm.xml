@@ -6,9 +6,8 @@
 		<id column="ID" name="id" type="int">
 			<generator class="increment" />
 		</id>
-		<property column="ID" name="id" type="string" />
-		<property column="DATUMTIJD" name="datumTijd" type="string" />
-		<property column="BOD" name="bod" type="string" />
+		<property column="DATUMTIJD" name="datumTijd" type="date" />
+		<property column="GELD" name="geld" type="double" />
 		<many-to-one name="account" class="domein.Account"
 			not-null="true" cascade="save-update" unique="false">
 			<column name="ACCOUNT_ID" />
