@@ -20,8 +20,8 @@ ${request.requestURL}
 	</tr>
 	<tr class="mycolor">
 		<td class="mycolor">Adres:</td>
-		<td><s:property value="account.woonplaats" />, <s:property
-				value="account.straat" />, <s:property value="account.huisnummer" />
+		<td>
+			<s:property value="account.straat" /> <s:property value="account.huisnummer" />, <s:property value="account.woonplaats" />
 		</td>
 	</tr class="mycolor">
 	<tr class="mycolor">
