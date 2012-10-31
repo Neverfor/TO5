@@ -1,6 +1,7 @@
 package actions.veiling;
 
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import org.apache.struts2.interceptor.SessionAware;
@@ -15,7 +16,7 @@ public class Show extends ActionSupport implements SessionAware{
 	
 	private VeilingDAO veilingDAO;
 	private Account account;
-	private List<Veiling> veilingen; 
+	private List<Veiling> veilingen = new ArrayList<Veiling>(); 
 	
 	public List<Veiling> getVeilingen() {
 		return veilingen;
@@ -30,7 +31,7 @@ public class Show extends ActionSupport implements SessionAware{
 	}
 		
 	public String execute(){
-		veilingen = veilingDAO.getVeilingen(account);
+		veilingen = (List<Veiling>) veilingDAO.getVeilingen(account);
 		return SUCCESS;
 	}
 

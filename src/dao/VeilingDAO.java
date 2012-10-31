@@ -31,14 +31,11 @@ public class VeilingDAO {
 	            System.out.println(hibernateException.getMessage());
 	            hibernateException.printStackTrace();
 	            session.close();
-	
 	        }
-	
 		}
 		
 		public List<Veiling> getVeilingen(Account account){
-			List<Veiling> uniqueResult = (List<Veiling>) session.createQuery("from Veiling where ACCOUNT_ID = ?")
-					.setInteger(0, account.getId()).list();
+			List<Veiling> uniqueResult = (List<Veiling>) session.createQuery("from Veiling where ACCOUNT_ID = ?").setInteger(0, account.getId()).list();
 			return uniqueResult;
 		}
 	 
@@ -79,7 +76,6 @@ public class VeilingDAO {
 				System.out.println(hibernateException.getMessage());
 				transaction.rollback();
 	            return false;
-			}
-				
+			}	
 		}
 }
