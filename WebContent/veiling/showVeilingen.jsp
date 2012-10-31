@@ -40,10 +40,10 @@
 				href='
 					<s:url action="veilingInfo" namespace="/veilingen">
 						<s:param name="id">
-							<s:property value="rubriek.naam" />
+							<s:property value="id" />
 						</s:param>
 					</s:url>'>
-					<s:property value="minimumBod" />
+					<s:property value="rubriek.naam" />
 			</a></td>
 		</tr>
 	</s:iterator>

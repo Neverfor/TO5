@@ -12,6 +12,7 @@ import org.hibernate.service.ServiceRegistry;
 import org.hibernate.service.ServiceRegistryBuilder;
 
 import domein.Account;
+import domein.Rubriek;
 import domein.Veiling;
 
 public class VeilingDAO {
@@ -76,5 +77,15 @@ public class VeilingDAO {
 				transaction.rollback();
 	            return false;
 			}	
+		}
+		
+		public List<Veiling> zoekVeilingen(int rubriekId, String zoekTerm){
+			List<Veiling> uniqueResult = (List<Veiling>) session.createQuery("from Veiling where RUBRIEK_ID = :rId AND TITEL LIKE :zTerm ").setInteger("rId", rubriekId).setString("zTerm",  "%" + zoekTerm + "%").list();
+			return uniqueResult;
+		}
+
+		public List<Rubriek> getRubrieken(){
+			List<Rubriek> uniqueResult = (List<Rubriek>) session.createQuery("from Rubriek").list();
+			return uniqueResult;
 		}
 }

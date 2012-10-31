@@ -27,5 +27,12 @@
 		<action name="veilingInfo" class="actions.veiling.ShowEen">
 			<result type="tiles">veilingInfo</result>
 		</action>
+		<action name="zoeken" class="actions.veiling.getRubrieken">
+			<result type="tiles">veilingZoeken</result>
+		</action>
+		<action name="zoekenDo" class="actions.veiling.zoekVeiling">
+			<result name="input" type="tiles">veilingZoeken</result>
+			<result name="success" type="tiles">veilingZoekenDo</result>
+		</action>
 	</package>
 </struts>
