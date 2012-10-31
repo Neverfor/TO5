@@ -56,7 +56,7 @@ public class VeilingDAO {
 		}
 		
 		public Veiling getVeiling(Integer id){
-			return (Veiling) session.createQuery("from Veiling where id = ?").setInteger(0, id).uniqueResult();
+			return (Veiling) session.createQuery("from Veiling where ID = ?").setInteger(0, id).uniqueResult();
 		}
 		
 //		public Veiling getAlleVeilingen(String status){

@@ -19,7 +19,13 @@ public class Veiling {
 	
 	private int minimumBod;
 	private Account account;
-	//private Date endDate;
+	private Date einddatum;
+	public Date getEinddatum() {
+		return einddatum;
+	}
+	public void setEinddatum(Date einddatum) {
+		this.einddatum = einddatum;
+	}
 	private Date beginDatum;
 	
 	public String getStatus() {

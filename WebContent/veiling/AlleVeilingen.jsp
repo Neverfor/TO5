@@ -14,7 +14,10 @@
 			<td><s:property value="omschrijving" /></td>
 			<td><s:property value="minimumBod" /></td>
 			<td><s:property value="rubriek.naam" /></td>
-			<td><a href="veilingInfo">Bied</a></td>
+			<td><!--  <a href="veilingInfo?id=<s:property value="id"/>">Bied</a> -->
+			<a href='<s:url action="veilingInfo" namespace="/veilingen">
+			<s:param name="id"><s:property value="id"/></s:param>
+			</s:url>'>Toon Info</a></td>
 		</tr>
 	</s:iterator>
 </table>
