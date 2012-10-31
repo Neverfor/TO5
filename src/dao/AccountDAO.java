@@ -13,7 +13,7 @@ import org.hibernate.service.ServiceRegistryBuilder;
 
 import domein.Account;
 
-public class AccountDAO {
+public class AccountDAO extends GenericHibernateDAO<Account, Id> {
 		private Session session;
 		private Transaction transaction;
 		private static SessionFactory sessionFactory;
