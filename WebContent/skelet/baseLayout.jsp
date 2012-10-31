@@ -57,7 +57,8 @@ body {
 	</div>
 
 	<div class="container">
-		<tiles:insertAttribute name="body" />
+	<tiles:insertAttribute name="body" />
+
 
 	</div>
 	<!-- /container -->

@@ -17,5 +17,14 @@
 		<action name="accounts" class="actions.beheren.BeheerAccountsAction">
 			<result type="tiles">beheerAccounts</result>
 		</action>
+		<action name="account" class="actions.beheren.BeheerAccountAction">
+			<result type="tiles" name="success">beheerAccount</result>			
+		</action>
+		<action name="accountsave" class="actions.account.WijzigGegevens">
+			<result type="tiles" name="success">beheeerAccounts</result>
+			<result type="redirectAction" name="input">account</result>
+		</action>
+		
+		
 	</package>
 </struts>
