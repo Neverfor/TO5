@@ -1,7 +1,6 @@
 package actions.beheren;
 
 import com.opensymphony.xwork2.ActionSupport;
-import com.opensymphony.xwork2.ModelDriven;
 
 import dao.AccountDAO;
 import domein.Account;
