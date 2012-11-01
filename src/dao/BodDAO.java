@@ -57,7 +57,7 @@ public class BodDAO {
 		
 		public Bod getBod(Integer id){
 			Bod bod = (Bod) session.createQuery("from Veiling where ID = ?").setInteger(0, id).uniqueResult();
-			session.close();
+//			session.close();
 			return bod;
 		}
 		

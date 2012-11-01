@@ -1,24 +1,4 @@
 <%@ taglib prefix="s" uri="/struts-tags"%>
-<!-- <table class="mybordertwo">
-	<tr>
-		<th style="width: 20%">Titel</th>
-		<th style="width: 40%">Omschrijving</th>
-		<th style="width: 10%">Minimum bod</th>
-		<th style="width: 10%">Rubriek</th>
-		<!-- <th style="width: 10%">Resterende tijd</th> 
-		<th style="width: 20%">Bid</th>
-	</tr>
-	<s:iterator value="veilingen">
-		<tr>
-			<td><s:property value="titel" /></td>
-			<td><s:property value="omschrijving" /></td>
-			<td><s:property value="minimumBod" /></td>
-			<td><s:property value="rubriek.naam" /></td>
-			<td><a href="veilingInfo">Bid</a></td>
-		</tr>
-	</s:iterator>
-</table> -->
-
 
 <table class="mybordertwo">
 	<tr class="mycolor">
@@ -45,7 +25,7 @@
 
 <s:form action="biedAction" theme="bootstrap">
 	<hr />
-	<s:textfield name="geld" label="Je bodt" />
+	<s:textfield name="gelds" label="geld" />
 	<s:hidden name="veilingId" value="%{veiling.id}"/>
 	<hr />
 	<div class="form-actions">
