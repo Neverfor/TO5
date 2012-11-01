@@ -54,11 +54,15 @@ public class VeilingDAO {
 		}
 		
 		public Veiling getVeiling(Integer id){
-			return (Veiling) session.createQuery("from Veiling where ID = ?").setInteger(0, id).uniqueResult();
+			 Veiling veiling = (Veiling) session.createQuery("from Veiling where ID = ?").setInteger(0, id).uniqueResult();
+			 session.close();
+			 return veiling;
 		}
 		
 		public Rubriek getRubriek(Integer id){
-			return (Rubriek) session.createQuery("from Rubriek where ID = ?").setInteger(0, id).uniqueResult();
+			Rubriek rubr = (Rubriek) session.createQuery("from Rubriek where ID = ?").setInteger(0, id).uniqueResult();
+			session.close();
+			return rubr;
 		}
 		
 //		public Veiling getAlleVeilingen(String status){
@@ -67,6 +71,7 @@ public class VeilingDAO {
 		
 		public List<Veiling> getAlleVeilingen(String status){
 			List<Veiling> uniqueResult = (List<Veiling>) session.createQuery("from Veiling where VEILINGSTATUS = ?").setString(0, "actief").list();
+			session.close();
 			return uniqueResult;
 		}
 		
@@ -85,11 +90,13 @@ public class VeilingDAO {
 		
 		public List<Veiling> zoekVeilingen(int rubriekId, String zoekTerm){
 			List<Veiling> uniqueResult = (List<Veiling>) session.createQuery("from Veiling where RUBRIEK_ID = :rId AND TITEL LIKE :zTerm ").setInteger("rId", rubriekId).setString("zTerm",  "%" + zoekTerm + "%").list();
+			session.close();
 			return uniqueResult;
 		}
 
 		public List<Rubriek> getRubrieken(){
 			List<Rubriek> uniqueResult = (List<Rubriek>) session.createQuery("from Rubriek").list();
+			session.close();
 			return uniqueResult;
 		}
 }
