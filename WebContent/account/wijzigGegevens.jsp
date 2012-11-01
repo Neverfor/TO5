@@ -17,6 +17,11 @@ ${request.requestURL}
 		<td> </td>
 	</tr>
 	<tr class="mycolor">
+		<td class="mycolor">Naam: </td> 
+		<td> <s:property value="account.achternaam"/>  </td> 
+		<td> </td>
+	</tr>
+	<tr class="mycolor">
 		<td class="mycolor">Adres: </td> 
 		<td> <s:property value="account.woonplaats"/>, <s:property value="account.straat"/>, <s:property value="account.huisnummer"/>   </td>
 	</tr class="mycolor">
