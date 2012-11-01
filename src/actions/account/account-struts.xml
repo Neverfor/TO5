@@ -33,7 +33,7 @@
 			<result type="tiles">gebruikerspaneel</result>
 		</action>
 		<action name="wijzigenGegevens" class="actions.account.WijzigGegevens">
-			<result name="input" type="redirectAction">wgegevens</result>
+			<result name="input" type="tiles">wgegevens</result>
 			<result name="success" type="redirectAction">gebruikerspaneel</result>
 		</action>
 			<action name="wijzigenPp" class="actions.account.WijzigPass">
