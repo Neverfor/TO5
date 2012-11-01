@@ -4,51 +4,43 @@ import java.io.Serializable;
 import java.util.List;
 
 import org.hibernate.Criteria;
-import org.hibernate.LockMode;
-import org.hibernate.LockOptions;
 import org.hibernate.Session;
+import org.hibernate.Transaction;
 import org.hibernate.criterion.Criterion;
 import org.hibernate.criterion.Example;
+
+import com.googlecode.s2hibernate.struts2.plugin.annotations.SessionTarget;
+import com.googlecode.s2hibernate.struts2.plugin.annotations.TransactionTarget;
+
 import java.lang.reflect.ParameterizedType;
 
 public abstract class GenericHibernateDAO<T, ID extends Serializable>
 		implements GenericDAO<T, ID> {
 
 	private Class<T> persistentClass;
-	private Session session;
 
+	@SessionTarget
+	Session hSession;
+	
+	@TransactionTarget
+	Transaction hTransaction;
+	
 	@SuppressWarnings("unchecked")
 	public GenericHibernateDAO() {
 		this.persistentClass = (Class<T>) ((ParameterizedType) getClass()
                 .getGenericSuperclass()).getActualTypeArguments()[0];
 	}
 
-	public void setSession(Session s) {
-		this.session = s;
-	}
 
-	protected Session getSession() {
-		if (session == null)
-			throw new IllegalStateException(
-					"Session has not been set on DAO before usage");
-		return session;
-	}
 
 	public Class<T> getPersistentClass() {
 		return persistentClass;
 	}
 
 	@SuppressWarnings({ "unchecked"})
-	public T findById(ID id, boolean lock) {
-		T entity;
-		if (lock){
-			getSession().buildLockRequest(LockOptions.UPGRADE).lock(getPersistentClass());
-			entity = (T) getSession().load(getPersistentClass(), id);
-		}
-		else
-			entity = (T) getSession().load(getPersistentClass(), id);
-
-		return entity;
+	public T findById(ID id) {
+		return (T) hSession.load(getPersistentClass(), id);
+		
 	}
 
 	public List<T> findAll() {
@@ -56,31 +48,20 @@ public abstract class GenericHibernateDAO<T, ID extends Serializable>
 	}
 
 	@SuppressWarnings("unchecked")
-	public List<T> findByExample(T exampleInstance, String[] excludeProperty) {
-		Criteria crit = getSession().createCriteria(getPersistentClass());
+	public List<T> findByExample(T exampleInstance) {
+		Criteria crit = hSession.createCriteria(getPersistentClass());
 		Example example = Example.create(exampleInstance);
-		for (String exclude : excludeProperty) {
-			example.excludeProperty(exclude);
-		}
 		crit.add(example);
 		return crit.list();
 	}
 
 	public T makePersistent(T entity) {
-		getSession().saveOrUpdate(entity);
+		hSession.saveOrUpdate(entity);
 		return entity;
 	}
 
 	public void makeTransient(T entity) {
-		getSession().delete(entity);
-	}
-
-	public void flush() {
-		getSession().flush();
-	}
-
-	public void clear() {
-		getSession().clear();
+		hSession.delete(entity);
 	}
 
 	/**
@@ -88,10 +69,12 @@ public abstract class GenericHibernateDAO<T, ID extends Serializable>
 	 */
 	@SuppressWarnings("unchecked")
 	protected List<T> findByCriteria(Criterion... criterion) {
-		Criteria crit = getSession().createCriteria(getPersistentClass());
-		for (Criterion c : criterion) {
-			crit.add(c);
-		}
+		Criteria crit = hSession.createCriteria(getPersistentClass());
+		//if(criterion != null && criterion.length > 0){
+			for (Criterion c : criterion) {
+				crit.add(c);
+			}
+		//}
 		return crit.list();
 	}
 

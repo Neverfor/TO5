@@ -8,18 +8,17 @@
 	<constant name="struts.devMode" value="true" />
 	<constant name="struts.custom.i18n.resources" value="global" />
 
-	<package name="default" extends="struts-default">
+	<package name="default" extends="hibernate-default">
 		<!-- Tiles -->
 		<result-types>
 			<result-type name="tiles"
 				class="org.apache.struts2.views.tiles.TilesResult" />
 		</result-types>
-
+		
 		<!-- Index -->
 		<action name="index">
 			<result type="tiles">welcome</result>
 		</action>
-
 	</package>
 
 	<!-- package frame voor actions achter login-muur -->
