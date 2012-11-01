@@ -16,7 +16,9 @@ public class WijzigGegevens extends ActionSupport implements SessionAware {
 	private AccountDAO accountDAO = new AccountDAO();
 
 	public String execute(){		
+		System.out.println("/nStart wijzigen gegevens bij de account met id" + account.getId() + " en naam" + account.getVoornaam());
 		accountDAO.saveAccount(account);
+		System.out.println("/nEind van wijzigen van de gegevens van de account met id" + account.getId() + " en naam" + account.getVoornaam());
 		return SUCCESS;
 	}
 	
