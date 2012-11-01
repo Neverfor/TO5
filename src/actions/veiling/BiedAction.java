@@ -4,7 +4,7 @@ import java.util.Date;
 import java.util.Map;
 
 import org.apache.struts2.interceptor.SessionAware;
-
+import org.hibernate.*;
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
 
@@ -13,6 +13,7 @@ import domein.Account;
 import domein.Veiling;
 import domein.Bod;
 import dao.VeilingDAO;
+import dao.AccountDAO;
 
 
 public class BiedAction extends ActionSupport implements ModelDriven<Bod>, SessionAware {
@@ -22,11 +23,12 @@ public class BiedAction extends ActionSupport implements ModelDriven<Bod>, Sessi
 	private static final long serialVersionUID = -2534446146222716771L;
 	private Bod bod = new Bod();
 	private BodDAO bodDAO;
-	private Double geld;
+	private Double gelds, geld;
 	private int veilingId;
 	private Date datum;
 	private Veiling veiling;
 	private VeilingDAO veilingDAO = new VeilingDAO();
+	private AccountDAO accountDAO = new AccountDAO();
 	private Account account;
 
 	public BiedAction(){
@@ -34,35 +36,48 @@ public class BiedAction extends ActionSupport implements ModelDriven<Bod>, Sessi
 	}
 
 	public String execute() {
-		if (geld ==  null){
-			geld = 1000.00;
-		}
-		Date datumTijd = new Date();
-		System.out.println(geld);
-		bod.setAccount(account);
-		bod.setGeld(geld);
-		bod.setDatumTijd(datumTijd);
+		
+		int id = account.getId();
+		Account acc = (Account) accountDAO.getAccount(id);
+		
+		Date dT = new Date();
+		System.out.println(dT);
+//		System.out.println(gelds);
+		bod.setAccount(acc);
+		bod.setGeld(gelds);
+		System.out.println(bod.getGeld());
+		bod.setDatumTijd(dT);
+		System.out.println(bod.getDatumTijd());
 		veiling = (Veiling) veilingDAO.getVeiling(veilingId);
 		bod.setVeiling(veiling);
-		System.out.println(veiling.getTitel());
-		if(bodDAO.saveBod(bod)){
-			return SUCCESS;
-		}
-		return INPUT;
+//		System.out.println(veiling.getTitel());
+		bodDAO.saveBod(bod);
+//		if(bodDAO.saveBod(bod)){
+//			return SUCCESS;
+//		}
+		return SUCCESS;
 	}	
 	
-//	public void validate(){
-////		if(bodDAO.emailadresExists(account.getEmailadres())){
-////			addFieldError( "emailadres", "Emailadres al in gebruik" );
-////		}
-//	}
+	public void validate(){
+	if (gelds == null){
+		addFieldError( "geld", "Geld veld mag niet leeg zijn");
+}
+	}
 	
 	public Double getGeld() {
 		return geld;
 	}
 
-	public void setGeld(Double geld) {
-		this.geld = geld;
+	public void setGeld(Double gelds) {
+		this.geld = gelds;
+	}
+	
+	public Double getGelds() {
+		return gelds;
+	}
+
+	public void setGelds(Double gelds) {
+		this.gelds = gelds;
 	}
 	
 	public Bod getModel() {
