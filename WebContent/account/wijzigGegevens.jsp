@@ -15,9 +15,6 @@ ${request.requestURL}
 		<td class="mycolor">Naam: </td> 
 		<td> <s:property value="account.voornaam"/>  </td> 
 		<td> </td>
-		<td class="mycolor">Naam: </td> 
-		<td> <s:property value="account.achternaam"/>  </td> 
-		<td> </td>
 	</tr>
 	<tr class="mycolor">
 		<td class="mycolor">Adres: </td> 
