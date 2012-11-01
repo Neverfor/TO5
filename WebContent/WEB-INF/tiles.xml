@@ -57,9 +57,9 @@
 	<definition name="wgegevens" extends="memberLayout">
 		<put-attribute name="title" value="Wijzig je gegevens hier!" />
 		<put-attribute name="body" value="/account/wijzigGegevens.jsp" />
-	<!-- 	<put-attribute name="bodyForm"
-			value="/gedeeld/wijzigAccountGegevensForm.jsp" /> -->
-		<!-- <put-attribute name="bodyFormAction" value="wijzigenGegevens" /> -->
+		<put-attribute name="bodyForm"
+			value="/gedeeld/wijzigAccountGegevensForm.jsp" />
+		<put-attribute name="bodyFormAction" value="wijzigenGegevens" />
 	</definition>
 
 	<definition name="wgpass" extends="memberLayout">
