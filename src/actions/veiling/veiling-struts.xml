@@ -18,12 +18,12 @@
 		<action name="zoeken" class="actions.veiling.getRubrieken">
 			<result type="tiles">veilingZoeken</result>
 		</action>
+		<action name="alleVeil" class="actions.veiling.getRubrieken">
+			<result type="tiles">rubriekSelecteren</result>
+		</action>
 		<action name="zoekenDo" class="actions.veiling.zoekVeiling">
 			<result name="input" type="tiles">veilingZoeken</result>
 			<result name="success" type="tiles">veilingZoekenDo</result>
-		</action>
-		<action name="alleVeil" class="actions.veiling.ShowAlle">
-			<result type="tiles">showVeilingen</result>
 		</action>
 		<action name="veilingInfo" class="actions.veiling.ShowEen">
 			<result type="tiles">veilingInfo</result>

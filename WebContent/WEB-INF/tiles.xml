@@ -97,6 +97,11 @@
 		<put-attribute name="body" 		value="/veiling/zoeken.jsp" />
 	</definition>
 	
+	<definition name="rubriekSelecteren" extends="memberLayout">
+		<put-attribute name="title" 	value="Rubriek selecteren" />
+		<put-attribute name="body" 		value="/veiling/categorieSelect.jsp" />
+	</definition>
+	
 	<definition name="veilingZoekenDo" extends="memberLayout">
 		<put-attribute name="title" 	value="Veiling zoeken" />
 		<put-attribute name="body" 		value="/veiling/showVeilingen.jsp" />
