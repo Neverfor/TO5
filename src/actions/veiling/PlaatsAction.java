@@ -8,6 +8,7 @@ import java.util.Map;
 import org.apache.struts2.interceptor.SessionAware;
 
 import com.opensymphony.xwork2.ActionSupport;
+import com.opensymphony.xwork2.Preparable;
 
 import dao.AccountDAO;
 import dao.RubriekDAO;
@@ -16,7 +17,7 @@ import domein.Account;
 import domein.Rubriek;
 import domein.Veiling;
 
-public class PlaatsAction extends ActionSupport implements SessionAware {
+public class PlaatsAction extends ActionSupport implements SessionAware, Preparable {
 
 	private static final long serialVersionUID = 1L;
 	private Veiling veiling = new Veiling();
@@ -47,7 +48,6 @@ public class PlaatsAction extends ActionSupport implements SessionAware {
 		veiling.setOmschrijving(omschrijving);
 		veiling.setMinimumBod(Integer.parseInt(minimumBod));
 		veiling.setTitel(titel);
-		rubrieken = (List<Rubriek>) rubriekDAO.findAll();	
 		veiling.setRubriek(rubriekDAO.findById(rubriek));
 		Calendar cal = Calendar.getInstance();
 		cal.setTime(veiling.getBeginDatum());
@@ -105,5 +105,10 @@ public class PlaatsAction extends ActionSupport implements SessionAware {
 	public void setSession(Map<String, Object> session) {
 		account = (Account)session.get("account");
 		
+	}
+
+	@Override
+	public void prepare() throws Exception {
+		rubrieken = (List<Rubriek>) rubriekDAO.findAll();	
 	}
 }

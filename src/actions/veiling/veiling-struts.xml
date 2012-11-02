@@ -6,7 +6,7 @@
 <struts>
 	<package name="veilingPlaatsen" extends="accountAware" namespace="/veiling">
 		<action name="plaatsenDo" class="actions.veiling.PlaatsAction">
-			<result name="input" type="tiles">plaatsen</result>
+			<result name="input" type="tiles">plaatsenPagina</result>
 			<result name="success" type="tiles">plaatsenBevestiging</result>
 		</action>
 		<action name="plaatsen" class="actions.veiling.getRubrieken">

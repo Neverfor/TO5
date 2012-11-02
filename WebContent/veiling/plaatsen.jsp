@@ -15,10 +15,11 @@
 	<s:textfield name="titel" label="Titel" />
 	<s:textfield name="omschrijving" label="Omschrijving" />
 	<s:select label="Rubriek" 
-		headerKey="-1" headerValue="--- Kies rubriek ---"
+		headerKey="" headerValue="--- Kies rubriek ---"
 		list="rubrieken" 
 		name="rubriek" listValue="naam" listKey="id" />
-	<s:radio name="veilingDuur" label="Veiling Duur" value="1" list="#{'3' : '3 Dagen', '5' : '5 Dagen', '7' : '7 Dagen'}" />
+	<s:radio name="veilingDuur" label="Veiling Duur" 
+		list="#{'3' : '3 Dagen', '5' : '5 Dagen', '7' : '7 Dagen'}"  value="%{3}" />
 	<s:textfield name="minimumBod" label="Minimum bod" />
 	<div class="form-actions">
 		<s:submit cssClass="btn" />

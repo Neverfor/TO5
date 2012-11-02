@@ -2,25 +2,27 @@
 		"http://struts.apache.org/dtds/xwork-validator-1.0.3.dtd">
 <validators>
 	<field name="titel">
-		<field-validator type="requiredString">
+		<field-validator type="requiredstring">
 			<message>Titel niet ingevoerd...</message>
 		</field-validator>
 	</field>
 	<field name="omschrijving">
-		<field-validator type="requiredString">
+		<field-validator type="requiredstring">
 			<message>Omschrijving niet ingevoerd...</message>
 		</field-validator>
 	</field>
 	<field name="rubriek">
-		<field-validator type="int">
-			<param name="min">0</param>
+		<field-validator type="required">
 			<message>Rubriek niet geselecteerd...</message>
 		</field-validator>
 	</field>
 	<field name="minimumBod">
-		<field-validator type="int">
-		<param name="min">0</param>
-			<message>Minimum bod is lager dan 0 of niet ingevoerd...</message>
+		<field-validator type="requiredstring">
+			<message>minimumbod niet ingevoerd...</message>
+		</field-validator>
+		<field-validator type="regex">
+			<param name="expression"><![CDATA[^[0-9]+$]]></param>
+			<message>geen geldig minimumbod...</message>
 		</field-validator>
 	</field>
 </validators>
