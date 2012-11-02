@@ -22,7 +22,7 @@ public class ShowEen extends ActionSupport implements SessionAware{
 	
 	public String execute(){
 		veilingen = (List<Veiling>) veilingDAO.findAll("actief");
-		if (!veilingen.contains(id)){ 
+		if (!veilingen.contains(veilingDAO.findById(id))){ 
 			return INPUT;
 		}
 		veiling = veilingDAO.findById(id);
