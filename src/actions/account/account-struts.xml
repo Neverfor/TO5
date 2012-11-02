@@ -26,13 +26,15 @@
 		<action name="login">
 			<result type="tiles">login</result>
 		</action>
+		<action name="logout" class="actions.account.LoginAction" method="logOut">
+			<interceptor-ref name="basicStack"></interceptor-ref> <!-- Geen validatie of db sessies -->
+			<result type="tiles">welcome</result>
+		</action>
+		
 	</package>
 
 	<package name="accountLoggedIn" extends="accountAware"
 		namespace="/gebruiker">
-		<action name="logout" class="actions.account.LoginAction" method="logOut">
-			<result type="tiles">welcome</result>
-		</action>
 		<action name="gebruikerspaneel" class="actions.account.AccountPage">
 			<result type="tiles">gebruikerspaneel</result>
 		</action>
