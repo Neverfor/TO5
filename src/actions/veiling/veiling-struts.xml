@@ -27,8 +27,9 @@
 		</action>
 		<action name="veilingInfo" class="actions.veiling.ShowEen">
 			<result type="tiles">veilingInfo</result>
+			<result name="error" type="tiles">error</result>
 		</action>
-		<action name="biedAction" class="actions.veiling.BiedAction">
+		<!-- <action name="biedAction" class="actions.veiling.BiedAction">
 			<result name="success" type="redirectAction">
 			<param name="actionName">showVeilingen</param>
 			<param name="namespace">/veilingen</param>
@@ -38,10 +39,18 @@
 			<param name="namespace">/veilingen</param>
 			</result>
 			<result name="error" type="tiles">error
-		<!-- 	<param name="actionName">veilingInfo</param>
-			<param name="namespace">/veilingen</param> -->
+			<param name="actionName">veilingInfo</param>
+			<param name="namespace">/veilingen</param>
 			</result>
-		</action>
+		</action> -->
+	</package>
+	
+	<package name="bodPlaatsen" extends="accountAware" namespace="/veilingen">
+			<action name="biedAction" class="actions.veiling.BiedAction">
+				<result name="success" type="redirectAction">showVeilingen</result>			
+				<result name="input" type="redirectAction">veilingInfo</result>
+				<result name="error" type="tiles">error</result>
+			</action>
 	</package>
 
 	<package name="mijnVeilingen" extends="accountAware" namespace="/veilingen">

@@ -16,7 +16,7 @@ import dao.VeilingDAO;
 import dao.AccountDAO;
 
 
-public class BiedAction extends ActionSupport implements ModelDriven<Bod>, SessionAware {
+public class BiedAction extends ActionSupport implements /*ModelDriven<Bod>,*/ SessionAware {
 	/**
 	 * 
 	 */
@@ -53,7 +53,7 @@ public class BiedAction extends ActionSupport implements ModelDriven<Bod>, Sessi
 		}
 		else {
 			veiling = veilingDAO.findById(id);
-			return INPUT;
+			return ERROR;
 		}
 		
 	}	
@@ -80,9 +80,9 @@ public class BiedAction extends ActionSupport implements ModelDriven<Bod>, Sessi
 		this.gelds = gelds;
 	}
 	
-	public Bod getModel() {
+	/*public Bod getModel() {
 		return bod;
-	}
+	}*/
 
 	public Date getDatum() {
 		return datum;

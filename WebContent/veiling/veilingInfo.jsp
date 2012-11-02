@@ -27,6 +27,7 @@
 	<hr />
 	<s:textfield name="gelds" label="geld" />
 	<s:hidden name="veilingId" value="%{veiling.id}"/>
+	<s:hidden name="id" value="%{veiling.id}"/>
 	<hr />
 	<div class="form-actions">
 		<s:submit cssClass="btn" />
