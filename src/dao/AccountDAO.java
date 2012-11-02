@@ -53,7 +53,9 @@ public class AccountDAO {
 		}
 		
 		public Account getAccount(Integer id){
-			return (Account) session.createQuery("from Account where id = ?").setInteger(0, id).uniqueResult();
+			Account acc = (Account) session.createQuery("from Account where id = ?").setInteger(0, id).uniqueResult();
+			session.close();
+			return acc;
 
 		}
 		public boolean emailadresExists(String emailadres){

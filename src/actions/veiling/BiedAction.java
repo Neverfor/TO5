@@ -16,7 +16,7 @@ import dao.VeilingDAO;
 import dao.AccountDAO;
 
 
-public class BiedAction extends ActionSupport implements ModelDriven<Bod>, SessionAware {
+public class BiedAction extends ActionSupport implements /*ModelDriven<Bod>,*/ SessionAware {
 	/**
 	 * 
 	 */
@@ -37,13 +37,13 @@ public class BiedAction extends ActionSupport implements ModelDriven<Bod>, Sessi
 
 	public String execute() {
 		
-		int id = account.getId();
-		Account acc = (Account) accountDAO.getAccount(id);
-		
+//		int id = account.getId();
+//		Account acc = (Account) accountDAO.getAccount(id);
+//		
 		Date dT = new Date();
 		System.out.println(dT);
 //		System.out.println(gelds);
-		bod.setAccount(acc);
+		bod.setAccount(account);
 		bod.setGeld(gelds);
 		System.out.println(bod.getGeld());
 		bod.setDatumTijd(dT);
@@ -80,9 +80,9 @@ public class BiedAction extends ActionSupport implements ModelDriven<Bod>, Sessi
 		this.gelds = gelds;
 	}
 	
-	public Bod getModel() {
-		return bod;
-	}
+//	public Bod getModel() {
+//		return bod;
+//	}
 
 	public Date getDatum() {
 		return datum;
