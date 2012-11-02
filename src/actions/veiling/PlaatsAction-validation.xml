@@ -1,0 +1,26 @@
+<!DOCTYPE validators PUBLIC "-//Apache Struts//XWork Validator 1.0.3//EN"
+		"http://struts.apache.org/dtds/xwork-validator-1.0.3.dtd">
+<validators>
+	<field name="titel">
+		<field-validator type="requiredString">
+			<message>Titel niet ingevoerd...</message>
+		</field-validator>
+	</field>
+	<field name="omschrijving">
+		<field-validator type="requiredString">
+			<message>Omschrijving niet ingevoerd...</message>
+		</field-validator>
+	</field>
+	<field name="rubriek">
+		<field-validator type="int">
+			<param name="min">0</param>
+			<message>Rubriek niet geselecteerd...</message>
+		</field-validator>
+	</field>
+	<field name="minimumBod">
+		<field-validator type="int">
+		<param name="min">0</param>
+			<message>Minimum bod is lager dan 0 of niet ingevoerd...</message>
+		</field-validator>
+	</field>
+</validators>
