@@ -72,7 +72,8 @@ public class LoginAction extends ActionSupport implements SessionAware {
 		return account;
 	}
 	
-	public void logOut(){
+	public String logOut(){
 		session.remove("account");
+		return SUCCESS;
 	}
 }

@@ -31,15 +31,4 @@ public class VeilingDAO extends GenericHibernateDAO<Veiling, Integer> {
 			hSession.close();
 			return uniqueResult;
 		}
-
-		public List<Rubriek> getRubrieken(){
-			List<Rubriek> uniqueResult = (List<Rubriek>) hSession.createQuery("from Rubriek").list();
-			hSession.close();
-			return uniqueResult;
-		}
-		
-		public Rubriek getRubriek(Integer id){
-			Rubriek rubr = (Rubriek) hSession.createQuery("from Rubriek where ID = ?").setInteger(0, id).uniqueResult();		
-			return rubr;
-		}
 }

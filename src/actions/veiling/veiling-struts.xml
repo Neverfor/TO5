@@ -4,7 +4,7 @@
     "http://struts.apache.org/dtds/struts-2.0.dtd">
 
 <struts>
-	<package name="veilingPlaatsen" extends="default" namespace="/veiling">
+	<package name="veilingPlaatsen" extends="accountAware" namespace="/veiling">
 		<action name="plaatsenDo" class="actions.veiling.PlaatsAction">
 			<result name="input" type="tiles">plaatsen</result>
 			<result name="success" type="tiles">plaatsenBevestiging</result>

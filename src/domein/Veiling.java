@@ -19,12 +19,13 @@ public class Veiling {
 	
 	private int minimumBod;
 	private Account account;
-	private Date einddatum;
+	private Date eindDatum;
+	
 	public Date getEindDatum() {
-		return einddatum;
+		return eindDatum;
 	}
-	public void setEindDatum(Date einddatum) {
-		this.einddatum = einddatum;
+	public void setEindDatum(Date eindDatum) {
+		this.eindDatum = eindDatum;
 	}
 	private Date beginDatum;
 	
@@ -65,26 +66,10 @@ public class Veiling {
 	public void setMinimumBod(int minimumBod) {
 		this.minimumBod = minimumBod;
 	}
-	/*public Date getEndDate() {
-		return endDate;
-	}
-	public void setEndDate(Date endDate) {
-		this.endDate = endDate;
-	}
-	*/
-	
 	public Date getBeginDatum() {
 		return beginDatum;
 	}
 	public void setBeginDatum(Date beginDatum) {
 		this.beginDatum = beginDatum;
 	}
-	
-	/*
-	public String getStatus() {
-		return status;
-	}
-	public void setStatus(String status) {
-		this.status = status;
-	}*/
 }

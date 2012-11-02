@@ -5,6 +5,8 @@ import java.util.List;
 import java.util.Map;
 import org.apache.struts2.interceptor.SessionAware;
 import com.opensymphony.xwork2.ActionSupport;
+
+import dao.RubriekDAO;
 import dao.VeilingDAO;
 import domein.Account;
 import domein.Rubriek;
@@ -13,7 +15,7 @@ public class getRubrieken extends ActionSupport implements SessionAware{
 
 	private static final long serialVersionUID = 1L;	
 
-	private VeilingDAO veilingDAO;
+	private RubriekDAO rubriekDAO;
 	private Account account;
 	private List<Rubriek> rubrieken; 
 
@@ -26,11 +28,11 @@ public class getRubrieken extends ActionSupport implements SessionAware{
 	}
 
 	public getRubrieken(){
-		veilingDAO = new VeilingDAO();
+		rubriekDAO = new RubriekDAO();
 	}
 
 	public String execute(){
-		rubrieken = veilingDAO.getRubrieken();
+		rubrieken = rubriekDAO.findAll();
 		return SUCCESS;
 	}
 

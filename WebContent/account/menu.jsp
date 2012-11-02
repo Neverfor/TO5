@@ -38,7 +38,7 @@
 				<b class="caret"></b>
 		</a>
 			<ul class="dropdown-menu">
-				<li><a href="<s:url action="logout" namespace="/gebruiker"/>">Uitloggen</a>
+				<li><a href="<s:url action="logout" namespace="/"/>">Uitloggen</a>
 			</ul>
 		</li>
 	</ul>
