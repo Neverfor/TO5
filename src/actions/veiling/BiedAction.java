@@ -16,7 +16,7 @@ import dao.VeilingDAO;
 import dao.AccountDAO;
 
 
-public class BiedAction extends ActionSupport implements /*ModelDriven<Bod>,*/ SessionAware {
+public class BiedAction extends ActionSupport implements ModelDriven<Bod>, SessionAware {
 	/**
 	 * 
 	 */
@@ -36,20 +36,14 @@ public class BiedAction extends ActionSupport implements /*ModelDriven<Bod>,*/ S
 	}
 
 	public String execute() {
-//		
-//<<<<<<< HEAD
-////		int id = account.getId();
-////		Account acc = (Account) accountDAO.getAccount(id);
-////		
-//=======
+		
 		int id = account.getId();
 		Account acc = (Account) accountDAO.findById(id);
 		
-//>>>>>>> branch 'master' of https://github.com/Neverfor/TO5.git
 		Date dT = new Date();
 		System.out.println(dT);
 //		System.out.println(gelds);
-		bod.setAccount(account);
+		bod.setAccount(acc);
 		bod.setGeld(gelds);
 		System.out.println(bod.getGeld());
 		bod.setDatumTijd(dT);
@@ -86,9 +80,9 @@ public class BiedAction extends ActionSupport implements /*ModelDriven<Bod>,*/ S
 		this.gelds = gelds;
 	}
 	
-//	public Bod getModel() {
-//		return bod;
-//	}
+	public Bod getModel() {
+		return bod;
+	}
 
 	public Date getDatum() {
 		return datum;
