@@ -16,7 +16,7 @@ import dao.VeilingDAO;
 import dao.AccountDAO;
 
 
-public class BiedAction extends ActionSupport implements ModelDriven<Bod>, SessionAware {
+public class BiedAction extends ActionSupport implements /*ModelDriven<Bod>, */SessionAware {
 	/**
 	 * 
 	 */
@@ -36,26 +36,26 @@ public class BiedAction extends ActionSupport implements ModelDriven<Bod>, Sessi
 	}
 
 	public String execute() {
-		
 		int id = account.getId();
 		Account acc = (Account) accountDAO.findById(id);
-		
-		Date dT = new Date();
-		System.out.println(dT);
-//		System.out.println(gelds);
+//		Date dT = new Date();
+//		System.out.println(dT);
 		bod.setAccount(acc);
 		bod.setGeld(gelds);
 		System.out.println(bod.getGeld());
-		bod.setDatumTijd(dT);
+//		bod.setDatumTijd(dT);
 		System.out.println(bod.getDatumTijd());
 		veiling = (Veiling) veilingDAO.findById(veilingId);
 		bod.setVeiling(veiling);
-//		System.out.println(veiling.getTitel());
-		bodDAO.saveBod(bod);
-//		if(bodDAO.saveBod(bod)){
-//			return SUCCESS;
-//		}
-		return SUCCESS;
+//		bodDAO.saveBod(bod);
+		if(bodDAO.saveBod(bod)){
+			return SUCCESS;
+		}
+		else {
+			veiling = veilingDAO.findById(id);
+			return INPUT;
+		}
+		
 	}	
 	
 	public void validate(){
@@ -80,9 +80,9 @@ public class BiedAction extends ActionSupport implements ModelDriven<Bod>, Sessi
 		this.gelds = gelds;
 	}
 	
-	public Bod getModel() {
-		return bod;
-	}
+//	public Bod getModel() {
+//		return bod;
+//	}
 
 	public Date getDatum() {
 		return datum;
