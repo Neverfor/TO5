@@ -5,12 +5,10 @@ import java.util.List;
 
 import org.hibernate.Criteria;
 import org.hibernate.Session;
-import org.hibernate.Transaction;
 import org.hibernate.criterion.Criterion;
 import org.hibernate.criterion.Example;
 
-import com.googlecode.s2hibernate.struts2.plugin.annotations.SessionTarget;
-import com.googlecode.s2hibernate.struts2.plugin.annotations.TransactionTarget;
+import utils.HibernateUtil;
 
 import java.lang.reflect.ParameterizedType;
 
@@ -19,28 +17,23 @@ public abstract class GenericHibernateDAO<T, ID extends Serializable>
 
 	private Class<T> persistentClass;
 
-	@SessionTarget
-	Session hSession;
-	
-	@TransactionTarget
-	Transaction hTransaction;
-	
+	protected Session hSession = HibernateUtil.getSessionFactory()
+			.getCurrentSession();
+
 	@SuppressWarnings("unchecked")
 	public GenericHibernateDAO() {
 		this.persistentClass = (Class<T>) ((ParameterizedType) getClass()
-                .getGenericSuperclass()).getActualTypeArguments()[0];
+				.getGenericSuperclass()).getActualTypeArguments()[0];
 	}
-
-
 
 	public Class<T> getPersistentClass() {
 		return persistentClass;
 	}
 
-	@SuppressWarnings({ "unchecked"})
+	@SuppressWarnings({ "unchecked" })
 	public T findById(ID id) {
 		return (T) hSession.load(getPersistentClass(), id);
-		
+
 	}
 
 	public List<T> findAll() {
@@ -70,11 +63,9 @@ public abstract class GenericHibernateDAO<T, ID extends Serializable>
 	@SuppressWarnings("unchecked")
 	protected List<T> findByCriteria(Criterion... criterion) {
 		Criteria crit = hSession.createCriteria(getPersistentClass());
-		//if(criterion != null && criterion.length > 0){
-			for (Criterion c : criterion) {
-				crit.add(c);
-			}
-		//}
+		for (Criterion c : criterion) {
+			crit.add(c);
+		}
 		return crit.list();
 	}
 

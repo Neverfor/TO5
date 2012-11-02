@@ -24,17 +24,15 @@ public class PlaatsAction extends ActionSupport implements ModelDriven<Veiling> 
 	public String execute(){
 		//TODO: onderstaande 'tijdelijke waardes' vervangen met waardes uit sessie en nieuw gemaakt DAO's
 		AccountDAO accountDAO = new AccountDAO();
-		veiling.setAccount(accountDAO.getAccount(1));
+		veiling.setAccount(accountDAO.findById(1));
 		veiling.setStatus("actief");
 		veiling.setBeginDatum(new Date());
 		//veiling.setTitel("Oude TV");
 		veiling.setRubriek(new Rubriek("TV's en Radio's", null));
 		
 		
-		if(veilingDAO.saveVeiling(veiling)){
-			return SUCCESS;
-		}
-		return INPUT;
+		veilingDAO.makePersistent(veiling);
+		return SUCCESS;
 	}
 	
 	public Veiling getModel() {

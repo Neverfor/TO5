@@ -27,10 +27,8 @@ public class RegisterAction extends ActionSupport implements ModelDriven<Account
 	}
 
 	public String execute() {
-		if(accountDAO.saveAccount(account)){
-			return SUCCESS;
-		}
-		return INPUT;
+		//TODO: opvangen van fouten
+		return SUCCESS;
 	}	
 	
 	public Account getModel() {

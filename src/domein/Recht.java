@@ -30,7 +30,7 @@ public class Recht {
 
 	@Override
 	public int hashCode() {
-		return id;
+		return beschrijving.hashCode();
 	}
 
 	public Integer getId() {

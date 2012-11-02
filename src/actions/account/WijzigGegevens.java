@@ -2,8 +2,6 @@ package actions.account;
 
 import java.util.Map;
 
-import javax.persistence.Query;
-import org.hibernate.*;
 import org.apache.struts2.interceptor.SessionAware;
 import com.opensymphony.xwork2.ActionSupport;
 import domein.Account;
@@ -16,7 +14,7 @@ public class WijzigGegevens extends ActionSupport implements SessionAware {
 	private AccountDAO accountDAO = new AccountDAO();
 
 	public String execute(){		
-		accountDAO.saveAccount(account);
+		accountDAO.makePersistent(account);
 		return SUCCESS;
 	}
 	

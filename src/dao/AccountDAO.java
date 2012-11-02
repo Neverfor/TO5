@@ -1,16 +1,25 @@
 package dao;
-
-import java.io.Serializable;
-import java.util.List;
-
-import org.hibernate.HibernateException;
-import org.hibernate.Query;
-import org.hibernate.Transaction;
-import org.hibernate.cfg.Configuration;
-import org.hibernate.service.ServiceRegistry;
-import org.hibernate.service.ServiceRegistryBuilder;
-
 import domein.Account;
 
 public class AccountDAO extends GenericHibernateDAO<Account, Integer> {
+	
+	public Account findAccount(String emailadres, String wachtwoord) {
+		Account account = (Account) hSession
+				.createQuery(
+						"from Account where Emailadres = ? and Wachtwoord = ?")
+				.setParameter(0, emailadres).setParameter(1, wachtwoord)
+				.uniqueResult();
+		return account;
+	}
+	
+	public boolean emailadresExists(String emailadres){
+		int count = ((Long)hSession.createQuery("select count(*) from Account where Emailadres = :emailaddr ")
+				.setParameter("emailaddr", emailadres)
+				.uniqueResult()	)
+				.intValue();
+		
+		if(count > 0)
+			return true;
+		return false;
+	}
 }

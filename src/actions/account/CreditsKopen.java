@@ -35,7 +35,7 @@ public class CreditsKopen extends ActionSupport implements SessionAware {
 	public String execute(){
 		account.setCredits(cNieuw+cOud);
 		System.out.println(cNieuw + " " + cOud );
-		accountDAO.saveAccount(account);
+		accountDAO.makePersistent(account);
 		System.out.println(account.getVoornaam());
 		return SUCCESS;
 	}
