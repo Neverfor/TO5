@@ -25,6 +25,12 @@ public class VeilingDAO extends GenericHibernateDAO<Veiling, Integer> {
 			hSession.close();
 			return uniqueResult;
 		}
+		
+		public List<Veiling> zoekVeilingen(String zoekTerm){
+			List<Veiling> uniqueResult = (List<Veiling>) hSession.createQuery("from Veiling where TITEL LIKE :zTerm ").setString("zTerm",  "%" + zoekTerm + "%").list();
+			hSession.close();
+			return uniqueResult;
+		}
 
 		public List<Rubriek> getRubrieken(){
 			List<Rubriek> uniqueResult = (List<Rubriek>) hSession.createQuery("from Rubriek").list();

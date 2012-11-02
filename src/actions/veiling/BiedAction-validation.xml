@@ -1,0 +1,15 @@
+<!DOCTYPE validators PUBLIC "-//Apache Struts//XWork Validator 1.0.3//EN"
+		"http://struts.apache.org/dtds/xwork-validator-1.0.3.dtd">
+<validators>
+	<field name="bod.geld">
+		<field-validator type="requiredstring">
+			<message>Bod moet != null/0 zijn! </message>
+		</field-validator>
+
+		<field-validator type="stringlength">
+			<param name="minLength">1</param>
+			<message>Password must contain at least ${minLength} characters
+			</message>
+		</field-validator>
+	</field>
+</validators>

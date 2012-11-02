@@ -14,16 +14,38 @@
 			<result-type name="tiles"
 				class="org.apache.struts2.views.tiles.TilesResult" />
 		</result-types>
-		
+
 		<interceptors>
 			<interceptor name="hibernateSessionInterceptor" class="utils.HibernateSessionInterceptor" />
 			<interceptor-stack name="standaardStack">
 				<interceptor-ref name="hibernateSessionInterceptor" />
-				<interceptor-ref name="defaultStack" />
-			</interceptor-stack>
+                <interceptor-ref name="exception"/>
+                <interceptor-ref name="alias"/>
+                <interceptor-ref name="servletConfig"/>
+                <interceptor-ref name="prepare"/>
+                <interceptor-ref name="i18n"/>
+                <interceptor-ref name="chain"/>
+                <interceptor-ref name="debugging"/>
+                <interceptor-ref name="profiling"/>
+                <interceptor-ref name="scopedModelDriven"/>
+                <interceptor-ref name="modelDriven"/>
+                <interceptor-ref name="fileUpload"/>
+                <interceptor-ref name="checkbox"/>
+                <interceptor-ref name="staticParams"/>
+                <interceptor-ref name="params">
+                  <param name="excludeParams">dojo\..*</param>
+                </interceptor-ref>
+                <interceptor-ref name="conversionError"/>
+                <interceptor-ref name="validation">
+                    <param name="excludeMethods">input,back,cancel,browse</param>
+                </interceptor-ref>
+                <interceptor-ref name="workflow">
+                    <param name="excludeMethods">input,back,cancel,browse</param>
+                </interceptor-ref>
+            </interceptor-stack>
 		</interceptors>
 		<default-interceptor-ref name="standaardStack"></default-interceptor-ref>
-		
+
 		<!-- Index -->
 		<action name="index">
 			<result type="tiles">welcome</result>
@@ -35,7 +57,7 @@
 		<!-- interceptor regelt authenticatie controle -->
 		<interceptors>
 			<interceptor name="securityInterceptor" class="utils.SecurityInterceptor" />
-			<interceptor-stack name="securityStack">				
+			<interceptor-stack name="securityStack">
 				<interceptor-ref name="securityInterceptor" />
 				<interceptor-ref name="standaardStack" />
 			</interceptor-stack>
