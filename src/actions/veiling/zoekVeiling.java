@@ -13,13 +13,13 @@ import domein.Veiling;
 public class zoekVeiling extends ActionSupport implements SessionAware{
 
 	private static final long serialVersionUID = 1L;	
-	
+
 	private VeilingDAO veilingDAO;
 	private Account account;
 	private Integer rubriek;
 	private String zoekterm;
 	private List<Veiling> veilingen = new ArrayList<Veiling>(); 
-	
+
 	public Integer getRubriek() {
 		return rubriek;
 	}
@@ -35,7 +35,7 @@ public class zoekVeiling extends ActionSupport implements SessionAware{
 	public void setZoekterm(String zoekterm) {
 		this.zoekterm = zoekterm;
 	}
-	
+
 	public List<Veiling> getVeilingen() {
 		return veilingen;
 	}
@@ -47,14 +47,20 @@ public class zoekVeiling extends ActionSupport implements SessionAware{
 	public zoekVeiling(){
 		veilingDAO = new VeilingDAO();
 	}
-		
+
 	public String execute(){
-		veilingen = (List<Veiling>) veilingDAO.zoekVeilingen(rubriek, zoekterm);
+		if(rubriek == -1) {
+			veilingen = (List<Veiling>) veilingDAO.zoekVeilingen(zoekterm);
+		}
+		else {
+			veilingen = (List<Veiling>) veilingDAO.zoekVeilingen(rubriek, zoekterm);
+		}
 		if(veilingen == null) {
 			return INPUT;
 		}
 		return SUCCESS;
 	}
+
 
 	@Override
 	public void setSession(Map<String, Object> session) {
