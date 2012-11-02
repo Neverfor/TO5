@@ -28,7 +28,7 @@
 		<action name="veilingInfo" class="actions.veiling.ShowEen">
 			<result type="tiles">veilingInfo</result>
 			<result name="error" type="tiles">error</result>
-			<result name="input" type="tiles">error</result>
+			<result name="input" type="tiles">veilingBestaatNiet</result>
 		</action>
 		<!-- <action name="biedAction" class="actions.veiling.BiedAction">
 			<result name="success" type="redirectAction">

@@ -107,6 +107,13 @@
 			value="Uitgebreide informatie over de veiling" />
 		<put-attribute name="body" value="/veiling/veilingInfo.jsp" />
 	</definition>
+	
+	<definition name="veilingBestaatNiet" extends="memberLayout">
+		<put-attribute name="title"
+			value="Er is iets mis gegaan of veiling bestaat niet!" />
+		<put-attribute name="body" value="/veiling/veilingNietBestaat.jsp" />
+	</definition>
+
 
 	<definition name="alleVeilingen" extends="memberLayout">
 		<put-attribute name="title" value="Overzicht van alle veilingen" />
