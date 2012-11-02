@@ -59,7 +59,8 @@ public class HibernateSessionInterceptor implements Interceptor {
 			// fresh data... what you do here depends on your applications
 			// design.
 //			throw staleEx;
-			log.error(staleEx.getMessage());
+			log.error(staleEx.toString());
+			staleEx.printStackTrace();
 			return Action.ERROR;
 		} catch (Throwable ex) {
 			// Rollback only
@@ -71,8 +72,10 @@ public class HibernateSessionInterceptor implements Interceptor {
 						rbEx);
 			}
 			// Let others handle it... maybe another interceptor for exceptions?
-//			throw ex;
-			log.error(ex.getMessage());
+//			throw ex;			
+			log.error(ex.toString());
+			ex.printStackTrace();
+
 			return Action.ERROR;
 		}
 	}

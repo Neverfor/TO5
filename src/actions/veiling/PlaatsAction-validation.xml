@@ -2,12 +2,12 @@
 		"http://struts.apache.org/dtds/xwork-validator-1.0.3.dtd">
 <validators>
 	<field name="titel">
-		<field-validator type="requiredString">
+		<field-validator type="requiredstring">
 			<message>Titel niet ingevoerd...</message>
 		</field-validator>
 	</field>
 	<field name="omschrijving">
-		<field-validator type="requiredString">
+		<field-validator type="requiredstring">
 			<message>Omschrijving niet ingevoerd...</message>
 		</field-validator>
 	</field>
