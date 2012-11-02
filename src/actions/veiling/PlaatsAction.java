@@ -48,10 +48,8 @@ public class PlaatsAction extends ActionSupport implements SessionAware {
 		cal.setTime(veiling.getBeginDatum());
 		cal.add(Calendar.DATE, veilingDuur);
 		veiling.setEindDatum(cal.getTime());
-		if(veilingDAO.saveVeiling(veiling)){
-			return SUCCESS;
-		}
-		return INPUT;
+		veilingDAO.makePersistent(veiling);
+		return SUCCESS;
 	}
 	
 	public int getVeilingDuur() {

@@ -20,7 +20,7 @@ public class ShowEen extends ActionSupport implements SessionAware{
 	private Veiling veiling;
 	
 	public String execute(){
-		veiling = veilingDAO.getVeiling(id);
+		veiling = veilingDAO.findById(id);
 		System.out.println(veiling.getId());
 		System.out.println(veiling.getTitel());
 		System.out.println(veiling.getAccount().getVoornaam());

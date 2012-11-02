@@ -1,7 +1,6 @@
 package actions.beheren;
 
 import com.opensymphony.xwork2.ActionSupport;
-import com.opensymphony.xwork2.ModelDriven;
 
 import dao.AccountDAO;
 import domein.Account;
@@ -12,7 +11,7 @@ public class BeheerAccountAction extends ActionSupport {
 	private Integer id;
 	
 	public String execute(){
-		 account = accountDAO.getAccount(id);
+		 account = accountDAO.findById(id);
 		return SUCCESS;
 	}
 

@@ -36,10 +36,16 @@ public class BiedAction extends ActionSupport implements /*ModelDriven<Bod>,*/ S
 	}
 
 	public String execute() {
-		
-//		int id = account.getId();
-//		Account acc = (Account) accountDAO.getAccount(id);
 //		
+//<<<<<<< HEAD
+////		int id = account.getId();
+////		Account acc = (Account) accountDAO.getAccount(id);
+////		
+//=======
+		int id = account.getId();
+		Account acc = (Account) accountDAO.findById(id);
+		
+//>>>>>>> branch 'master' of https://github.com/Neverfor/TO5.git
 		Date dT = new Date();
 		System.out.println(dT);
 //		System.out.println(gelds);
@@ -48,7 +54,7 @@ public class BiedAction extends ActionSupport implements /*ModelDriven<Bod>,*/ S
 		System.out.println(bod.getGeld());
 		bod.setDatumTijd(dT);
 		System.out.println(bod.getDatumTijd());
-		veiling = (Veiling) veilingDAO.getVeiling(veilingId);
+		veiling = (Veiling) veilingDAO.findById(veilingId);
 		bod.setVeiling(veiling);
 //		System.out.println(veiling.getTitel());
 		bodDAO.saveBod(bod);

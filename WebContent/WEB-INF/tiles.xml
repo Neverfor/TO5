@@ -27,7 +27,9 @@
 		<!-- Account gegevens form definition -->
 	<definition name="accountGegevensForm" template="/gedeeld/wijzigAccountGegevensForm.jsp">
 		<put-attribute name="formAction" value="wijzigGegevens"/>
+		<put-attribute name="wachtwoordVelden" value=""/>
 	</definition>
+	
 		<!-- End Account gegevens form definition -->
 
 	<definition name="registreren" extends="baseLayout">

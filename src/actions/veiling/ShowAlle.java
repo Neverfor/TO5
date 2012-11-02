@@ -11,12 +11,11 @@ import dao.VeilingDAO;
 import domein.Account;
 import domein.Veiling;
 
-public class ShowAlle extends ActionSupport implements SessionAware{
+public class ShowAlle extends ActionSupport{
 
 	private static final long serialVersionUID = 1L;	
 	
 	private VeilingDAO veilingDAO;
-	private Account account;
 	private List<Veiling> veilingen = new ArrayList<Veiling>(); 
 	
 	public List<Veiling> getVeilingen() {
@@ -32,14 +31,7 @@ public class ShowAlle extends ActionSupport implements SessionAware{
 	}
 		
 	public String execute(){
-//		veilingen = veilingDAO.getVeilingen(account);
-		veilingen = (List<Veiling>) veilingDAO.getAlleVeilingen("actief");
+		veilingen = (List<Veiling>) veilingDAO.findAll("actief");
 		return SUCCESS;
-	}
-
-	@Override
-	public void setSession(Map<String, Object> session) {
-		account = (Account)session.get("account");
-		
 	}
 }

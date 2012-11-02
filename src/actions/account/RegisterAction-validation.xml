@@ -1,7 +1,7 @@
 <!DOCTYPE validators PUBLIC "-//Apache Struts//XWork Validator 1.0.3//EN"
 		"http://struts.apache.org/dtds/xwork-validator-1.0.3.dtd">
 <validators>
-	<field name="emailadres">
+	<field name="account.emailadres">
 		<field-validator type="requiredstring">
 			<message>You cannot leave the email address field empty.</message>
 		</field-validator>
@@ -10,7 +10,7 @@
 		</field-validator>
 	</field>
 
-	<field name="achternaam">
+	<field name="account.achternaam">
 		<field-validator type="requiredstring">
 			<message>You cannot leave the achternaam field empty.</message>
 		</field-validator>
@@ -21,11 +21,11 @@
 			<message>Wachtwoord bevestiging is required </message>
 		</field-validator>
 		<field-validator type="fieldexpression">
-			<param name="expression">wachtwoord.equals(wachtwoordBevestiging)</param>
+			<param name="expression">wachtwoordBevestiging.equals(account.wachtwoord)</param>
 			<message>Password and confirm password do not match!</message>
 		</field-validator>
 	</field>
-	<field name="wachtwoord">
+	<field name="account.wachtwoord">
 		<field-validator type="requiredstring">
 			<message>Password is required </message>
 		</field-validator>

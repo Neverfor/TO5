@@ -14,12 +14,20 @@
 			<result-type name="tiles"
 				class="org.apache.struts2.views.tiles.TilesResult" />
 		</result-types>
-
+		
+		<interceptors>
+			<interceptor name="hibernateSessionInterceptor" class="utils.HibernateSessionInterceptor" />
+			<interceptor-stack name="standaardStack">
+				<interceptor-ref name="hibernateSessionInterceptor" />
+				<interceptor-ref name="defaultStack" />
+			</interceptor-stack>
+		</interceptors>
+		<default-interceptor-ref name="standaardStack"></default-interceptor-ref>
+		
 		<!-- Index -->
 		<action name="index">
 			<result type="tiles">welcome</result>
 		</action>
-
 	</package>
 
 	<!-- package frame voor actions achter login-muur -->
@@ -27,9 +35,9 @@
 		<!-- interceptor regelt authenticatie controle -->
 		<interceptors>
 			<interceptor name="securityInterceptor" class="utils.SecurityInterceptor" />
-			<interceptor-stack name="securityStack">
+			<interceptor-stack name="securityStack">				
 				<interceptor-ref name="securityInterceptor" />
-				<interceptor-ref name="defaultStack" />
+				<interceptor-ref name="standaardStack" />
 			</interceptor-stack>
 		</interceptors>
 		<default-interceptor-ref name="securityStack"></default-interceptor-ref>

@@ -18,6 +18,7 @@
 				<param name="namespace">/gebruiker</param>
 			</result>
 		</action>
+		
 
 		<action name="registreren">
 			<result type="tiles">registreren</result>
@@ -29,6 +30,9 @@
 
 	<package name="accountLoggedIn" extends="accountAware"
 		namespace="/gebruiker">
+		<action name="logout" class="actions.account.LoginAction" method="logOut">
+			<result type="tiles">welcome</result>
+		</action>
 		<action name="gebruikerspaneel" class="actions.account.AccountPage">
 			<result type="tiles">gebruikerspaneel</result>
 		</action>

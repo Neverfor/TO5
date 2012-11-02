@@ -43,7 +43,7 @@ public class WijzigPass extends ActionSupport implements SessionAware, ModelDriv
 	}
 
 	public String execute(){		
-		accountDAO.saveAccount(account);
+		accountDAO.makePersistent(account);
 		return SUCCESS;
 	}
 	

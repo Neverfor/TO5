@@ -8,12 +8,14 @@ import dao.AccountDAO;
 import domein.Account;
 
 public class BeheerAccountsAction extends ActionSupport{
+	
+	private static final long serialVersionUID = 1L;
 	private List<Account> accounts;
 	private AccountDAO accountDAO;
 	
 	public String execute(){
 		accountDAO = new AccountDAO();
-		setAccounts(accountDAO.getAccounts());
+		setAccounts(accountDAO.findAll());
 		
 		return ActionSupport.SUCCESS;
 	}

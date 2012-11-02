@@ -31,7 +31,7 @@ public class LoginAction extends ActionSupport implements SessionAware {
 	}
 
 	public void validate(){		
-		account = accountDAO.getAccount(emailadres, wachtwoord);
+		account = accountDAO.findAccount(emailadres, wachtwoord);
 		if(account == null){
 			addActionError("Geen geldige username of wachtwoord");
 		}
@@ -61,5 +61,9 @@ public class LoginAction extends ActionSupport implements SessionAware {
 	
 	public Account getAccount() {
 		return account;
+	}
+	
+	public void logOut(){
+		session.remove("account");
 	}
 }
