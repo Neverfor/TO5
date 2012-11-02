@@ -8,12 +8,12 @@
 		<interceptors>
 			<interceptor-stack name="securityStack">
 				<interceptor-ref name="securityInterceptor">
-					<param name="userRole">beheerder</param>
+					<param name="recht">beheerder</param>
 				</interceptor-ref>
-				<interceptor-ref name="defaultStack" />
+				<interceptor-ref name="standaardStack" />
 			</interceptor-stack>
 		</interceptors>
-		
+		<default-interceptor-ref name="securityStack"></default-interceptor-ref>
 		<action name="accounts" class="actions.beheren.BeheerAccountsAction">
 			<result type="tiles">beheerAccounts</result>
 		</action>

@@ -14,6 +14,7 @@ public class RegisterAction extends abstractSaveAccountAction{
 
 	public void setWachtwoordBevestiging(String wachtwoordBevestiging) {
 		this.wachtwoordBevestiging = wachtwoordBevestiging;
+
 	}
 	
 	public void validate(){

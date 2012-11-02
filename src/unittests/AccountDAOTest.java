@@ -17,7 +17,7 @@ public class AccountDAOTest {
 	@Test
 	public void test() {
 		AccountDAO accountDAO = new AccountDAO();
-		Account michael = accountDAO.getAccount(1);
+		Account michael = accountDAO.findById(1);
 		if(michael == null){
 			fail();
 		}

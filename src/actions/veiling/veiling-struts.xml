@@ -36,8 +36,9 @@
 
 	<package name="mijnVeilingen" extends="accountAware" namespace="/veilingen">
 		<action name="mijn-veilingen" class="actions.veiling.Show">
-			<!-- <interceptor-ref name="securityInterceptor"> <param name="recht">aanbieder</param> 
-				</interceptor-ref> -->
+			<interceptor-ref name="securityStack">
+				<param name="recht">aanbieder</param>
+			</interceptor-ref>
 			<result type="tiles">showVeilingen</result>
 		</action>
 	</package>

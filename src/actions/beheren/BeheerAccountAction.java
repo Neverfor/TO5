@@ -11,7 +11,7 @@ public class BeheerAccountAction extends ActionSupport {
 	private Integer id;
 	
 	public String execute(){
-		 account = accountDAO.getAccount(id);
+		 account = accountDAO.findById(id);
 		return SUCCESS;
 	}
 

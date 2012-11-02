@@ -8,6 +8,7 @@ public class WijzigGegevens extends abstractSaveAccountAction implements Session
 
 	private static final long serialVersionUID = 1L;
 
+
 	@Override
 	public void setSession(Map<String, Object> session) {
 		account = (Account)session.get("account");

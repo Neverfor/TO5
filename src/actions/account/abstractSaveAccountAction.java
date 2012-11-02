@@ -5,19 +5,18 @@ import com.opensymphony.xwork2.ActionSupport;
 import dao.AccountDAO;
 import domein.Account;
 
-public abstract class abstractSaveAccountAction extends ActionSupport{
+public abstract class abstractSaveAccountAction extends ActionSupport {
 
 	private static final long serialVersionUID = 1L;
 	protected Account account;
 	protected AccountDAO accountDAO = new AccountDAO();
-	
-	public String execute(){
-		if(accountDAO.saveAccount(account))
-			return SUCCESS;
-		else
-			return INPUT;
+
+	public String execute() {
+		accountDAO.makePersistent(account);
+		return SUCCESS;
+
 	}
-	
+
 	public Account getAccount() {
 		return account;
 	}

@@ -31,7 +31,7 @@ public class Show extends ActionSupport implements SessionAware{
 	}
 		
 	public String execute(){
-		veilingen = (List<Veiling>) veilingDAO.getVeilingen(account);
+		veilingen = veilingDAO.findAllFromAccount(account);
 		return SUCCESS;
 	}
 
