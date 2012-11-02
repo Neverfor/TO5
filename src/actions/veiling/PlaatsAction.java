@@ -10,6 +10,7 @@ import org.apache.struts2.interceptor.SessionAware;
 import com.opensymphony.xwork2.ActionSupport;
 
 import dao.AccountDAO;
+import dao.RubriekDAO;
 import dao.VeilingDAO;
 import domein.Account;
 import domein.Rubriek;
@@ -20,6 +21,7 @@ public class PlaatsAction extends ActionSupport implements SessionAware {
 	private static final long serialVersionUID = 1L;
 	private Veiling veiling = new Veiling();
 	
+	private RubriekDAO rubriekDAO;
 	private VeilingDAO veilingDAO;
 	private int veilingDuur;
 	private String titel;
@@ -34,6 +36,7 @@ public class PlaatsAction extends ActionSupport implements SessionAware {
 	}
 	
 	public PlaatsAction(){
+		rubriekDAO = new RubriekDAO();
 		veilingDAO = new VeilingDAO();
 	}
 		
@@ -41,9 +44,11 @@ public class PlaatsAction extends ActionSupport implements SessionAware {
 		veiling.setAccount(account);
 		veiling.setStatus("actief");
 		veiling.setBeginDatum(new Date());
+		veiling.setOmschrijving(omschrijving);
+		veiling.setMinimumBod(Integer.parseInt(minimumBod));
 		veiling.setTitel(titel);
-		rubrieken = veilingDAO.getRubrieken();	
-		veiling.setRubriek(veilingDAO.getRubriek(rubriek));
+		rubrieken = (List<Rubriek>) rubriekDAO.findAll();	
+		veiling.setRubriek(rubriekDAO.findById(rubriek));
 		Calendar cal = Calendar.getInstance();
 		cal.setTime(veiling.getBeginDatum());
 		cal.add(Calendar.DATE, veilingDuur);
