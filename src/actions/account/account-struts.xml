@@ -25,7 +25,10 @@
 		</action>
 		<action name="login" class="actions.account.LoginAction" method="input">
 			<result type="tiles">login</result>
-			<result name="REDIRECT" type="redirectAction">gebruikerspaneel</result>
+			<result name="REDIRECT" type="redirectAction">
+			<param name="actionName">gebruikerspaneel</param>
+			<param name="namespace">/gebruiker</param>
+			</result>
 		</action>
 	</package>
 
