@@ -16,7 +16,7 @@ public class Account {
 	private String voornaam;
 	private String wachtwoord;
 	private String woonplaats;
-	private int accstatus;  //0 - blocked, 1-uitgelogd, 2-online
+	private int accstatus;  //0 - blocked, 1- in goede houding
 	private int credits;
     private Set<Recht> rechten = new HashSet<Recht>();
     
