@@ -16,9 +16,8 @@ public class Account {
 	private String voornaam;
 	private String wachtwoord;
 	private String woonplaats;
-
+	private int accstatus;  //0 - blocked, 1-uitgelogd, 2-online
 	private int credits;
-
     private Set<Recht> rechten = new HashSet<Recht>();
     
 	public Account (){}
@@ -27,7 +26,7 @@ public class Account {
 	public Account(int id, String emailadres, String wachtwoord,
 			String voornaam, String tussenvoegsel, String achternaam,
 			String postcode, String telefoonnummer, String straat,
-			String huisnummer, String woonplaats) {
+			String huisnummer, String woonplaats, int accstatus) {
 		super();
 		this.id = id;
 		this.emailadres = emailadres;
@@ -41,8 +40,18 @@ public class Account {
 		this.huisnummer = huisnummer;
 		this.woonplaats = woonplaats;
 		this.credits = 0;
+		this.accstatus = accstatus;
 	}
-		
+	
+
+	public int getAccstatus() {
+		return accstatus;
+	}
+
+
+	public void setAccstatus(int accstatus) {
+		this.accstatus = accstatus;
+	}
 
 
 	public String getAchternaam() {
