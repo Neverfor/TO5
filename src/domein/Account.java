@@ -139,4 +139,8 @@ public class Account {
 		this.rechten = rechten;
 
 	}
+	
+	public boolean hasRecht(String recht){
+		return this.rechten.contains(new Recht(recht));
+	}
 }
