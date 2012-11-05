@@ -112,6 +112,13 @@
 			value="Uitgebreide informatie over de veiling" />
 		<put-attribute name="body" value="/veiling/veilingInfo.jsp" />
 	</definition>
+	
+	<definition name="veilingBestaatNiet" extends="memberLayout">
+		<put-attribute name="title"
+			value="Er is iets mis gegaan of veiling bestaat niet!" />
+		<put-attribute name="body" value="/veiling/veilingNietBestaat.jsp" />
+	</definition>
+
 
 	<definition name="alleVeilingen" extends="memberLayout">
 		<put-attribute name="title" value="Overzicht van alle veilingen" />
@@ -121,10 +128,9 @@
 	<!-- End Veiling -->
 
 	<!-- Beheer -->
-	<definition name="beheerLayout" extends="baseLayout">
+	<definition name="beheerLayout" extends="memberLayout">
 		<put-attribute name="title" value="Beheer" />
 		<put-attribute name="body" value="/beheer/home.jsp" />
-		<put-attribute name="menu" value="/beheer/menu.jsp" />
 	</definition>
 	<definition name="beheerAccounts" extends="beheerLayout">
 		<put-attribute name="title" value="Beheer Accounts" />

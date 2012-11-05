@@ -26,9 +26,21 @@ public class LoginAction extends ActionSupport implements SessionAware {
 //			return INPUT;
 //		}
 //		else 
+		if(account.getAccstatus()==0){
+			System.out.println("account is geblokeerd");
+			addActionError("Dit account is geblokeerd! Neem zo spoedig mogelijk contact met administratie!");
+			return ActionSupport.ERROR;
+		}
+//		if(account.getAccstatus()==2 || Integer.toString(account.getAccstatus())==null || Integer.toString(account.getAccstatus()).equals("")){
+//			System.out.println("account is al online");
+//			addActionError("Dit account is al ingelogd!");
+//			return ActionSupport.INPUT;
+//		}
+		else 
 		System.out.println("test " + emailadres);
 		System.out.println(account.getVoornaam());
 		session.put( "account", account );
+//		account.setAccstatus(2);
 		return SUCCESS;
 	}
 	
@@ -73,7 +85,22 @@ public class LoginAction extends ActionSupport implements SessionAware {
 	}
 	
 	public String logOut(){
+//		System.out.println(account.getVoornaam());
+//		if (account.getAccstatus()==1){
+//		System.out.println(account.getVoornaam());
 		session.remove("account");
 		return SUCCESS;
+//		}
+//		else if (account.getAccstatus()!=1) {
+//			System.out.println(account.getVoornaam());
+//			account.setAccstatus(1);
+//			accountDAO.makePersistent(account);
+//			System.out.println(account.getVoornaam());
+//			System.out.println(account.getAccstatus());
+//			session.remove("account");
+//			return SUCCESS;
+//		}
+//		return ERROR;
+		
 	}
 }

@@ -27,7 +27,7 @@
 			<a href="<s:property value="#url"/>">Zoeken</a>
 		</li>
 	</ul>
-	<s:form action="loginDo" cssClass="navbar-form pull-right"
+	<s:form action="loginDo" namespace="/" cssClass="navbar-form pull-right"
 		theme="simple">
 		<s:textfield name="emailadres" cssClass="span2"
 			placeholder="getText('emailadres')" />

@@ -1,4 +1,5 @@
 <%@ taglib prefix="s" uri="/struts-tags"%>
+<%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles"%>
 <div class="nav-collapse collapse">
 	<ul class="nav">
 
@@ -30,17 +31,20 @@
 			<a href="<s:property value="#url"/>">Zoeken</a>
 		</li>
 	</ul>
+	<s:push value="#session['account']">
+		<ul class="nav pull-right">
+			<li class="dropdown"><a href="#" class="dropdown-toggle"
+				data-toggle="dropdown"> <s:property value="emailadres" /> <b
+					class="caret"></b>
+			</a>
+				<ul class="dropdown-menu">
+					<li><a href="<s:url action="logout" namespace="/"/>">Uitloggen</a>
+				</ul></li>
+		</ul>
+		<s:if test="%{hasRecht('beheerder')}">
+			<tiles:insertTemplate template="/beheer/menu.jsp"></tiles:insertTemplate>
+		</s:if>
 
-	<ul class="nav pull-right">
-		<li class="dropdown">
-			<a href="#" class="dropdown-toggle" data-toggle="dropdown">
-				<s:property value="#session['account'].emailadres"/>
-				<b class="caret"></b>
-		</a>
-			<ul class="dropdown-menu">
-				<li><a href="<s:url action="logout" namespace="/"/>">Uitloggen</a>
-			</ul>
-		</li>
-	</ul>
+	</s:push>
 </div>
 <!--/.nav-collapse -->

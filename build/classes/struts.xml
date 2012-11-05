@@ -17,6 +17,7 @@
 
 		<interceptors>
 			<interceptor name="hibernateSessionInterceptor" class="utils.HibernateSessionInterceptor" />
+			<interceptor name="redirectMessage"	class="utils.RedirectMessageInterceptor" />
 			<interceptor-stack name="standaardStack">
 				<interceptor-ref name="hibernateSessionInterceptor" />
                 <interceptor-ref name="exception"/>
@@ -31,16 +32,17 @@
                 <interceptor-ref name="modelDriven"/>
                 <interceptor-ref name="fileUpload"/>
                 <interceptor-ref name="checkbox"/>
+                <interceptor-ref name="redirectMessage" />
                 <interceptor-ref name="staticParams"/>
                 <interceptor-ref name="params">
                   <param name="excludeParams">dojo\..*</param>
                 </interceptor-ref>
                 <interceptor-ref name="conversionError"/>
                 <interceptor-ref name="validation">
-                    <param name="excludeMethods">input,back,cancel,browse</param>
+                    <param name="excludeMethods">input,back,cancel,browse,delete</param>
                 </interceptor-ref>
                 <interceptor-ref name="workflow">
-                    <param name="excludeMethods">input,back,cancel,browse</param>
+                    <param name="excludeMethods">input,back,cancel,browse,delete</param>
                 </interceptor-ref>
             </interceptor-stack>
 		</interceptors>
@@ -58,8 +60,8 @@
 		<interceptors>
 			<interceptor name="securityInterceptor" class="utils.SecurityInterceptor" />
 			<interceptor-stack name="securityStack">
-				<interceptor-ref name="securityInterceptor" />
 				<interceptor-ref name="standaardStack" />
+				<interceptor-ref name="securityInterceptor" />				
 			</interceptor-stack>
 		</interceptors>
 		<default-interceptor-ref name="securityStack"></default-interceptor-ref>

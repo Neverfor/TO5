@@ -14,7 +14,7 @@
 <s:actionerror theme="bootstrap" />
 <s:actionmessage theme="bootstrap" />
 
-<tiles:insertDefinition name="accountGegevensForm">
+<tiles:insertDefinition name="regForm">
 	<tiles:putAttribute name="formAction">registrerenDo</tiles:putAttribute>
 	<tiles:putAttribute name="wachtwoordVelden" value="/gedeeld/wachtwoordVelden.jsp"/>
 </tiles:insertDefinition>

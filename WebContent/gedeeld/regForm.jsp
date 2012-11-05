@@ -3,7 +3,6 @@
 
 <tiles:importAttribute name="formAction"/>
 <s:form action="%{#attr['formAction']}" cssClass="form-horizontal" theme="bootstrap">
-	<s:hidden name="id" value="%{account.id}"/>
 	<s:textfield key="account.emailadres" 		label="Email" 			value="%{account.emailadres}"/>
 	<tiles:insertAttribute name="wachtwoordVelden"/> 
 	<s:textfield name="account.voornaam" 		label="Voornaam"  		value="%{account.voornaam}"/>
@@ -13,6 +12,7 @@
 	<s:textfield name="account.postcode" 		label="Postcode" 		value="%{account.postcode}" cssClass="input-small" />
 	<s:textfield name="account.straat" 			label="Straat"  		value="%{account.straat}"/>
 	<s:textfield name="account.huisnummer" 		label="Huisnummer" 		value="%{account.huisnummer}" cssClass="input-mini" />
+	<s:hidden	 name="account.accstatus" 		label="accstatus" 		value=1  />
 	<div class="form-actions">
 		<s:submit cssClass="btn" />
 	</div>
