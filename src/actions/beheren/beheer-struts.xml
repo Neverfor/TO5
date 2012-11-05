@@ -7,22 +7,25 @@
 	<package name="beheer" extends="accountAware" namespace="/beheer">
 		<interceptors>
 			<interceptor-stack name="securityStack">
+				<interceptor-ref name="standaardStack" />
 				<interceptor-ref name="securityInterceptor">
 					<param name="recht">beheerder</param>
-				</interceptor-ref>
-				<interceptor-ref name="standaardStack" />
+				</interceptor-ref>				
 			</interceptor-stack>
 		</interceptors>
 		<default-interceptor-ref name="securityStack"></default-interceptor-ref>
 		<action name="accounts" class="actions.beheren.BeheerAccountsAction">
 			<result type="tiles">beheerAccounts</result>
 		</action>
-		<action name="account" class="actions.beheren.BeheerAccountAction">
+		<action name="account" class="actions.beheren.BeheerAccountAction" method="input">
 			<result type="tiles" name="success">beheerAccount</result>			
 		</action>
-		<action name="accountsave" class="actions.account.WijzigGegevens">
-			<result type="tiles" name="success">beheeerAccounts</result>
-			<result type="redirectAction" name="input">account</result>
+		<action name="saveAccount" class="actions.beheren.BeheerAccountAction">
+			<result type="redirectAction" name="success">accounts</result>
+			<result type="tiles" name="input">beheerAccount</result>
+		</action>
+		<action name="deleteaccount" class="actions.beheren.BeheerAccountAction" method="delete">
+			<result type="redirectAction">accounts</result>			
 		</action>
 		
 		
