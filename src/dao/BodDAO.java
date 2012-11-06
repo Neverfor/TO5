@@ -30,13 +30,14 @@ public class BodDAO {
 	            session = sessionFactory.openSession();            
 	            System.out.println("Sessie open");
 	        }catch (HibernateException hibernateException) {
+	        	System.out.println("Er is een fout opgetreden!");
 	            System.out.println(hibernateException.getMessage());
 	            hibernateException.printStackTrace();
 	            session.close();
 	        }
 		}
 		
-		public List<Bod> getVeilingen(Account account){
+		public List<Bod> getBiedingen(Account account){
 			List<Bod> uniqueResult = (List<Bod>) session.createQuery("from Bod where ACCOUNT_ID = ?").setInteger(0, account.getId()).list();
 			session.close();
 			return uniqueResult;
@@ -49,6 +50,7 @@ public class BodDAO {
 	            transaction.commit();	            
 	            return true;
 			}catch (HibernateException hibernateException) {
+				System.out.println("Bij toevoegen van bod ging iets mis!");
 	            System.out.println(hibernateException.getMessage());
 	            transaction.rollback();
 	            return false;
@@ -61,12 +63,18 @@ public class BodDAO {
 			return bod;
 		}
 		
-//		public Veiling getAlleVeilingen(String status){
-//			return (Veiling) session.createQuery("from Veiling where veilingstatus =?").setString(0, status);
-//		}
+		public List<Bod> getVeilingen(Account account){
+			List<Bod> uniqueResult = (List<Bod>) session.createQuery("from Bod where ACCOUNT_ID = ?").setInteger(0, account.getId()).list();
+			session.close();
+			return uniqueResult;
+		}
 		
-		public List<Bod> getAlleBoden(Date datum){
-			List<Bod> uniqueResult = (List<Bod>) session.createQuery("from Veiling where VEILINGSTATUS = ?").setString(0, "actief").list();
+		public Veiling getAlleBiedingen(){
+			return (Veiling) session.createQuery("from Bod");
+		}
+		
+		public List<Bod> getBiedingenByID(int id){
+			List<Bod> uniqueResult = (List<Bod>) session.createQuery("from BOD where VEILING_ID = ?").setInteger(0, id).list();
 			return uniqueResult;
 		}
 		
