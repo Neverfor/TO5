@@ -1,7 +1,11 @@
 package actions.veiling;
 
+import java.awt.image.BufferedImage;
+import java.awt.image.DataBufferByte;
+import java.awt.image.WritableRaster;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.IOException;
 import java.sql.Blob;
 import java.sql.SQLException;
 import java.util.Calendar;
@@ -9,6 +13,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
+import javax.imageio.ImageIO;
 import javax.sql.rowset.serial.SerialBlob;
 import javax.sql.rowset.serial.SerialException;
 
@@ -24,11 +29,12 @@ import domein.Account;
 import domein.Rubriek;
 import domein.Veiling;
 
-public class PlaatsAction extends ActionSupport implements SessionAware, Preparable {
+public class PlaatsAction extends ActionSupport implements SessionAware,
+		Preparable {
 
 	private static final long serialVersionUID = 1L;
 	private Veiling veiling = new Veiling();
-	
+
 	private RubriekDAO rubriekDAO;
 	private VeilingDAO veilingDAO;
 	private int veilingDuur;
@@ -38,17 +44,17 @@ public class PlaatsAction extends ActionSupport implements SessionAware, Prepara
 	private String minimumBod;
 	private Integer rubriek;
 	private Account account;
-	private List<Rubriek> rubrieken; 
-	
+	private List<Rubriek> rubrieken;
+
 	public List<Rubriek> getRubrieken() {
 		return rubrieken;
 	}
-	
-	public PlaatsAction(){
+
+	public PlaatsAction() {
 		rubriekDAO = new RubriekDAO();
 		veilingDAO = new VeilingDAO();
 	}
-		
+
 	public String execute(){
 		veiling.setAccount(account);
 		veiling.setStatus("actief");
@@ -62,18 +68,34 @@ public class PlaatsAction extends ActionSupport implements SessionAware, Prepara
 		cal.add(Calendar.DATE, veilingDuur);
 		veiling.setEindDatum(cal.getTime());
 		byte[] blob = new byte[(int) img.length()];
-        veiling.setImage(blob);
-		veilingDAO.makePersistent(veiling);
+		BufferedImage bufferedImage;
+		try {
+			bufferedImage = ImageIO.read(img);
+			WritableRaster raster = bufferedImage.getRaster();
+			DataBufferByte data = (DataBufferByte) raster.getDataBuffer();
+			blob = data.getData();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		
+		
+		
+		veiling.setImage(blob);
+		veiling = veilingDAO.makePersistent(veiling);
+		
 		return SUCCESS;
 	}
-	
+
 	public int getVeilingDuur() {
 		return veilingDuur;
 	}
+
 	public void setVeilingDuur(int veilingDuur) {
 		this.veilingDuur = veilingDuur;
 	}
-	
+
 	public String getTitel() {
 		return titel;
 	}
@@ -97,7 +119,7 @@ public class PlaatsAction extends ActionSupport implements SessionAware, Prepara
 	public void setRubriek(Integer rubriek) {
 		this.rubriek = rubriek;
 	}
-	
+
 	public String getOmschrijving() {
 		return omschrijving;
 	}
@@ -113,19 +135,19 @@ public class PlaatsAction extends ActionSupport implements SessionAware, Prepara
 	public void setMinimumBod(String minimumBod) {
 		this.minimumBod = minimumBod;
 	}
-	
-	public String submit(){
+
+	public String submit() {
 		return SUCCESS;
 	}
 
 	@Override
 	public void setSession(Map<String, Object> session) {
-		account = (Account)session.get("account");
-		
+		account = (Account) session.get("account");
+
 	}
 
 	@Override
 	public void prepare() throws Exception {
-		rubrieken = (List<Rubriek>) rubriekDAO.findAll();	
+		rubrieken = (List<Rubriek>) rubriekDAO.findAll();
 	}
 }
