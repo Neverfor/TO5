@@ -70,6 +70,11 @@
 		<put-attribute name="title" value="Koop credits hier!" />
 		<put-attribute name="body" value="/account/creditsKopen.jsp" />
 	</definition>
+	
+		<definition name="cuitbetalen" extends="memberLayout">
+		<put-attribute name="title" value="Credits uitbetalen!" />
+		<put-attribute name="body" value="/account/creditsUitbetalen.jsp" />
+	</definition>
 
 	<!-- End Account -->
 

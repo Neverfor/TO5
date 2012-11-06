@@ -3,6 +3,8 @@
 
 <tiles:importAttribute name="formAction"/>
 <s:form action="%{#attr['formAction']}" cssClass="form-horizontal" theme="bootstrap">
+	<label></label>
+	<label></label>
 	<s:hidden name="id" value="%{account.id}"/>
 	<s:textfield key="account.emailadres" 		label="Email" 			value="%{account.emailadres}"/>
 	<tiles:insertAttribute name="wachtwoordVelden"/> 
