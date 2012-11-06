@@ -4,6 +4,7 @@ import org.apache.log4j.Logger;
 import org.hibernate.SessionFactory;
 import org.hibernate.StaleObjectStateException;
 
+import com.opensymphony.xwork2.Action;
 import com.opensymphony.xwork2.ActionInvocation;
 import com.opensymphony.xwork2.interceptor.Interceptor;
 
@@ -57,7 +58,10 @@ public class HibernateSessionInterceptor implements Interceptor {
 			// work with
 			// fresh data... what you do here depends on your applications
 			// design.
-			throw staleEx;
+//			throw staleEx;
+			log.error(staleEx.toString());
+			staleEx.printStackTrace();
+			return Action.ERROR;
 		} catch (Throwable ex) {
 			// Rollback only
 			try {
@@ -68,7 +72,11 @@ public class HibernateSessionInterceptor implements Interceptor {
 						rbEx);
 			}
 			// Let others handle it... maybe another interceptor for exceptions?
-			throw ex;
+//			throw ex;			
+			log.error(ex.toString());
+			ex.printStackTrace();
+
+			return Action.ERROR;
 		}
 	}
 

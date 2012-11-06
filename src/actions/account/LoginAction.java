@@ -21,19 +21,40 @@ public class LoginAction extends ActionSupport implements SessionAware {
 		
 
 	public String execute(){
+//		if(session.containsValue(account)){
+//			addActionError("Account is al ingeloogd!");
+//			return INPUT;
+//		}
+//		else 
+		if(account.getAccstatus()==0){
+			System.out.println("account is geblokeerd");
+			addActionError("Dit account is geblokeerd! Neem zo spoedig mogelijk contact met administratie!");
+			return ActionSupport.ERROR;
+		}
+//		if(account.getAccstatus()==2 || Integer.toString(account.getAccstatus())==null || Integer.toString(account.getAccstatus()).equals("")){
+//			System.out.println("account is al online");
+//			addActionError("Dit account is al ingelogd!");
+//			return ActionSupport.INPUT;
+//		}
+		else 
 		System.out.println("test " + emailadres);
 		System.out.println(account.getVoornaam());
 		session.put( "account", account );
-//		session.put("voornaam", account.getVoornaam());
-//		account = (Account)session.get(account);
-		//System.out.println(account.getAchternaam());
+//		account.setAccstatus(2);
+		return SUCCESS;
+	}
+	
+	public String input() {
+		if (session.get("account") != null) {
+			return "REDIRECT";
+		}
 		return SUCCESS;
 	}
 
 	public void validate(){		
 		account = accountDAO.findAccount(emailadres, wachtwoord);
 		if(account == null){
-			addActionError("Geen geldige username of wachtwoord");
+			addActionError("Geen geldige username of wachtwoord.");
 		}
 	}
 	

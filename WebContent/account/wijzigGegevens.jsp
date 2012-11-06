@@ -1,6 +1,5 @@
 <%@ taglib prefix="s" uri="/struts-tags"%>
 <%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles"%>
-<span class="mijnKopText"> Je account overzicht</span> <br/>
 
 ${request.requestURL}
 
@@ -10,6 +9,7 @@ ${request.requestURL}
 <p class="welkomSpan">Hier kunt u uw gegevens wijzigen!</p>
 
 <span class="mijnGrootText"> Je gegevens zijn geregistreerd als volgt: </span>
+<label></label>
 <tiles:insertDefinition name="accountGegevensForm">
 	<tiles:putAttribute name="formAction">wijzigenGegevens</tiles:putAttribute>
 </tiles:insertDefinition>

@@ -13,26 +13,34 @@
 
 		<action name="loginDo" class="actions.account.LoginAction">
 			<result name="input" type="tiles">login</result>
+			<result name="error" type="tiles">login</result>
 			<result name="success" type="redirectAction">
 				<param name="actionName">gebruikerspaneel</param>
 				<param name="namespace">/gebruiker</param>
-			</result>
+				</result>
 		</action>
 		
 
 		<action name="registreren">
 			<result type="tiles">registreren</result>
 		</action>
-		<action name="login">
+		<action name="login" class="actions.account.LoginAction" method="input">
 			<result type="tiles">login</result>
+			<result name="REDIRECT" type="redirectAction">
+			<param name="actionName">gebruikerspaneel</param>
+			<param name="namespace">/gebruiker</param>
+			</result>
 		</action>
+		<action name="logout" class="actions.account.LoginAction" method="logOut">
+			<interceptor-ref name="basicStack"></interceptor-ref> <!-- Geen validatie of db sessies -->
+			<result name="success" type="tiles">welcome</result>
+			<result name="error" type="tiles">error</result>
+		</action>
+		
 	</package>
 
 	<package name="accountLoggedIn" extends="accountAware"
 		namespace="/gebruiker">
-		<action name="logout" class="actions.account.LoginAction" method="logOut">
-			<result type="tiles">welcome</result>
-		</action>
 		<action name="gebruikerspaneel" class="actions.account.AccountPage">
 			<result type="tiles">gebruikerspaneel</result>
 		</action>
@@ -51,8 +59,15 @@
 			<result name="input" type="tiles">ckopen</result>
 			<result name="success" type="redirectAction">gebruikerspaneel</result>
 		</action>
+		<action name="creditsUitbetalen" class="actions.account.CreditsUitbetalen">
+			<result name="input" type="tiles">cuitbetalen</result>
+			<result name="success" type="redirectAction">gebruikerspaneel</result>
+		</action>
 		<action name="gotockopen" class="actions.account.CreditForm">
 			<result type="tiles">ckopen</result>
+		</action>
+		<action name="gotockuitbetalen" class="actions.account.CreditForm">
+			<result type="tiles">cuitbetalen</result>
 		</action>
 		<action name="gotowijzigpass" class="actions.account.WijzigForm">
 			<result type="tiles">wgpass</result>

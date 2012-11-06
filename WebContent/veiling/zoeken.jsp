@@ -14,7 +14,7 @@
 <s:form action="zoekenDo" cssClass="form-horizontal" theme="bootstrap">
 	<s:textfield name="zoekterm" label="Zoeken" />
 	<s:select label="Rubriek" 
-		headerKey="-1" headerValue="--- Kies rubriek ---"
+		headerKey="-1" headerValue="alle rubrieken"
 		list="rubrieken" 
 		name="rubriek" listValue="naam" listKey="id" />
 	<div class="form-actions">

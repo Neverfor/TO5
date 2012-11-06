@@ -1,30 +1,47 @@
 package domein;
 
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 
 
 public class Veiling {
 
 	private int id;
+	private String titel;
+	private String omschrijving;
+	private Rubriek rubriek;
+	private String status;
+	private int minimumBod;
+	private Account account;
+	private Date eindDatum;
+	private byte[] image;
+	private Set<Bod> biedingen = new HashSet<Bod>();
+	
 	public int getId() {
 		return id;
 	}
 	public void setId(int id) {
 		this.id = id;
-	}
-	private String titel;
-	private String omschrijving;
-	private Rubriek rubriek;
-	private String status;
+	}	
 	
-	private int minimumBod;
-	private Account account;
-	private Date einddatum;
-	public Date getEindDatum() {
-		return einddatum;
+	public void addBod(Bod bod) {
+		this.biedingen.add(bod);
 	}
-	public void setEindDatum(Date einddatum) {
-		this.einddatum = einddatum;
+	
+	public Set<Bod> getBiedingen() {
+		return biedingen;
+	}
+
+	public void setBiedingen(Set<Bod> biedingen) {
+		this.biedingen = biedingen;
+	}
+	
+	public Date getEindDatum() {
+		return eindDatum;
+	}
+	public void setEindDatum(Date eindDatum) {
+		this.eindDatum = eindDatum;
 	}
 	private Date beginDatum;
 	
@@ -65,26 +82,16 @@ public class Veiling {
 	public void setMinimumBod(int minimumBod) {
 		this.minimumBod = minimumBod;
 	}
-	/*public Date getEndDate() {
-		return endDate;
-	}
-	public void setEndDate(Date endDate) {
-		this.endDate = endDate;
-	}
-	*/
-	
 	public Date getBeginDatum() {
 		return beginDatum;
 	}
 	public void setBeginDatum(Date beginDatum) {
 		this.beginDatum = beginDatum;
 	}
-	
-	/*
-	public String getStatus() {
-		return status;
+	public byte[] getImage() {
+		return image;
 	}
-	public void setStatus(String status) {
-		this.status = status;
-	}*/
+	public void setImage(byte[] image) {
+		this.image = image;
+	}
 }

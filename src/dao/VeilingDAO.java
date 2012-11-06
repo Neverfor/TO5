@@ -21,19 +21,18 @@ public class VeilingDAO extends GenericHibernateDAO<Veiling, Integer> {
 		}	
 		
 		public List<Veiling> zoekVeilingen(int rubriekId, String zoekTerm){
+			if(zoekTerm == null) zoekTerm = "";
 			List<Veiling> uniqueResult = (List<Veiling>) hSession.createQuery("from Veiling where RUBRIEK_ID = :rId AND TITEL LIKE :zTerm ").setInteger("rId", rubriekId).setString("zTerm",  "%" + zoekTerm + "%").list();
-			hSession.close();
-			return uniqueResult;
-		}
-
-		public List<Rubriek> getRubrieken(){
-			List<Rubriek> uniqueResult = (List<Rubriek>) hSession.createQuery("from Rubriek").list();
-			hSession.close();
 			return uniqueResult;
 		}
 		
-		public Rubriek getRubriek(Integer id){
-			Rubriek rubr = (Rubriek) hSession.createQuery("from Rubriek where ID = ?").setInteger(0, id).uniqueResult();		
-			return rubr;
+		public List<Veiling> zoekVeilingen(String zoekTerm){
+			if(zoekTerm == null) zoekTerm = "";
+			List<Veiling> uniqueResult = (List<Veiling>) hSession.createQuery("from Veiling where TITEL LIKE :zTerm ").setString("zTerm",  "%" + zoekTerm + "%").list();
+			return uniqueResult;
+		}
+		public void addImage(Veiling veiling, byte[] blob) {
+			// TODO Auto-generated method stub
+			
 		}
 }

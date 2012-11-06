@@ -11,6 +11,8 @@
 		<property column="VEILINGSTATUS" name="status" type="string" />
 		<property column="MINIMUMBOD" name="minimumBod" type="int" />
 		<property column="BEGINDATUM" name="beginDatum" type="date" />
+		<property column="EINDDATUM" name= "eindDatum" type="date" />
+		<property column="IMAGE" name= "image" type="binary" />
 		<many-to-one name="account" class="domein.Account"
 			not-null="true" cascade="save-update" unique="false">
 			<column name="ACCOUNT_ID" />
@@ -19,5 +21,9 @@
 			not-null="true" cascade="save-update" unique="false">
 			<column name="RUBRIEK_ID" />
 		</many-to-one>
+		<set name="biedingen" table="BOD" cascade="save-update">
+			<key column="VEILING_ID" />
+			<one-to-many class="domein.Bod" />
+		</set>
 	</class>
 </hibernate-mapping>

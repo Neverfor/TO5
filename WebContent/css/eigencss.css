@@ -1,0 +1,10 @@
+@CHARSET "ISO-8859-1";
+.alert > p{
+	margin: 0;
+}
+
+.alert-info{
+	background-color: #BCE8F1;
+    border-color: #BCE8F1;
+    color: #000000;
+}

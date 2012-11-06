@@ -18,8 +18,13 @@ public class ShowEen extends ActionSupport implements SessionAware{
 	private int id;
 	private VeilingDAO veilingDAO;
 	private Veiling veiling;
+	private List<Veiling> veilingen = new ArrayList<Veiling>(); 
 	
 	public String execute(){
+		veilingen = (List<Veiling>) veilingDAO.findAll("actief");
+		if (!veilingen.contains(veilingDAO.findById(id))){ 
+			return INPUT;
+		}
 		veiling = veilingDAO.findById(id);
 		System.out.println(veiling.getId());
 		System.out.println(veiling.getTitel());
@@ -46,7 +51,15 @@ public class ShowEen extends ActionSupport implements SessionAware{
 	public ShowEen(){
 		veilingDAO = new VeilingDAO();
 	}
+	
+	public List<Veiling> getVeilingen() {
+		return veilingen;
+	}
 
+	public void setVeilingen(List<Veiling> veilingen) {
+		this.veilingen = veilingen;
+	}
+	
 	@Override
 	public void setSession(Map<String, Object> session) {
 		account = (Account)session.get("account");

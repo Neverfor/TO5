@@ -12,7 +12,7 @@ import domein.Account;
 import domein.Recht;
 
 public class SecurityInterceptor implements Interceptor, SessionAware {
-	private Recht recht;
+	private String recht;
 	
 	@Override
 	public void destroy() {
@@ -27,19 +27,19 @@ public class SecurityInterceptor implements Interceptor, SessionAware {
 	@Override
 	public String intercept(ActionInvocation actionInvocation) throws Exception {		
 		Account account = (Account) actionInvocation.getInvocationContext().getSession().get("account");		
-		if(account == null || (recht != null && !account.getRechten().contains(recht))){
+		if(account == null || (recht != null && !account.hasRecht(recht))){
 			return Action.LOGIN;
 		}
 
 		return actionInvocation.invoke();
 	}
 
-	public Recht getRecht() {
+	public String getRecht() {
 		return recht;
 	}
 
 	public void setRecht(String recht) {
-		this.recht = new Recht(recht);
+		this.recht = recht;
 	}
 
 	@Override

@@ -16,7 +16,7 @@ import dao.VeilingDAO;
 import dao.AccountDAO;
 
 
-public class BiedAction extends ActionSupport implements ModelDriven<Bod>, SessionAware {
+public class BiedAction extends ActionSupport implements /*ModelDriven<Bod>,*/ SessionAware {
 	/**
 	 * 
 	 */
@@ -30,38 +30,51 @@ public class BiedAction extends ActionSupport implements ModelDriven<Bod>, Sessi
 	private VeilingDAO veilingDAO = new VeilingDAO();
 	private AccountDAO accountDAO = new AccountDAO();
 	private Account account;
+	private int id;
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
 
 	public BiedAction(){
 		bodDAO = new BodDAO();
 	}
 
 	public String execute() {
-		
-		int id = account.getId();
-		Account acc = (Account) accountDAO.findById(id);
-		
-		Date dT = new Date();
-		System.out.println(dT);
-//		System.out.println(gelds);
-		bod.setAccount(acc);
-		bod.setGeld(gelds);
-		System.out.println(bod.getGeld());
-		bod.setDatumTijd(dT);
-		System.out.println(bod.getDatumTijd());
-		veiling = (Veiling) veilingDAO.findById(veilingId);
-		bod.setVeiling(veiling);
-//		System.out.println(veiling.getTitel());
-		bodDAO.saveBod(bod);
-//		if(bodDAO.saveBod(bod)){
-//			return SUCCESS;
+//		veiling = (Veiling) veilingDAO.findById(veilingId);
+//		if (veiling.getMinimumBod()>geld){
+//			return ERROR;
 //		}
-		return SUCCESS;
+//		else {
+//			int id = account.getId();
+			Account acc = (Account) accountDAO.findById(id);
+			Date dT = new Date();
+			bod.setAccount(acc);
+			bod.setGeld(gelds);
+			bod.setDatumTijd(dT);
+			veiling = (Veiling) veilingDAO.findById(veilingId);
+			bod.setVeiling(veiling);
+//			bodDAO.saveBod(bod);
+			veiling.addBod(bod);
+			return SUCCESS;
+//		}
+		
 	}	
 	
 	public void validate(){
 	if (gelds == null){
-		addFieldError( "geld", "Geld veld mag niet leeg zijn");
-}
+		addFieldError( "geld", "Geld veld mag niet leeg zijn!");
+		}
+//	if (veiling.getMinimumBod()>geld){
+//		addFieldError( "geld", "Je bod is minder dan minimum bod!");
+//		}
+//	else {
+//		execute();
+//		}
 	}
 	
 	public Double getGeld() {
@@ -80,9 +93,9 @@ public class BiedAction extends ActionSupport implements ModelDriven<Bod>, Sessi
 		this.gelds = gelds;
 	}
 	
-	public Bod getModel() {
+	/*public Bod getModel() {
 		return bod;
-	}
+	}*/
 
 	public Date getDatum() {
 		return datum;

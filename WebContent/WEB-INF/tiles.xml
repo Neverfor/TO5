@@ -59,9 +59,6 @@
 	<definition name="wgegevens" extends="memberLayout">
 		<put-attribute name="title" value="Wijzig je gegevens hier!" />
 		<put-attribute name="body" value="/account/wijzigGegevens.jsp" />
-	<!-- 	<put-attribute name="bodyForm"
-			value="/gedeeld/wijzigAccountGegevensForm.jsp" /> -->
-		<!-- <put-attribute name="bodyFormAction" value="wijzigenGegevens" /> -->
 	</definition>
 
 	<definition name="wgpass" extends="memberLayout">
@@ -72,6 +69,11 @@
 	<definition name="ckopen" extends="memberLayout">
 		<put-attribute name="title" value="Koop credits hier!" />
 		<put-attribute name="body" value="/account/creditsKopen.jsp" />
+	</definition>
+	
+		<definition name="cuitbetalen" extends="memberLayout">
+		<put-attribute name="title" value="Credits uitbetalen!" />
+		<put-attribute name="body" value="/account/creditsUitbetalen.jsp" />
 	</definition>
 
 	<!-- End Account -->
@@ -100,6 +102,11 @@
 		<put-attribute name="body" 		value="/veiling/zoeken.jsp" />
 	</definition>
 	
+	<definition name="rubriekSelecteren" extends="memberLayout">
+		<put-attribute name="title" 	value="Rubriek selecteren" />
+		<put-attribute name="body" 		value="/veiling/categorieSelect.jsp" />
+	</definition>
+	
 	<definition name="veilingZoekenDo" extends="memberLayout">
 		<put-attribute name="title" 	value="Veiling zoeken" />
 		<put-attribute name="body" 		value="/veiling/showVeilingen.jsp" />
@@ -110,6 +117,13 @@
 			value="Uitgebreide informatie over de veiling" />
 		<put-attribute name="body" value="/veiling/veilingInfo.jsp" />
 	</definition>
+	
+	<definition name="veilingBestaatNiet" extends="memberLayout">
+		<put-attribute name="title"
+			value="Er is iets mis gegaan of veiling bestaat niet!" />
+		<put-attribute name="body" value="/veiling/veilingNietBestaat.jsp" />
+	</definition>
+
 
 	<definition name="alleVeilingen" extends="memberLayout">
 		<put-attribute name="title" value="Overzicht van alle veilingen" />
@@ -119,10 +133,9 @@
 	<!-- End Veiling -->
 
 	<!-- Beheer -->
-	<definition name="beheerLayout" extends="baseLayout">
+	<definition name="beheerLayout" extends="memberLayout">
 		<put-attribute name="title" value="Beheer" />
 		<put-attribute name="body" value="/beheer/home.jsp" />
-		<put-attribute name="menu" value="/beheer/menu.jsp" />
 	</definition>
 	<definition name="beheerAccounts" extends="beheerLayout">
 		<put-attribute name="title" value="Beheer Accounts" />
@@ -131,6 +144,16 @@
 	<definition name="beheerAccount" extends="beheerLayout">
 		<put-attribute name="title" value="Beheer Accounts" />
 		<put-attribute name="body" value="/beheer/wijzigAccount.jsp" />
+	</definition>
+	
+	<definition name="beheerVeilingen" extends="beheerLayout">
+		<put-attribute name="title" value="Beheer Veilingen"/>
+		<put-attribute name="body" value="/beheer/veilingenLijst.jsp"/>		
+	</definition>
+	
+	<definition name="beheerVeiling" extends="beheerLayout">
+		<put-attribute name="title" value="Beheer Veiling"/>
+		<put-attribute name="body" value="/beheer/wijzigVeiling.jsp"/>		
 	</definition>
 	<!-- End Beheer -->
 

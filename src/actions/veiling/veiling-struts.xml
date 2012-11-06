@@ -4,9 +4,9 @@
     "http://struts.apache.org/dtds/struts-2.0.dtd">
 
 <struts>
-	<package name="veilingPlaatsen" extends="default" namespace="/veiling">
+	<package name="veilingPlaatsen" extends="accountAware" namespace="/veiling">
 		<action name="plaatsenDo" class="actions.veiling.PlaatsAction">
-			<result name="input" type="tiles">plaatsen</result>
+			<result name="input" type="tiles">plaatsenPagina</result>
 			<result name="success" type="tiles">plaatsenBevestiging</result>
 		</action>
 		<action name="plaatsen" class="actions.veiling.getRubrieken">
@@ -18,20 +18,42 @@
 		<action name="zoeken" class="actions.veiling.getRubrieken">
 			<result type="tiles">veilingZoeken</result>
 		</action>
+		<action name="alleVeil" class="actions.veiling.getRubrieken">
+			<result type="tiles">rubriekSelecteren</result>
+		</action>
 		<action name="zoekenDo" class="actions.veiling.zoekVeiling">
 			<result name="input" type="tiles">veilingZoeken</result>
 			<result name="success" type="tiles">veilingZoekenDo</result>
 		</action>
-		<action name="alleVeil" class="actions.veiling.ShowAlle">
-			<result type="tiles">showVeilingen</result>
-		</action>
 		<action name="veilingInfo" class="actions.veiling.ShowEen">
 			<result type="tiles">veilingInfo</result>
+			<result name="error" type="tiles">error</result>
+			<result name="input" type="tiles">veilingBestaatNiet</result>
 		</action>
-		<action name="biedAction" class="actions.veiling.BiedAction">
-			<result name="success" type="redirectAction">showVeilingen</result>
-			<result name="input" type="tiles">veilingInfo</result>
-		</action>
+		<!-- <action name="biedAction" class="actions.veiling.BiedAction">
+			<result name="success" type="redirectAction">
+			<param name="actionName">showVeilingen</param>
+			<param name="namespace">/veilingen</param>
+			</result>			
+			<result name="input" type="redirectAction">
+			<param name="actionName">veilingInfo</param>
+			<param name="namespace">/veilingen</param>
+			</result>
+			<result name="error" type="tiles">error
+			<param name="actionName">veilingInfo</param>
+			<param name="namespace">/veilingen</param>
+			</result>
+		</action> -->
+	</package>
+	
+	<package name="bodPlaatsen" extends="accountAware" namespace="/veilingen">
+			<action name="biedAction" class="actions.veiling.BiedAction">
+				<result name="success" type="tiles">rubriekSelecteren</result>			
+				<result name="input" type="redirectAction">
+				<param name="actionName">veilingInfo</param>
+				<param name="namespace">/veilingen</param></result>
+				<result name="error" type="tiles">error</result>
+			</action>
 	</package>
 
 	<package name="mijnVeilingen" extends="accountAware" namespace="/veilingen">

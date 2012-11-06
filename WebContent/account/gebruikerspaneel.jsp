@@ -66,3 +66,6 @@
 <a href="<s:url action="gotockopen" namespace="/gebruiker"/>">
 	<button class="btn btn-primary">Koop credits!</button>
 </a>
+<a href="<s:url action="gotockuitbetalen" namespace="/gebruiker"/>">
+	<button class="btn btn-primary">Uitbetalen!</button>
+</a>
