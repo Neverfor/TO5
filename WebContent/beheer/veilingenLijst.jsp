@@ -35,8 +35,8 @@
 				</a> 
 			<td><s:property value="id" /></td>
 			<td><s:property value="titel" /></td>
-			<td><s:property value="omschrijving" /></td>
-			<td><s:property value="minumumbod" /></td>
+				<td><s:property value="omschrijving" /></td>
+			<td><s:property value="minimumBod" /></td>
 			<td><s:property value="rubriek.naam" /></td>
 		</tr>
 	</s:iterator>

@@ -2,6 +2,8 @@ package unittests;
 
 import static org.junit.Assert.fail;
 import java.util.List;
+import java.util.Set;
+
 import org.hibernate.SessionFactory;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -12,6 +14,7 @@ import dao.VeilingDAO;
 import dao.BodDAO;
 import domein.Account;
 import domein.Bod;
+import domein.Veiling;
 
 public class BodTest {
 	private static SessionFactory sf = HibernateUtil.getSessionFactory();
@@ -43,7 +46,8 @@ public class BodTest {
 	
 	@Test
 	public void testGetBodVanVeiling() {
-		List<Bod> biedingen = (List<Bod>) veilingDAO.findById(8).getBiedingen();
+		Veiling veiling = veilingDAO.findById(8);
+		Set<Bod> biedingen =  veiling.getBiedingen();
 		System.out.println(biedingen);
 		if(biedingen.isEmpty()){
 			fail("Veiling heeft geen biedingen");
@@ -52,7 +56,7 @@ public class BodTest {
 
 	@Test
 	public void testGetAlleBiedingen() {
-		List<Bod> biedingen = (List<Bod>) bodDAO.getBiedingenByID(8);
+		List<Bod> biedingen = bodDAO.getBiedingenByID(8);
 		System.out.println("Alle biedingen zijn van veiling met id 8:" + biedingen);
 		if(biedingen.isEmpty()){
 			fail("Veiling heeft geen biedingen");
