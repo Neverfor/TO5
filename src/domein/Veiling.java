@@ -1,5 +1,6 @@
 package domein;
 
+import java.sql.Blob;
 import java.util.Date;
 
 
@@ -16,7 +17,7 @@ public class Veiling {
 	private String omschrijving;
 	private Rubriek rubriek;
 	private String status;
-	
+	private byte[] image;
 	private int minimumBod;
 	private Account account;
 	private Date eindDatum;
@@ -71,5 +72,11 @@ public class Veiling {
 	}
 	public void setBeginDatum(Date beginDatum) {
 		this.beginDatum = beginDatum;
+	}
+	public byte[] getImage() {
+		return image;
+	}
+	public void setImage(byte[] image) {
+
 	}
 }
