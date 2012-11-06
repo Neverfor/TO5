@@ -29,13 +29,13 @@ public class Veiling {
 	public Set<Bod> getBiedingen() {
 		return biedingen;
 	}
-	
-//	public Set<Bod> getBiedingenByID(int ID) {
-//		return biedingen;
-//	}
 
 	public void setBiedingen(Set<Bod> biedingen) {
 		this.biedingen = biedingen;
+	}
+	
+	public void addBod(Bod bod) {
+		this.biedingen.add(bod);
 	}
 	
 //	public <Bod> getHuidigeBod(){
