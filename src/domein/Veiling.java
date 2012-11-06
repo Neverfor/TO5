@@ -36,6 +36,10 @@ public class Veiling {
 		this.biedingen = biedingen;
 	}
 	
+//	public <Bod> getHuidigeBod(){
+//		return biedingen;
+//	}
+	
 //	public boolean hasBiedingen(String bod){
 //		return this.biedingen.contains(new Bod(bod));
 //	}
