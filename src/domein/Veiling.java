@@ -1,6 +1,5 @@
 package domein;
 
-import java.sql.Blob;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
@@ -26,6 +25,10 @@ public class Veiling {
 		this.id = id;
 	}	
 	
+	public void addBod(Bod bod) {
+		this.biedingen.add(bod);
+	}
+	
 	public Set<Bod> getBiedingen() {
 		return biedingen;
 	}
@@ -33,18 +36,6 @@ public class Veiling {
 	public void setBiedingen(Set<Bod> biedingen) {
 		this.biedingen = biedingen;
 	}
-	
-	public void addBod(Bod bod) {
-		this.biedingen.add(bod);
-	}
-	
-//	public <Bod> getHuidigeBod(){
-//		return biedingen;
-//	}
-	
-//	public boolean hasBiedingen(String bod){
-//		return this.biedingen.contains(new Bod(bod));
-//	}
 	
 	public Date getEindDatum() {
 		return eindDatum;
@@ -101,6 +92,6 @@ public class Veiling {
 		return image;
 	}
 	public void setImage(byte[] image) {
-
+		this.image = image;
 	}
 }

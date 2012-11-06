@@ -31,4 +31,8 @@ public class VeilingDAO extends GenericHibernateDAO<Veiling, Integer> {
 			List<Veiling> uniqueResult = (List<Veiling>) hSession.createQuery("from Veiling where TITEL LIKE :zTerm ").setString("zTerm",  "%" + zoekTerm + "%").list();
 			return uniqueResult;
 		}
+		public void addImage(Veiling veiling, byte[] blob) {
+			// TODO Auto-generated method stub
+			
+		}
 }

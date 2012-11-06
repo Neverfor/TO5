@@ -15,6 +15,8 @@
 	<s:hidden name="id" value="%{veiling.id}"/>
 	<s:textfield name="veiling.titel" label="Titel" value="%{veiling.titel}"/>
 	<s:textfield name="veiling.omschrijving" label="Omschrijving" />
+	<s:select name="veiling.status" value="%{veiling.status}" 
+	list="#{'actief':'actief','verkocht':'verkocht','afgelopen':'afgelopen','geblokkeerd':'geblokkeerd'}" label="Status"/>
 	<s:select label="Rubriek" 
 		headerKey="" headerValue="--- Kies rubriek ---"
 		list="rubrieken"

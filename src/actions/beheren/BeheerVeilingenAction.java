@@ -13,6 +13,7 @@ public class BeheerVeilingenAction extends ActionSupport {
 	private static final long serialVersionUID = 1L;
 	private VeilingDAO veilingDAO = new VeilingDAO();
 	private List<Veiling> veilingen = new ArrayList<Veiling>(); 
+	private String status = "actief";
 	
 	public List<Veiling> getVeilingen() {
 		return veilingen;
@@ -23,7 +24,15 @@ public class BeheerVeilingenAction extends ActionSupport {
 	}
 
 	public String execute(){
-		veilingen = (List<Veiling>) veilingDAO.findAll("actief");
+		veilingen = (List<Veiling>) veilingDAO.findAll(status);
 		return SUCCESS;
+	}
+
+	public String getStatus() {
+		return status;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
 	}
 }

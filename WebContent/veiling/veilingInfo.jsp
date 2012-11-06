@@ -8,7 +8,7 @@
 	<tr class="mycolor">
 		<td class="mycolor">Titel:</td>
 		<td><s:property value="veiling.titel" /></td>
-	</tr class="mycolor">
+	</tr>
 	<tr class="mycolor">
 		<td class="mycolor">Omschrijving:</td>
 		<td><s:property value="veiling.omschrijving" /></td>
