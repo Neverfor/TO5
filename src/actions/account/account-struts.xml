@@ -59,8 +59,15 @@
 			<result name="input" type="tiles">ckopen</result>
 			<result name="success" type="redirectAction">gebruikerspaneel</result>
 		</action>
+		<action name="creditsUitbetalen" class="actions.account.CreditsUitbetalen">
+			<result name="input" type="tiles">cuitbetalen</result>
+			<result name="success" type="redirectAction">gebruikerspaneel</result>
+		</action>
 		<action name="gotockopen" class="actions.account.CreditForm">
 			<result type="tiles">ckopen</result>
+		</action>
+		<action name="gotockuitbetalen" class="actions.account.CreditForm">
+			<result type="tiles">cuitbetalen</result>
 		</action>
 		<action name="gotowijzigpass" class="actions.account.WijzigForm">
 			<result type="tiles">wgpass</result>
