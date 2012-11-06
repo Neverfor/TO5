@@ -1,5 +1,6 @@
 package domein;
 
+import java.sql.Blob;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
@@ -15,6 +16,7 @@ public class Veiling {
 	private int minimumBod;
 	private Account account;
 	private Date eindDatum;
+	private byte[] image;
 	private Set<Bod> biedingen = new HashSet<Bod>();
 	
 	public int getId() {
@@ -94,5 +96,11 @@ public class Veiling {
 	}
 	public void setBeginDatum(Date beginDatum) {
 		this.beginDatum = beginDatum;
+	}
+	public byte[] getImage() {
+		return image;
+	}
+	public void setImage(byte[] image) {
+
 	}
 }
