@@ -33,7 +33,7 @@ public class CreditsUitbetalen extends ActionSupport implements SessionAware {
 	}
 
 	public String execute(){
-		account.setCredits(cNieuw-cOud);
+		account.setCredits(cOud-cNieuw);
 		accountDAO.makePersistent(account);
 		System.out.println(account.getVoornaam());
 		return SUCCESS;
