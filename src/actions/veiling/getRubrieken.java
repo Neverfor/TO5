@@ -15,17 +15,9 @@ public class getRubrieken extends ActionSupport implements SessionAware{
 
 	private static final long serialVersionUID = 1L;	
 
-	private RubriekDAO rubriekDAO;
 	private Account account;
+	private RubriekDAO rubriekDAO;
 	private List<Rubriek> rubrieken; 
-
-	public List<Rubriek> getRubrieken() {
-		return rubrieken;
-	}
-
-	public void setVeilingen(List<Rubriek> rubrieken) {
-		this.rubrieken = rubrieken;
-	}
 
 	public getRubrieken(){
 		rubriekDAO = new RubriekDAO();
@@ -36,9 +28,17 @@ public class getRubrieken extends ActionSupport implements SessionAware{
 		return SUCCESS;
 	}
 
+	public List<Rubriek> getRubrieken() {
+		return rubrieken;
+	}
+
 	@Override
 	public void setSession(Map<String, Object> session) {
 		account = (Account)session.get("account");
 
+	}
+
+	public void setVeilingen(List<Rubriek> rubrieken) {
+		this.rubrieken = rubrieken;
 	}
 }

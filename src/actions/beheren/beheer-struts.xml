@@ -31,11 +31,15 @@
 		<action name="veilingen" class="actions.beheren.BeheerVeilingenAction">
 			<result type="tiles">beheerVeilingen</result>
 		</action>
-		<action name="veiling" class="actions.beheren.BeheerVeilingAction">
+		<action name="veiling" class="actions.beheren.BeheerVeilingAction" method="input">
 			<result type="tiles">beheerVeiling</result>
 		</action>
-		<action name="deleteaccount" class="actions.beheren.BeheerVeilingAction" method="delete">
-			<result type="tiles">beheerVeiling</result>
+		<action name="saveveiling" class="actions.beheren.BeheerVeilingAction">
+			<result type="redirectAction" name="success">veilingen</result>
+			<result type="tiles" name="input">beheerVeiling</result>
+		</action>
+		<action name="deleteveiling" class="actions.beheren.BeheerVeilingAction" method="delete">
+			<result type="redirectAction" name="success">veilingen</result>
 		</action>
 	</package>
 </struts>

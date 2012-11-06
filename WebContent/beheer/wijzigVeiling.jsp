@@ -11,16 +11,15 @@
 <s:actionerror theme="bootstrap" />
 <s:actionmessage theme="bootstrap" />
 
-<s:form action="plaatsenDo" cssClass="form-horizontal" theme="bootstrap">
-	<s:textfield name="titel" label="Titel" />
-	<s:textfield name="omschrijving" label="Omschrijving" />
+<s:form action="saveveiling" cssClass="form-horizontal" theme="bootstrap">
+	<s:hidden name="id" value="%{veiling.id}"/>
+	<s:textfield name="veiling.titel" label="Titel" value="%{veiling.titel}"/>
+	<s:textfield name="veiling.omschrijving" label="Omschrijving" />
 	<s:select label="Rubriek" 
 		headerKey="" headerValue="--- Kies rubriek ---"
-		list="rubrieken" 
-		name="rubriek" listValue="naam" listKey="id" />
-	<s:radio name="veilingDuur" label="Veiling Duur" 
-		list="#{'3' : '3 Dagen', '5' : '5 Dagen', '7' : '7 Dagen'}"  value="%{3}" />
-	<s:textfield name="minimumBod" label="Minimum bod" />
+		list="rubrieken"
+		name="rubriek" listValue="naam" listKey="id" value="%{selectedRubriek}" />
+	<s:textfield name="veiling.minimumBod" label="Minimum bod" />
 	<div class="form-actions">
 		<s:submit cssClass="btn" />
 	</div>

@@ -2,25 +2,49 @@ package domein;
 
 import java.sql.Blob;
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 
 
 public class Veiling {
 
 	private int id;
+	private String titel;
+	private String omschrijving;
+	private Rubriek rubriek;
+	private String status;
+	private int minimumBod;
+	private Account account;
+	private Date eindDatum;
+	private byte[] image;
+	private Set<Bod> biedingen = new HashSet<Bod>();
+	
 	public int getId() {
 		return id;
 	}
 	public void setId(int id) {
 		this.id = id;
+	}	
+	
+	public Set<Bod> getBiedingen() {
+		return biedingen;
 	}
-	private String titel;
-	private String omschrijving;
-	private Rubriek rubriek;
-	private String status;
-	private byte[] image;
-	private int minimumBod;
-	private Account account;
-	private Date eindDatum;
+	
+//	public Set<Bod> getBiedingenByID(int ID) {
+//		return biedingen;
+//	}
+
+	public void setBiedingen(Set<Bod> biedingen) {
+		this.biedingen = biedingen;
+	}
+	
+//	public <Bod> getHuidigeBod(){
+//		return biedingen;
+//	}
+	
+//	public boolean hasBiedingen(String bod){
+//		return this.biedingen.contains(new Bod(bod));
+//	}
 	
 	public Date getEindDatum() {
 		return eindDatum;

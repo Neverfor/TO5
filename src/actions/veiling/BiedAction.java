@@ -36,24 +36,20 @@ public class BiedAction extends ActionSupport implements /*ModelDriven<Bod>,*/ S
 	}
 
 	public String execute() {
-		int id = account.getId();
-		Account acc = (Account) accountDAO.findById(id);
-//		Date dT = new Date();
-//		System.out.println(dT);
-		bod.setAccount(acc);
-		bod.setGeld(gelds);
-		System.out.println(bod.getGeld());
-//		bod.setDatumTijd(dT);
-		System.out.println(bod.getDatumTijd());
-		veiling = (Veiling) veilingDAO.findById(veilingId);
-		bod.setVeiling(veiling);
-//		bodDAO.saveBod(bod);
-		if(bodDAO.saveBod(bod)){
-			return SUCCESS;
+		if (veiling.getMinimumBod()>geld){
+			return ERROR;
 		}
 		else {
-			veiling = veilingDAO.findById(id);
-			return ERROR;
+			int id = account.getId();
+			Account acc = (Account) accountDAO.findById(id);
+			Date dT = new Date();
+			bod.setAccount(acc);
+			bod.setGeld(gelds);
+			bod.setDatumTijd(dT);
+			veiling = (Veiling) veilingDAO.findById(veilingId);
+			bod.setVeiling(veiling);
+			bodDAO.saveBod(bod);
+			return SUCCESS;
 		}
 		
 	}	
