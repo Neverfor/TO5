@@ -43,6 +43,7 @@ public class BeheerVeilingAction extends ActionSupport implements Preparable{
 		veilingUpdated.setMinimumBod(veiling.getMinimumBod());
 		veilingUpdated.setTitel(veiling.getTitel());
 		veilingUpdated.setRubriek(rubriekDAO.findById(rubriek));
+		veilingUpdated.setStatus(veiling.getStatus());
 		if(veilingUpdated == null){
 			return ERROR;
 		}

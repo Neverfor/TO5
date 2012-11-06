@@ -1,6 +1,9 @@
 <%@ taglib prefix="s" uri="/struts-tags"%>
 <s:actionmessage theme="bootstrap"/>
 <h1>Beheer Veilingen</h1>
+<s:form action="veilingen">
+	<s:select onchange="this.form.submit()" label="Filter op status:" name="status" list="#{'actief':'actief','verkocht':'verkocht','afgelopen':'afgelopen','geblokkeerd':'geblokkeerd'}" value="%{status}"></s:select>
+</s:form>
 <table class="table">
 	<tr>
 		<th style="width: 10%"></th>
