@@ -28,6 +28,14 @@
 			<result type="redirectAction">accounts</result>			
 		</action>
 		
-		
+		<action name="veilingen" class="actions.beheren.BeheerVeilingenAction">
+			<result type="tiles">beheerVeilingen</result>
+		</action>
+		<action name="veiling" class="actions.beheren.BeheerVeilingAction">
+			<result type="tiles">beheerVeiling</result>
+		</action>
+		<action name="deleteaccount" class="actions.beheren.BeheerVeilingAction" method="delete">
+			<result type="tiles">beheerVeiling</result>
+		</action>
 	</package>
 </struts>

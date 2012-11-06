@@ -10,11 +10,11 @@
 			<li <s:if test="#url.startsWith(#currenturl)">class="active"</s:if>>
 				<a href="<s:property value="#url"/>">Beheer Accounts</a>
 			</li>
-			<s:url var="url" action="veilingen" escapeAmp="false" />
+			<s:url var="url" action="veilingen" namespace='/beheer' escapeAmp="false" />
 			<li <s:if test="#url.startsWith(#currenturl)">class="active"</s:if>>
 				<a href="<s:property value="#url"/>">Beheer Veilingen</a>
 			</li>
-			<s:url var="url" action="rubrieken" escapeAmp="false" />
+			<s:url var="url" action="rubrieken" namespace='/beheer' escapeAmp="false" />
 			<li <s:if test="#url.startsWith(#currenturl)">class="active"</s:if>>
 				<a href="<s:property value="#url"/>">Beheer Rubrieken</a>
 			</li>

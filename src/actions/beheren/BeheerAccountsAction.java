@@ -27,5 +27,5 @@ public class BeheerAccountsAction extends ActionSupport{
 	public void setAccounts(List<Account> accounts) {
 		this.accounts = accounts;
 	}
-	
+
 }

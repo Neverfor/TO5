@@ -140,6 +140,11 @@
 		<put-attribute name="title" value="Beheer Accounts" />
 		<put-attribute name="body" value="/beheer/wijzigAccount.jsp" />
 	</definition>
+	
+	<definition name="beheerVeilingen" extends="beheerLayout">
+		<put-attribute name="title" value="Beheer Veilingen"/>
+		<put-attribute name="body" value="/beheer/veilingenLijst.jsp"/>		
+	</definition>
 	<!-- End Beheer -->
 
 </tiles-definitions>
