@@ -1,9 +1,16 @@
 package actions.veiling;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.sql.Blob;
+import java.sql.SQLException;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
+
+import javax.sql.rowset.serial.SerialBlob;
+import javax.sql.rowset.serial.SerialException;
 
 import org.apache.struts2.interceptor.SessionAware;
 
@@ -26,6 +33,7 @@ public class PlaatsAction extends ActionSupport implements SessionAware, Prepara
 	private VeilingDAO veilingDAO;
 	private int veilingDuur;
 	private String titel;
+	private File img;
 	private String omschrijving;
 	private String minimumBod;
 	private Integer rubriek;
@@ -53,6 +61,8 @@ public class PlaatsAction extends ActionSupport implements SessionAware, Prepara
 		cal.setTime(veiling.getBeginDatum());
 		cal.add(Calendar.DATE, veilingDuur);
 		veiling.setEindDatum(cal.getTime());
+		byte[] blob = new byte[(int) img.length()];
+        veiling.setImage(blob);
 		veilingDAO.makePersistent(veiling);
 		return SUCCESS;
 	}
@@ -72,7 +82,14 @@ public class PlaatsAction extends ActionSupport implements SessionAware, Prepara
 		this.titel = titel;
 	}
 
-	
+	public File getImg() {
+		return img;
+	}
+
+	public void setImg(File img) {
+		this.img = img;
+	}
+
 	public Integer getRubriek() {
 		return rubriek;
 	}

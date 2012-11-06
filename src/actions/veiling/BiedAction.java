@@ -30,6 +30,15 @@ public class BiedAction extends ActionSupport implements /*ModelDriven<Bod>,*/ S
 	private VeilingDAO veilingDAO = new VeilingDAO();
 	private AccountDAO accountDAO = new AccountDAO();
 	private Account account;
+	private int id;
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
 
 	public BiedAction(){
 		bodDAO = new BodDAO();
@@ -40,7 +49,7 @@ public class BiedAction extends ActionSupport implements /*ModelDriven<Bod>,*/ S
 			return ERROR;
 		}
 		else {
-			int id = account.getId();
+//			int id = account.getId();
 			Account acc = (Account) accountDAO.findById(id);
 			Date dT = new Date();
 			bod.setAccount(acc);

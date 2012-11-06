@@ -15,11 +15,11 @@
 	</tr>
 	<tr class="mycolor">
 		<td class="mycolor">Veiling gaat tot:</td>
-		<td><s:property value="veiling.einddatum" /></td>
+		<td><s:property value="veiling.eindDatum" /></td>
 	</tr>
 	<tr class="mycolor">
 		<td class="mycolor">Huidige bod:</td>
-		<td><s:property value="veiling.bod.geld" /></td>
+		<td><s:property value="veiling.biedingen.geld" /></td>
 	</tr>
 </table>
 
@@ -27,7 +27,7 @@
 	<hr />
 	<s:textfield name="gelds" label="Je bod:" />
 	<s:hidden name="veilingId" value="%{veiling.id}"/>
-<%-- 	<s:hidden name="id" value="%{veiling.id}"/> --%>
+    <s:hidden name="id" value="%{account.id}"/>  
 	<hr />
 	<div class="form-actions">
 		<s:submit cssClass="btn" />
