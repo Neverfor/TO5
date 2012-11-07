@@ -52,6 +52,11 @@ public abstract class GenericHibernateDAO<T, ID extends Serializable>
 		hSession.saveOrUpdate(entity);
 		return entity;
 	}
+	
+	public T makePersistentMerge(T entity){
+		hSession.merge(entity);
+		return entity;
+	}
 
 	public void makeTransient(T entity) {
 		hSession.delete(entity);

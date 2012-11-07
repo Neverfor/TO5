@@ -5,6 +5,9 @@ import java.util.Map;
 
 import org.apache.struts2.interceptor.SessionAware;
 import org.hibernate.*;
+
+import utils.HibernateUtil;
+
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
 
@@ -62,8 +65,11 @@ public class BiedAction extends ActionSupport implements
 			Account vorigeBieder = accountDAO2.findById(vid);
 			double terugCredits = account.getCredits() + huidigeBod.getGeld();
 			vorigeBieder.setCredits(terugCredits);
-			accountDAO.makePersistent(account);
+//			accountDAO.makePersistent(account);
+			accountDAO.makePersistentMerge(account);
+//			HibernateUtil.getCurrentSession.flush();
 			accountDAO2.makePersistent(vorigeBieder);
+//			accountDAO2.makePersistentMerge(vorigeBieder);
 			return SUCCESS;
 		} else {
 			int id = account.getId();

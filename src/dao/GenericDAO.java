@@ -12,6 +12,8 @@ public interface GenericDAO<T, ID extends Serializable> {
     List<T> findByExample(T exampleInstance);
  
     T makePersistent(T entity);
+    
+    T makePersistentMerge(T entity);
  
     void makeTransient(T entity);
 }
