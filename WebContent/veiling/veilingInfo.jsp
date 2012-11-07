@@ -1,8 +1,5 @@
 <%@ taglib prefix="s" uri="/struts-tags"%>
-
-
 <div class="row-fluid">
-
 	<div class="span12">
 		<!-- center/titel -->
 		<h1>
@@ -17,7 +14,6 @@
     <s:param name="id"><s:property value="veiling.id"/></s:param>
 	</s:url>"
 					class="img-polaroid" />
-				</td>
 			</div>
 
 			<div class="span9">
@@ -36,34 +32,36 @@
 		</div>
 		<div class="row-fluid">
 			<div class="span5">
-			<h3><i>Omschrijving:</i></h3>
-			<p><s:property value="veiling.omschrijving" /></p>
+				<h3>
+					<i>Omschrijving:</i>
+				</h3>
+				<p>
+					<s:property value="veiling.omschrijving" />
+				</p>
 			</div>
-			
+
 			<div class="span3">
-			<table>
-		    <tr class="thcolor">
-			    <th>Bieder naam</th>
-			    <th>Bod</th> 
-		    </tr>
-		    <s:iterator value="veiling.biedingen">
-			    <tr class="tdcolor">
-				    <td><s:property value="bod.account.voornaam" />
-				    <td><s:property value="bod.geld" />
-		        </tr>
- 		    </s:iterator>
-	    </table>
-	    </div>
+				<table>
+					<tr class="thcolor">
+						<th>Bieder naam</th>
+						<th>Bod</th>
+					</tr>
+					<s:iterator value="veiling.biedingen">
+						<tr class="tdcolor">
+							<td><s:property value="bod.account.voornaam" />
+							<td><s:property value="bod.geld" />
+						</tr>
+					</s:iterator>
+				</table>
+			</div>
 		</div>
 	</div>
-	
 </div>
-
 
 <s:form action="biedAction" theme="bootstrap">
 	<hr />
 	<s:textfield name="gelds" label="Je bod:" />
-	<s:hidden name="veilingId" value="%{veiling.id}"/>
-    <s:hidden name="id" value="%{account.id}"/>  
+	<s:hidden name="veilingId" value="%{veiling.id}" />
+	<s:hidden name="id" value="%{account.id}" />
 	<s:submit cssClass="btn" />
 </s:form>
