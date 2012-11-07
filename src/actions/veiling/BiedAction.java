@@ -42,6 +42,7 @@ public class BiedAction extends ActionSupport implements /*ModelDriven<Bod>,*/ S
 	}
 
 	public String execute() {
+		veiling = (Veiling) veilingDAO.findById(veilingId);
 		if(!account.hasRecht("bieder")){
 			addActionMessage("Niet genoeg rechten om een veiling te plaatsen");
 			return LOGIN;
@@ -58,7 +59,7 @@ public class BiedAction extends ActionSupport implements /*ModelDriven<Bod>,*/ S
 			bod.setDatumTijd(dT);
 			veiling = (Veiling) veilingDAO.findById(veilingId);
 			bod.setVeiling(veiling);
-//			bodDAO.makePersistent(bod);
+//			bodDAO.makePersistent(bod); //algemeene methode is niet handig hier
 			veiling.addBod(bod);
 			return SUCCESS;
 //		}
