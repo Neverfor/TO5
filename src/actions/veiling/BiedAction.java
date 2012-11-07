@@ -27,15 +27,15 @@ public class BiedAction extends ActionSupport implements /*ModelDriven<Bod>,*/ S
 	private VeilingDAO veilingDAO = new VeilingDAO();
 	private AccountDAO accountDAO = new AccountDAO();
 	private Account account;
-	private int id;
-
-	public int getId() {
-		return id;
-	}
-
-	public void setId(int id) {
-		this.id = id;
-	}
+//	private int id;
+//
+//	public int getId() {
+//		return id;
+//	}
+//
+//	public void setId(int id) {
+//		this.id = id;
+//	}
 
 	public BiedAction(){
 		bodDAO = new BodDAO();
@@ -46,21 +46,18 @@ public class BiedAction extends ActionSupport implements /*ModelDriven<Bod>,*/ S
 			addActionMessage("Niet genoeg rechten om een veiling te plaatsen");
 			return LOGIN;
 		}
-//		veiling = (Veiling) veilingDAO.findById(veilingId);
-//		if (veiling.getMinimumBod()>geld){
-//			return ERROR;
-//		}
-//		else {
-//			int id = account.getId();
-//			Account acc = (Account) accountDAO.findById(id);
+		if(account.getId()==veiling.getAccount().getId()){
+			addActionMessage("Je kan niet bieden op eigen veiling!");
+			return LOGIN;
+		}
+			int id = account.getId();
+			Account acc = (Account) accountDAO.findById(id);
 			Date dT = new Date();
-			bod.setAccount(account);
+			bod.setAccount(acc);
 			bod.setGeld(gelds);
 			bod.setDatumTijd(dT);
 			veiling = (Veiling) veilingDAO.findById(veilingId);
 			bod.setVeiling(veiling);
-//			bodDAO.saveBod(bod);
-//			veiling.addBod(bod);
 //			bodDAO.makePersistent(bod);
 			veiling.addBod(bod);
 			return SUCCESS;
