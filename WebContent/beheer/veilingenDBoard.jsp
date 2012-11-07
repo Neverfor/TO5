@@ -6,9 +6,9 @@
 	<tr>
 		<th style="width: 20%">Titel</th>
 		<th style="width: 40%">Omschrijving</th>
-		<th style="width: 30%">Rubriek</th>
+		<th style="width: 40%">Rubriek</th>
 	</tr>
-	<s:iterator value="VeilingDBoard.veilingenP">
+	<s:iterator value="veilingenP">
 			<td><s:property value="titel" /></td>
 			<td><s:property value="omschrijving" /></td>
 			<td><s:property value="rubriek.naam" /></td>
