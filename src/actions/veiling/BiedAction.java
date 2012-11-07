@@ -45,6 +45,10 @@ public class BiedAction extends ActionSupport implements /*ModelDriven<Bod>,*/ S
 	}
 
 	public String execute() {
+		if(!account.hasRecht("bieder")){
+			addActionMessage("Niet genoeg rechten om een veiling te plaatsen");
+			return LOGIN;
+		}
 //		veiling = (Veiling) veilingDAO.findById(veilingId);
 //		if (veiling.getMinimumBod()>geld){
 //			return ERROR;

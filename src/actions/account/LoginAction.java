@@ -85,22 +85,7 @@ public class LoginAction extends ActionSupport implements SessionAware {
 	}
 	
 	public String logOut(){
-//		System.out.println(account.getVoornaam());
-//		if (account.getAccstatus()==1){
-//		System.out.println(account.getVoornaam());
 		session.remove("account");
 		return SUCCESS;
-//		}
-//		else if (account.getAccstatus()!=1) {
-//			System.out.println(account.getVoornaam());
-//			account.setAccstatus(1);
-//			accountDAO.makePersistent(account);
-//			System.out.println(account.getVoornaam());
-//			System.out.println(account.getAccstatus());
-//			session.remove("account");
-//			return SUCCESS;
-//		}
-//		return ERROR;
-		
 	}
 }

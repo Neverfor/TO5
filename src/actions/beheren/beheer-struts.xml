@@ -24,6 +24,10 @@
 			<result type="redirectAction" name="success">accounts</result>
 			<result type="tiles" name="input">beheerAccount</result>
 		</action>
+		<action name="saveRights" class="actions.beheren.BeheerAccountAction" method="saveRights">
+			<result type="redirectAction" name="success">accounts</result>
+			<result type="tiles" name="input">beheerAccount</result>
+		</action>
 		<action name="deleteaccount" class="actions.beheren.BeheerAccountAction" method="delete">
 			<result type="redirectAction">accounts</result>			
 		</action>

@@ -12,7 +12,9 @@
 		<property column="MINIMUMBOD" name="minimumBod" type="int" />
 		<property column="BEGINDATUM" name="beginDatum" type="date" />
 		<property column="EINDDATUM" name= "eindDatum" type="date" />
-		<property column="IMAGE" name= "image" type="binary" />
+		<property name= "image" type="binary" >
+			<column name="IMAGE" sql-type="blob"/>
+		</property>
 		<many-to-one name="account" class="domein.Account"
 			not-null="true" cascade="save-update" unique="false">
 			<column name="ACCOUNT_ID" />

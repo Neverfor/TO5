@@ -37,7 +37,7 @@
 					</param>
 				</interceptor-ref>
 				<interceptor-ref name="checkbox" />
-				<interceptor-ref name="redirectMessage" />
+	 			<interceptor-ref name="redirectMessage" />
 				<interceptor-ref name="staticParams" />
 				<interceptor-ref name="params">
 					<param name="excludeParams">dojo\..*</param>
