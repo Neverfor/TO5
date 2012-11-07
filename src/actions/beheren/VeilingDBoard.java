@@ -12,18 +12,19 @@ public class VeilingDBoard extends ActionSupport {
 
 	private static final long serialVersionUID = 1L;
 	private VeilingDAO veilingDAO = new VeilingDAO();
-	private List<Veiling> veilingenP = new ArrayList<Veiling>(); 
+	private List<Veiling> veilingen; 
 	
-	public List<Veiling> getVeilingenP() {
-		return veilingenP;
+	public List<Veiling> getVeilingen() {
+		return veilingen;
 	}
 
-	public void setVeilingenP(List<Veiling> veilingen) {
-		this.veilingenP = veilingen;
+	public void setVeilingen(List<Veiling> veilingen) {
+		this.veilingen = veilingen;
 	}
 
 	public String execute(){
-		veilingenP = (List<Veiling>) veilingDAO.findPopuleerte();
+		veilingen = (List<Veiling>) veilingDAO.findPopuleerste();
+		System.out.println(veilingen);
 		return SUCCESS;
 	}
 }

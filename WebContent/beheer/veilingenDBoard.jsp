@@ -8,10 +8,11 @@
 		<th style="width: 40%">Omschrijving</th>
 		<th style="width: 40%">Rubriek</th>
 	</tr>
-	<s:iterator value="veilingenP">
-			<td><s:property value="titel" /></td>
-			<td><s:property value="omschrijving" /></td>
+	<s:iterator value="VeilingDBoard.veilingen">
+	<tr>
+			<td><s:property value="veiling.titel" /></td>
+			<td><s:property value="veiling.omschrijving" /></td>
 			<td><s:property value="rubriek.naam" /></td>
-		</tr>
+			</tr>
 	</s:iterator>
 </table>
