@@ -32,7 +32,6 @@ public class VeilingDAO extends GenericHibernateDAO<Veiling, Integer> {
 			return uniqueResult;
 		}
 		public void addImage(Veiling veiling, byte[] blob) {
-			// TODO Auto-generated method stub
 			
 		}
 }

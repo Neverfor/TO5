@@ -1,28 +1,18 @@
 package actions.veiling;
 
-import java.awt.image.BufferedImage;
-import java.awt.image.DataBufferByte;
-import java.awt.image.WritableRaster;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
-import java.sql.Blob;
-import java.sql.SQLException;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
-
-import javax.imageio.ImageIO;
-import javax.sql.rowset.serial.SerialBlob;
-import javax.sql.rowset.serial.SerialException;
 
 import org.apache.struts2.interceptor.SessionAware;
 
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.Preparable;
 
-import dao.AccountDAO;
 import dao.RubriekDAO;
 import dao.VeilingDAO;
 import domein.Account;
@@ -67,22 +57,19 @@ public class PlaatsAction extends ActionSupport implements SessionAware,
 		cal.setTime(veiling.getBeginDatum());
 		cal.add(Calendar.DATE, veilingDuur);
 		veiling.setEindDatum(cal.getTime());
-		byte[] blob = new byte[(int) img.length()];
-		BufferedImage bufferedImage;
-		try {
-			bufferedImage = ImageIO.read(img);
-			WritableRaster raster = bufferedImage.getRaster();
-			DataBufferByte data = (DataBufferByte) raster.getDataBuffer();
-			blob = data.getData();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+		if(img != null){
+			byte[] blob = new byte[(int) img.length()];
+			try {
+				FileInputStream fileInputStream = new FileInputStream(img);
+			     //convert file into array of bytes
+			     fileInputStream.read(blob);
+			     fileInputStream.close();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			veiling.setImage(blob);
 		}
-
-		
-		
-		
-		veiling.setImage(blob);
 		veiling = veilingDAO.makePersistent(veiling);
 		
 		return SUCCESS;
