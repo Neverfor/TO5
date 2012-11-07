@@ -16,7 +16,6 @@ public class Account {
 	private String voornaam;
 	private String wachtwoord;
 	private String woonplaats;
-	private int accstatus;  //0 - blocked, 1-  actief, 2 - "frozen"
 	private Double credits;
     private Set<Recht> rechten = new HashSet<Recht>();
     
@@ -40,19 +39,7 @@ public class Account {
 		this.huisnummer = huisnummer;
 		this.woonplaats = woonplaats;
 		this.credits = 0.0;
-		this.accstatus = accstatus;
 	}
-	
-
-	public int getAccstatus() {
-		return accstatus;
-	}
-
-
-	public void setAccstatus(int accstatus) {
-		this.accstatus = accstatus;
-	}
-
 
 	public String getAchternaam() {
 		return achternaam;

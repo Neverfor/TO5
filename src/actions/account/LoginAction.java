@@ -26,17 +26,16 @@ public class LoginAction extends ActionSupport implements SessionAware {
 //			return INPUT;
 //		}
 //		else 
-		if(account.getAccstatus()==0){
-			System.out.println("account is geblokeerd");
-			addActionError("Dit account is geblokeerd! Neem zo spoedig mogelijk contact met administratie!");
-			return ActionSupport.ERROR;
-		}
+//		if(account.getAccstatus()==0){
+//			System.out.println("account is geblokeerd");
+//			addActionError("Dit account is geblokeerd! Neem zo spoedig mogelijk contact met administratie!");
+//			return ActionSupport.ERROR;
+//		}
 //		if(account.getAccstatus()==2 || Integer.toString(account.getAccstatus())==null || Integer.toString(account.getAccstatus()).equals("")){
 //			System.out.println("account is al online");
 //			addActionError("Dit account is al ingelogd!");
 //			return ActionSupport.INPUT;
 //		}
-		else 
 		System.out.println("test " + emailadres);
 		System.out.println(account.getVoornaam());
 		session.put( "account", account );
