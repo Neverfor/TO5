@@ -2,6 +2,7 @@ package dao;
 
 import java.util.List;
 import domein.Account;
+import domein.Bod;
 import domein.Rubriek;
 import domein.Veiling;
 
@@ -34,4 +35,10 @@ public class VeilingDAO extends GenericHibernateDAO<Veiling, Integer> {
 		public void addImage(Veiling veiling, byte[] blob) {
 			
 		}
+		
+		public Bod getLastBod(int veilingID){
+			Bod uniqueResult = (Bod) hSession.createQuery("from Bod where rownum=1 AND VEILING_ID = ? order by GELD desc")
+					.setInteger(0, veilingID).setMaxResults(1).uniqueResult();
+			return uniqueResult;
+		}	
 }

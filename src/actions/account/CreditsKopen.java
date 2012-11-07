@@ -14,21 +14,21 @@ public class CreditsKopen extends ActionSupport implements SessionAware {
 	private static final long serialVersionUID = 1L;
 	private Account account;
 	private AccountDAO accountDAO = new AccountDAO();
-	private int cNieuw,cOud;
+	private Double cNieuw,cOud;
 
-	public int getCOud() {
+	public Double getCOud() {
 		return cOud;
 	}
 
-	public void setCOud(int cOud) {
+	public void setCOud(Double cOud) {
 		this.cOud = cOud;
 	}
 	
-	public int getCNieuw() {
+	public Double getCNieuw() {
 		return cNieuw;
 	}
 
-	public void setCNieuw(int cNieuw) {
+	public void setCNieuw(Double cNieuw) {
 		this.cNieuw = cNieuw;
 	}
 

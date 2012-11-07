@@ -17,7 +17,7 @@ public class Account {
 	private String wachtwoord;
 	private String woonplaats;
 	private int accstatus;  //0 - blocked, 1-  actief, 2 - "frozen"
-	private int credits;
+	private Double credits;
     private Set<Recht> rechten = new HashSet<Recht>();
     
 	public Account (){}
@@ -39,7 +39,7 @@ public class Account {
 		this.straat = straat;
 		this.huisnummer = huisnummer;
 		this.woonplaats = woonplaats;
-		this.credits = 0;
+		this.credits = 0.0;
 		this.accstatus = accstatus;
 	}
 	
@@ -123,11 +123,11 @@ public class Account {
 	}
 
 
-	public int getCredits() {
+	public Double getCredits() {
 		return credits;
 	}
 
-	public void setCredits(int credits) {
+	public void setCredits(Double credits) {
 		this.credits = credits;
 	}
 

@@ -2,7 +2,7 @@
 		"http://struts.apache.org/dtds/xwork-validator-1.0.3.dtd">
 <validators>
 	<field name="cNieuw">
-		<field-validator type="int">
+		<field-validator type="double">
 			<param name="min">1</param>
 			<message>Waarde moet positief zijn</message>
 		</field-validator>

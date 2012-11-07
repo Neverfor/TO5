@@ -15,8 +15,8 @@ import domein.Bod;
 import dao.VeilingDAO;
 import dao.AccountDAO;
 
-
-public class BiedAction extends ActionSupport implements /*ModelDriven<Bod>,*/ SessionAware {
+public class BiedAction extends ActionSupport implements
+		/* ModelDriven<Bod>, */SessionAware {
 	private static final long serialVersionUID = -2534446146222716771L;
 	private Bod bod = new Bod();
 	private BodDAO bodDAO;
@@ -27,57 +27,67 @@ public class BiedAction extends ActionSupport implements /*ModelDriven<Bod>,*/ S
 	private VeilingDAO veilingDAO = new VeilingDAO();
 	private AccountDAO accountDAO = new AccountDAO();
 	private Account account;
-//	private int id;
-//
-//	public int getId() {
-//		return id;
-//	}
-//
-//	public void setId(int id) {
-//		this.id = id;
-//	}
+	private Bod huidigeBod;
 
-	public BiedAction(){
+
+	public BiedAction() {
 		bodDAO = new BodDAO();
 	}
 
 	public String execute() {
 		veiling = (Veiling) veilingDAO.findById(veilingId);
-		if(!account.hasRecht("bieder")){
+		if (!account.hasRecht("bieder")) {
 			addActionMessage("Niet genoeg rechten om een veiling te plaatsen");
 			return LOGIN;
 		}
-		if(account.getId()==veiling.getAccount().getId()){
+		if (account.getId() == veiling.getAccount().getId()) {
 			addActionMessage("Je kan niet bieden op eigen veiling!");
 			return LOGIN;
 		}
-			int id = account.getId();
-			Account acc = (Account) accountDAO.findById(id);
-			Date dT = new Date();
-			bod.setAccount(acc);
-			bod.setGeld(gelds);
-			bod.setDatumTijd(dT);
-			veiling = (Veiling) veilingDAO.findById(veilingId);
-			bod.setVeiling(veiling);
-//			bodDAO.makePersistent(bod); //algemeene methode is niet handig hier
-			veiling.addBod(bod);
-			return SUCCESS;
-//		}
+
+		int id = account.getId();
+		Account acc = (Account) accountDAO.findById(id);
+		Date dT = new Date();
+		bod.setAccount(acc);
+		bod.setGeld(gelds);
+		bod.setDatumTijd(dT);
+		veiling = (Veiling) veilingDAO.findById(veilingId);
+		bod.setVeiling(veiling);
+		// bodDAO.makePersistent(bod); //algemeene methode is niet handig hier
+		veiling.addBod(bod);
+		double nCredits = account.getCredits() - gelds;
+		account.setCredits(nCredits);
+//		int idVerkoper = veiling.getAccount().getId();
+//		Account acc2 = (Account) accountDAO.findById(idVerkoper);
+		huidigeBod = veilingDAO.getLastBod(veilingId);
+		Account vorigeBieder = huidigeBod.getAccount();
+		double terugCredits = account.getCredits() + huidigeBod.getGeld();
+		account.setCredits(terugCredits);
 		
-	}	
-	
-	public void validate(){
-	if (gelds == null){
-		addFieldError( "geld", "Geld veld mag niet leeg zijn!");
-		}
-//	if (veiling.getMinimumBod()>geld){
-//		addFieldError( "geld", "Je bod is minder dan minimum bod!");
-//		}
-//	else {
-//		execute();
-//		}
+
+		return SUCCESS;
+
+		// }
+
 	}
-	
+
+	public void validate() {
+		veiling = (Veiling) veilingDAO.findById(veilingId);
+		huidigeBod = veilingDAO.getLastBod(veilingId);
+		if (gelds == null) {
+			addFieldError("geld", "Geld veld mag niet leeg zijn!");
+		}
+		if(huidigeBod!=null && huidigeBod.getGeld() >= gelds){
+			addFieldError("geld", "Bod mag niet lager of gelijk aan de huidige bod zijn!");
+		}
+		if(huidigeBod==null && veiling.getMinimumBod() >= gelds){
+			addFieldError("geld", "Bod mag niet lager of gelijk aan de huidige bod zijn!");
+		}
+		if(account.getCredits()<gelds){
+			addFieldError("geld", "Je hebt niet genoeg geld op je rekening =(");
+		}
+	}
+
 	public Double getGeld() {
 		return geld;
 	}
@@ -85,7 +95,7 @@ public class BiedAction extends ActionSupport implements /*ModelDriven<Bod>,*/ S
 	public void setGeld(Double gelds) {
 		this.geld = gelds;
 	}
-	
+
 	public Double getGelds() {
 		return gelds;
 	}
@@ -93,10 +103,10 @@ public class BiedAction extends ActionSupport implements /*ModelDriven<Bod>,*/ S
 	public void setGelds(Double gelds) {
 		this.gelds = gelds;
 	}
-	
-	/*public Bod getModel() {
-		return bod;
-	}*/
+
+	/*
+	 * public Bod getModel() { return bod; }
+	 */
 
 	public Date getDatum() {
 		return datum;
@@ -105,16 +115,15 @@ public class BiedAction extends ActionSupport implements /*ModelDriven<Bod>,*/ S
 	public void setDatum(Date datum) {
 		this.datum = datum;
 	}
-	
 
 	public Veiling getVeiling() {
 		return veiling;
 	}
-	
+
 	public void setVeiling(Veiling veiling) {
 		this.veiling = veiling;
 	}
-	
+
 	public int getVeilingId() {
 		return veilingId;
 	}
@@ -122,9 +131,9 @@ public class BiedAction extends ActionSupport implements /*ModelDriven<Bod>,*/ S
 	public void setVeilingId(int veilingId) {
 		this.veilingId = veilingId;
 	}
-	
+
 	@Override
 	public void setSession(Map<String, Object> session) {
-		account = (Account)session.get("account");
+		account = (Account) session.get("account");
 	}
 }

@@ -9,9 +9,9 @@ public class CreditForm extends ActionSupport implements SessionAware {
 
 	private static final long serialVersionUID = 1L;
 	private Account account = new Account();
-	private int cOud;
+	private Double cOud;
 	
-	public int getCOud() {
+	public Double getCOud() {
 		return cOud;
 	}
 
