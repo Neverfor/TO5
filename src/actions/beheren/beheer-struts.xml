@@ -45,5 +45,9 @@
 		<action name="deleteveiling" class="actions.beheren.BeheerVeilingAction" method="delete">
 			<result type="redirectAction" name="success">veilingen</result>
 		</action>
+		<action name="showPopularVeilingen" class="actions.beheren.VeilingDBoard">
+			<result type="tiles">beheerDashBoard</result>
+		</action>
+		
 	</package>
 </struts>

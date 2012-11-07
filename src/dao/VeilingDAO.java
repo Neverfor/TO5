@@ -21,6 +21,11 @@ public class VeilingDAO extends GenericHibernateDAO<Veiling, Integer> {
 			return uniqueResult;
 		}	
 		
+		public List<Veiling> findPopuleerte(){
+			List<Veiling> uniqueResult = (List<Veiling>) hSession.createQuery("from veiling, bod where BOD.VEILING_ID = veiling.id order by veiling.id").list();
+			return uniqueResult;
+		}	
+		
 		public List<Veiling> zoekVeilingen(int rubriekId, String zoekTerm){
 			if(zoekTerm == null) zoekTerm = "";
 			List<Veiling> uniqueResult = (List<Veiling>) hSession.createQuery("from Veiling where RUBRIEK_ID = :rId AND TITEL LIKE :zTerm ").setInteger("rId", rubriekId).setString("zTerm",  "%" + zoekTerm + "%").list();

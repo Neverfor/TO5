@@ -155,6 +155,11 @@
 		<put-attribute name="title" value="Beheer Veiling"/>
 		<put-attribute name="body" value="/beheer/wijzigVeiling.jsp"/>		
 	</definition>
+	
+	<definition name="beheerDashBoard" extends="beheerLayout">
+		<put-attribute name="title" value="DashBoard Veilingen" />
+		<put-attribute name="body" value="/beheer/veilingenDBoard.jsp" />
+	</definition>
 	<!-- End Beheer -->
 
 </tiles-definitions>

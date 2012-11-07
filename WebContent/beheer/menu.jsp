@@ -18,6 +18,9 @@
 			<li <s:if test="#url.startsWith(#currenturl)">class="active"</s:if>>
 				<a href="<s:property value="#url"/>">Beheer Rubrieken</a>
 			</li>
+			<li <s:if test="#url.startsWith(#currenturl)">class="active"</s:if>>
+				<a href="<s:property value="#url"/>">DashBoard Veilingen</a>
+			</li>
 		</ul></li>
 </ul>
 <!--/.nav-collapse -->
