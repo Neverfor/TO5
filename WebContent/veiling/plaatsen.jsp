@@ -13,7 +13,7 @@
 
 <s:form action="plaatsenDo" enctype="multipart/form-data" cssClass="form-horizontal" theme="bootstrap">
 	<s:textfield name="titel" label="Titel" />
-	<s:textfield name="omschrijving" label="Omschrijving" />
+	<s:textarea name="omschrijving" label="Omschrijving" />
 	<s:select label="Rubriek" 
 		headerKey="" headerValue="--- Kies rubriek ---"
 		list="rubrieken" 

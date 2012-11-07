@@ -26,9 +26,9 @@ public class ShowEen extends ActionSupport implements SessionAware{
 			return INPUT;
 		}
 		veiling = veilingDAO.findById(id);
-		System.out.println(veiling.getId());
-		System.out.println(veiling.getTitel());
-		System.out.println(veiling.getAccount().getVoornaam());
+//		System.out.println(veiling.getId());
+//		System.out.println(veiling.getTitel());
+//		System.out.println(veiling.getAccount().getVoornaam());
 		return SUCCESS;
 	}	
 	
