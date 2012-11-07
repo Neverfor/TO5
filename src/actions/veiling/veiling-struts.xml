@@ -24,6 +24,18 @@
 	</package>
 
 	<package name="veilingen" extends="default" namespace="/veilingen">
+		<result-types>
+			<result-type name="imageResult"
+				class="actions.veiling.CustomImageResult" />
+		</result-types>
+		
+
+ 
+		<action name="ImageAction" class="actions.veiling.ImageAction">
+			<result name="success" type="imageResult">
+			</result>
+		</action>
+		
 		<action name="zoeken" class="actions.veiling.getRubrieken">
 			<result type="tiles">veilingZoeken</result>
 		</action>
