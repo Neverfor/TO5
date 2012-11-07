@@ -10,7 +10,7 @@
 				<interceptor-ref name="standaardStack" />
 				<interceptor-ref name="securityInterceptor">
 					<param name="recht">aanbieder</param>
-				</interceptor-ref>				
+				</interceptor-ref>
 			</interceptor-stack>
 		</interceptors>
 		<default-interceptor-ref name="securityStack"></default-interceptor-ref>
@@ -28,9 +28,7 @@
 			<result-type name="imageResult"
 				class="actions.veiling.CustomImageResult" />
 		</result-types>
-		
 
- 
 		<action name="ImageAction" class="actions.veiling.ImageAction">
 			<result name="success" type="imageResult">
 			</result>
