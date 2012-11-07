@@ -44,7 +44,7 @@ public class BiedAction extends ActionSupport implements
 			addActionMessage("Je kan niet bieden op eigen veiling!");
 			return LOGIN;
 		}
-
+		else {
 		int id = account.getId();
 		Account acc = (Account) accountDAO.findById(id);
 		Date dT = new Date();
@@ -53,7 +53,6 @@ public class BiedAction extends ActionSupport implements
 		bod.setDatumTijd(dT);
 		veiling = (Veiling) veilingDAO.findById(veilingId);
 		bod.setVeiling(veiling);
-		// bodDAO.makePersistent(bod); //algemeene methode is niet handig hier
 		veiling.addBod(bod);
 		double nCredits = account.getCredits() - gelds;
 		account.setCredits(nCredits);
@@ -62,25 +61,34 @@ public class BiedAction extends ActionSupport implements
 		huidigeBod = veilingDAO.getLastBod(veilingId);
 		Account vorigeBieder = huidigeBod.getAccount();
 		double terugCredits = account.getCredits() + huidigeBod.getGeld();
-		account.setCredits(terugCredits);
+		vorigeBieder.setCredits(terugCredits);
 		
 
 		return SUCCESS;
 
-		// }
+		 }
 
 	}
 
 	public void validate() {
+		int id = account.getId();
+		Account acc = (Account) accountDAO.findById(id);
 		veiling = (Veiling) veilingDAO.findById(veilingId);
 		huidigeBod = veilingDAO.getLastBod(veilingId);
 		if (gelds == null) {
 			addFieldError("geld", "Geld veld mag niet leeg zijn!");
 		}
-		if(huidigeBod!=null && huidigeBod.getGeld() >= gelds){
+		if(huidigeBod!=null){
+			if(huidigeBod.getGeld() >= gelds){
 			addFieldError("geld", "Bod mag niet lager of gelijk aan de huidige bod zijn!");
+			}
 		}
-		if(huidigeBod==null && veiling.getMinimumBod() >= gelds){
+		if(huidigeBod==null){
+			if(veiling.getMinimumBod() >= gelds){
+			addFieldError("geld", "Bod mag niet lager of gelijk aan de huidige bod zijn!");
+			}
+		}
+		if(veiling.getMinimumBod() >= gelds){
 			addFieldError("geld", "Bod mag niet lager of gelijk aan de huidige bod zijn!");
 		}
 		if(account.getCredits()<gelds){
