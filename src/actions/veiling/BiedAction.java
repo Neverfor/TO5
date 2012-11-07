@@ -59,7 +59,7 @@ public class BiedAction extends ActionSupport implements
 			account.setCredits(nCredits);
 			
 			int vid = huidigeBod.getAccount().getId();
-			Account vorigeBieder = accountDAO.findById(vid);
+			Account vorigeBieder = accountDAO2.findById(vid);
 			double terugCredits = account.getCredits() + huidigeBod.getGeld();
 			vorigeBieder.setCredits(terugCredits);
 			accountDAO.makePersistent(account);
