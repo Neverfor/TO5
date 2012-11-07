@@ -16,7 +16,7 @@ import dao.VeilingDAO;
 import dao.AccountDAO;
 
 public class BiedAction extends ActionSupport implements
-		/* ModelDriven<Bod>, */SessionAware {
+/* ModelDriven<Bod>, */SessionAware {
 	private static final long serialVersionUID = -2534446146222716771L;
 	private Bod bod = new Bod();
 	private BodDAO bodDAO;
@@ -26,15 +26,16 @@ public class BiedAction extends ActionSupport implements
 	private Veiling veiling;
 	private VeilingDAO veilingDAO = new VeilingDAO();
 	private AccountDAO accountDAO = new AccountDAO();
+	private AccountDAO accountDAO2 = new AccountDAO();
 	private Account account;
 	private Bod huidigeBod;
-
 
 	public BiedAction() {
 		bodDAO = new BodDAO();
 	}
 
 	public String execute() {
+		huidigeBod = veilingDAO.getLastBod(veilingId);
 		veiling = (Veiling) veilingDAO.findById(veilingId);
 		if (!account.hasRecht("bieder")) {
 			addActionMessage("Niet genoeg rechten om een veiling te plaatsen");
@@ -44,29 +45,41 @@ public class BiedAction extends ActionSupport implements
 			addActionMessage("Je kan niet bieden op eigen veiling!");
 			return LOGIN;
 		}
-		else {
-		int id = account.getId();
-		Account acc = (Account) accountDAO.findById(id);
-		Date dT = new Date();
-		bod.setAccount(acc);
-		bod.setGeld(gelds);
-		bod.setDatumTijd(dT);
-		veiling = (Veiling) veilingDAO.findById(veilingId);
-		bod.setVeiling(veiling);
-		veiling.addBod(bod);
-		double nCredits = account.getCredits() - gelds;
-		account.setCredits(nCredits);
-//		int idVerkoper = veiling.getAccount().getId();
-//		Account acc2 = (Account) accountDAO.findById(idVerkoper);
-		huidigeBod = veilingDAO.getLastBod(veilingId);
-		Account vorigeBieder = huidigeBod.getAccount();
-		double terugCredits = account.getCredits() + huidigeBod.getGeld();
-		vorigeBieder.setCredits(terugCredits);
-		
-
-		return SUCCESS;
-
-		 }
+		if (huidigeBod != null) {
+			int id = account.getId();
+			Account acc = (Account) accountDAO.findById(id);
+			Date dT = new Date();
+			bod.setAccount(acc);
+			bod.setGeld(gelds);
+			bod.setDatumTijd(dT);
+			veiling = (Veiling) veilingDAO.findById(veilingId);
+			bod.setVeiling(veiling);
+			veiling.addBod(bod);
+			double nCredits = account.getCredits() - gelds;
+			account.setCredits(nCredits);
+			
+			int vid = huidigeBod.getAccount().getId();
+			Account vorigeBieder = accountDAO.findById(vid);
+			double terugCredits = account.getCredits() + huidigeBod.getGeld();
+			vorigeBieder.setCredits(terugCredits);
+			accountDAO.makePersistent(account);
+			accountDAO2.makePersistent(vorigeBieder);
+			return SUCCESS;
+		} else {
+			int id = account.getId();
+			Account acc = (Account) accountDAO.findById(id);
+			Date dT = new Date();
+			bod.setAccount(acc);
+			bod.setGeld(gelds);
+			bod.setDatumTijd(dT);
+			veiling = (Veiling) veilingDAO.findById(veilingId);
+			bod.setVeiling(veiling);
+			veiling.addBod(bod);
+			double nCredits = account.getCredits() - gelds;
+			account.setCredits(nCredits);
+			accountDAO.makePersistent(account);
+			return SUCCESS;
+		}
 
 	}
 
@@ -78,20 +91,23 @@ public class BiedAction extends ActionSupport implements
 		if (gelds == null) {
 			addFieldError("geld", "Geld veld mag niet leeg zijn!");
 		}
-		if(huidigeBod!=null){
-			if(huidigeBod.getGeld() >= gelds){
-			addFieldError("geld", "Bod mag niet lager of gelijk aan de huidige bod zijn!");
+		if (huidigeBod != null) {
+			if (huidigeBod.getGeld() >= gelds) {
+				addFieldError("geld",
+						"Bod mag niet lager of gelijk aan de huidige bod zijn!");
 			}
 		}
-		if(huidigeBod==null){
-			if(veiling.getMinimumBod() >= gelds){
-			addFieldError("geld", "Bod mag niet lager of gelijk aan de huidige bod zijn!");
+		if (huidigeBod == null) {
+			if (veiling.getMinimumBod() >= gelds) {
+				addFieldError("geld",
+						"Bod mag niet lager of gelijk aan de huidige bod zijn!");
 			}
 		}
-		if(veiling.getMinimumBod() >= gelds){
-			addFieldError("geld", "Bod mag niet lager of gelijk aan de huidige bod zijn!");
+		if (veiling.getMinimumBod() >= gelds) {
+			addFieldError("geld",
+					"Bod mag niet lager of gelijk aan de huidige bod zijn!");
 		}
-		if(account.getCredits()<gelds){
+		if (account.getCredits() < gelds) {
 			addFieldError("geld", "Je hebt niet genoeg geld op je rekening =(");
 		}
 	}
