@@ -5,6 +5,15 @@
 
 <struts>
 	<package name="veilingPlaatsen" extends="accountAware" namespace="/veiling">
+		<interceptors>
+			<interceptor-stack name="securityStack">
+				<interceptor-ref name="standaardStack" />
+				<interceptor-ref name="securityInterceptor">
+					<param name="recht">aanbieder</param>
+				</interceptor-ref>				
+			</interceptor-stack>
+		</interceptors>
+		<default-interceptor-ref name="securityStack"></default-interceptor-ref>
 		<action name="plaatsenDo" class="actions.veiling.PlaatsAction">
 			<result name="input" type="tiles">plaatsenPagina</result>
 			<result name="success" type="tiles">plaatsenBevestiging</result>

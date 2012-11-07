@@ -56,6 +56,10 @@ public class PlaatsAction extends ActionSupport implements SessionAware,
 	}
 
 	public String execute(){
+		if(!account.hasRecht("aanbieder")){
+			addActionMessage("Niet genoeg rechten om een veiling te plaatsen");
+			return LOGIN;
+		}
 		veiling.setAccount(account);
 		veiling.setStatus("actief");
 		veiling.setBeginDatum(new Date());
