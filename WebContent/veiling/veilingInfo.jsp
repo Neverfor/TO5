@@ -24,9 +24,9 @@
 					<s:property value="veiling.account.achternaam" />
 					<br /> Veiling gaat tot:
 					<s:property value="veiling.eindDatum" />
-					<br /> Huidige bod:
+					<!-- <br /> Huidige bod:
 					<s:property value="veiling.biedingen.geld" />
-					<br />
+					<br /> -->
 				</p>
 			</div>
 		</div>
@@ -48,8 +48,8 @@
 					</tr>
 					<s:iterator value="veiling.biedingen">
 						<tr class="tdcolor">
-							<td><s:property value="bod.account.voornaam" />
-							<td><s:property value="bod.geld" />
+							<td><s:property value="account.voornaam" />
+							<td><s:property value="geld" />
 						</tr>
 					</s:iterator>
 				</table>
