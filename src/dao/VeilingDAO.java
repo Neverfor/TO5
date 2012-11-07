@@ -22,7 +22,7 @@ public class VeilingDAO extends GenericHibernateDAO<Veiling, Integer> {
 		}	
 		
 		public List<Veiling> findPopuleerte(){
-			List<Veiling> uniqueResult = (List<Veiling>) hSession.createQuery("from Veiling, Bod where BOD.VEILING = VEILING").list();
+			List<Veiling> uniqueResult = (List<Veiling>) hSession.createQuery("from Veiling v, Bod b where b.veiling = v.id").list();
 			return uniqueResult;
 		}	
 		// order by VEILING.ID
