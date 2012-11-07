@@ -22,16 +22,16 @@ public class ImageAction extends ActionSupport implements ServletRequestAware {
  
 	byte[] imageInByte = null;
 	VeilingDAO veilingDAO = new VeilingDAO();
-	Integer accountId;
+	Integer id;
  
 	private HttpServletRequest servletRequest;
  
-	public Integer getAccountId() {
-		return accountId;
+	public Integer getId() {
+		return id;
 	}
  
-	public void setAccountId(Integer accountId) {
-		this.accountId = accountId;
+	public void setId(Integer id) {
+		this.id = id;
 	}
  
 	public ImageAction() {
@@ -44,9 +44,9 @@ public class ImageAction extends ActionSupport implements ServletRequestAware {
  
 	public byte[] getCustomImageInBytes() {
  
-		System.out.println("accountID: " + accountId);
+		System.out.println("accountID: " + id);
  
-		return veilingDAO.findById(accountId).getImage();
+		return veilingDAO.findById(id).getImage();
 	}
  
 	private File getImageFile(String imageId) {
