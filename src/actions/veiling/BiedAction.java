@@ -45,10 +45,15 @@ public class BiedAction extends ActionSupport implements /*ModelDriven<Bod>,*/ S
 	}
 
 	public String execute() {
-		if (veiling.getMinimumBod()>geld){
-			return ERROR;
+		if(!account.hasRecht("bieder")){
+			addActionMessage("Niet genoeg rechten om een veiling te plaatsen");
+			return LOGIN;
 		}
-		else {
+//		veiling = (Veiling) veilingDAO.findById(veilingId);
+//		if (veiling.getMinimumBod()>geld){
+//			return ERROR;
+//		}
+//		else {
 //			int id = account.getId();
 			Account acc = (Account) accountDAO.findById(id);
 			Date dT = new Date();
@@ -57,16 +62,23 @@ public class BiedAction extends ActionSupport implements /*ModelDriven<Bod>,*/ S
 			bod.setDatumTijd(dT);
 			veiling = (Veiling) veilingDAO.findById(veilingId);
 			bod.setVeiling(veiling);
-			bodDAO.saveBod(bod);
+//			bodDAO.saveBod(bod);
+			veiling.addBod(bod);
 			return SUCCESS;
-		}
+//		}
 		
 	}	
 	
 	public void validate(){
 	if (gelds == null){
-		addFieldError( "geld", "Geld veld mag niet leeg zijn");
-}
+		addFieldError( "geld", "Geld veld mag niet leeg zijn!");
+		}
+//	if (veiling.getMinimumBod()>geld){
+//		addFieldError( "geld", "Je bod is minder dan minimum bod!");
+//		}
+//	else {
+//		execute();
+//		}
 	}
 	
 	public Double getGeld() {

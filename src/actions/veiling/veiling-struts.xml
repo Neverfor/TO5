@@ -5,6 +5,15 @@
 
 <struts>
 	<package name="veilingPlaatsen" extends="accountAware" namespace="/veiling">
+		<interceptors>
+			<interceptor-stack name="securityStack">
+				<interceptor-ref name="standaardStack" />
+				<interceptor-ref name="securityInterceptor">
+					<param name="recht">aanbieder</param>
+				</interceptor-ref>				
+			</interceptor-stack>
+		</interceptors>
+		<default-interceptor-ref name="securityStack"></default-interceptor-ref>
 		<action name="plaatsenDo" class="actions.veiling.PlaatsAction">
 			<result name="input" type="tiles">plaatsenPagina</result>
 			<result name="success" type="tiles">plaatsenBevestiging</result>
@@ -48,7 +57,7 @@
 	
 	<package name="bodPlaatsen" extends="accountAware" namespace="/veilingen">
 			<action name="biedAction" class="actions.veiling.BiedAction">
-				<result name="success" type="redirectAction">showVeilingen</result>			
+				<result name="success" type="tiles">rubriekSelecteren</result>			
 				<result name="input" type="redirectAction">
 				<param name="actionName">veilingInfo</param>
 				<param name="namespace">/veilingen</param></result>

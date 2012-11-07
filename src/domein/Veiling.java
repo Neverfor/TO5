@@ -25,6 +25,10 @@ public class Veiling {
 		this.id = id;
 	}	
 	
+	public void addBod(Bod bod) {
+		this.biedingen.add(bod);
+	}
+	
 	public Set<Bod> getBiedingen() {
 		return biedingen;
 	}

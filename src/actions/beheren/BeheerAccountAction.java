@@ -1,9 +1,16 @@
 package actions.beheren;
 
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+
 import com.opensymphony.xwork2.ActionSupport;
 
 import dao.AccountDAO;
+import dao.RechtDAO;
 import domein.Account;
+import domein.Recht;
 
 public class BeheerAccountAction extends ActionSupport {
 
@@ -11,10 +18,19 @@ public class BeheerAccountAction extends ActionSupport {
 	private AccountDAO accountDAO = new AccountDAO();
 	private Account account;
 	private Integer id;
+	private List<Recht> rechten;
+	private List<Integer> selectedRechten; 
 	
 	public String input(){
 		//show edit form
+		RechtDAO rechtDAO = new RechtDAO();
+		
+		rechten = rechtDAO.findAll();
 		account = accountDAO.findById(id);
+		
+		selectedRechten = new ArrayList<Integer>();
+		for(Recht recht : account.getRechten())
+			selectedRechten.add(recht.getId());
 		return SUCCESS;
 	}
 	
@@ -49,6 +65,18 @@ public class BeheerAccountAction extends ActionSupport {
 		addActionMessage("Gebruiker verwijderd");
 		return SUCCESS;
 	}
+	
+	public String saveRights(){
+		Set<Recht> tempSelectedRechten = new HashSet<Recht>();
+		RechtDAO rechtDAO = new RechtDAO();
+		for(Integer rechtId: selectedRechten)
+			tempSelectedRechten.add(rechtDAO.findById(rechtId));
+		Account updatedAccount = accountDAO.findById(getId());
+		if(updatedAccount == null)
+			return ERROR;	
+		updatedAccount.setRechten(tempSelectedRechten);
+		return SUCCESS;
+	}
 
 	public Integer getId() {
 		return id;
@@ -66,5 +94,21 @@ public class BeheerAccountAction extends ActionSupport {
 
 	public void setAccount(Account account) {
 		this.account = account;
+	}
+
+	public List<Recht> getRechten() {
+		return rechten;
+	}
+
+	public void setRechten(List<Recht> rechten) {
+		this.rechten = rechten;
+	}
+
+	public List<Integer> getSelectedRechten() {
+		return selectedRechten;
+	}
+
+	public void setSelectedRechten(List<Integer> selectedRechten) {
+		this.selectedRechten = selectedRechten;
 	}
 }
