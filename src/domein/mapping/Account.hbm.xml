@@ -17,7 +17,6 @@
 		<property column="HUISNUMMER" name="huisnummer" type="string" />
 		<property column="WOONPLAATS" name="woonplaats" type="string" />
 		<property column="CREDITS" name="credits" type="double" />
-		<property column="ACCSTATUS" name="accstatus" type="int" />
 		<set name="rechten" table="ACCOUNT_RECHT" lazy="false">
 			<key column="ACCOUNT_ID" />
 			<many-to-many column="RECHT_ID" unique="true" class="domein.Recht" />
