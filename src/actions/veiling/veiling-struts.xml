@@ -49,20 +49,6 @@
 			<result name="error" type="tiles">error</result>
 			<result name="input" type="tiles">veilingBestaatNiet</result>
 		</action>
-		<!-- <action name="biedAction" class="actions.veiling.BiedAction">
-			<result name="success" type="redirectAction">
-			<param name="actionName">showVeilingen</param>
-			<param name="namespace">/veilingen</param>
-			</result>			
-			<result name="input" type="redirectAction">
-			<param name="actionName">veilingInfo</param>
-			<param name="namespace">/veilingen</param>
-			</result>
-			<result name="error" type="tiles">error
-			<param name="actionName">veilingInfo</param>
-			<param name="namespace">/veilingen</param>
-			</result>
-		</action> -->
 	</package>
 	
 	<package name="bodPlaatsen" extends="accountAware" namespace="/veilingen">
