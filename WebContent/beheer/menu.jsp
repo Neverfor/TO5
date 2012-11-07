@@ -20,7 +20,7 @@
 			</li>
 			<s:url var="url" action="showPopularVeilingen" namespace='/beheer' escapeAmp="false" />
 			<li <s:if test="#url.startsWith(#currenturl)">class="active"</s:if>>
-				<a href="<s:property value="#url"/>">Beheer Veilingen</a>
+				<a href="<s:property value="#url"/>">Veilingen Dashboard</a>
 			</li>
 		</ul></li>
 </ul>
