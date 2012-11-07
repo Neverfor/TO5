@@ -69,7 +69,7 @@
 	
 	<package name="bodPlaatsen" extends="accountAware" namespace="/veilingen">
 			<action name="biedAction" class="actions.veiling.BiedAction">
-				<result name="success" type="tiles">rubriekSelecteren</result>			
+				<result name="success" type="tiles">veilingInfo</result>			
 				<result name="input" type="redirectAction">
 				<param name="actionName">veilingInfo</param>
 				<param name="namespace">/veilingen</param></result>

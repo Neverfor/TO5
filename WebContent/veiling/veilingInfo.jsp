@@ -49,7 +49,7 @@
 	<hr />
 	<s:textfield name="gelds" label="Je bod:" />
 	<s:hidden name="veilingId" value="%{veiling.id}" />
-	<s:hidden name="id" value="%{account.id}" />
+	<%-- <s:hidden name="id" value="%{account.id}" /> --%>
 	<hr />
 	<div class="form-actions">
 		<s:submit cssClass="btn" />

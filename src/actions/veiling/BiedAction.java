@@ -55,17 +55,17 @@ public class BiedAction extends ActionSupport implements /*ModelDriven<Bod>,*/ S
 //		}
 //		else {
 //			int id = account.getId();
-			Account acc = (Account) accountDAO.findById(id);
+//			Account acc = (Account) accountDAO.findById(id);
 			Date dT = new Date();
-			bod.setAccount(acc);
+			bod.setAccount(account);
 			bod.setGeld(gelds);
 			bod.setDatumTijd(dT);
 			veiling = (Veiling) veilingDAO.findById(veilingId);
 			bod.setVeiling(veiling);
 //			bodDAO.saveBod(bod);
 //			veiling.addBod(bod);
-			bod = bodDAO.makePersistent(bod);
-			veiling.addBod(bod);
+			bodDAO.makePersistent(bod);
+//			veiling.addBod(bod);
 			return SUCCESS;
 //		}
 		

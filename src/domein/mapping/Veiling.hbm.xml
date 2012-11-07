@@ -23,9 +23,9 @@
 			not-null="true" cascade="save-update" unique="false">
 			<column name="RUBRIEK_ID" />
 		</many-to-one>
-		<set name="biedingen" table="BOD" cascade="save-update">
-			<key column="VEILING_ID" />
+		<!--  <set name="biedingen" table="BOD" cascade="save-update">
+			<key column="ID" />
 			<one-to-many class="domein.Bod" />
-		</set>
+		</set> -->
 	</class>
 </hibernate-mapping>

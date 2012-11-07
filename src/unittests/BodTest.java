@@ -44,15 +44,15 @@ public class BodTest {
 		}
 	}
 	
-	@Test
-	public void testGetBodVanVeiling() {
-		Veiling veiling = veilingDAO.findById(8);
-		Set<Bod> biedingen =  veiling.getBiedingen();
-		System.out.println(biedingen);
-		if(biedingen.isEmpty()){
-			fail("Veiling heeft geen biedingen");
-		}
-	}
+//	@Test
+//	public void testGetBodVanVeiling() {
+//		Veiling veiling = veilingDAO.findById(8);
+////		Set<Bod> biedingen =  veiling.getBiedingen();
+//		System.out.println(biedingen);
+//		if(biedingen.isEmpty()){
+//			fail("Veiling heeft geen biedingen");
+//		}
+//	}
 
 	@Test
 	public void testGetAlleBiedingen() {
