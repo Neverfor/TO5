@@ -17,9 +17,6 @@ import dao.AccountDAO;
 
 
 public class BiedAction extends ActionSupport implements /*ModelDriven<Bod>,*/ SessionAware {
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = -2534446146222716771L;
 	private Bod bod = new Bod();
 	private BodDAO bodDAO;
@@ -132,5 +129,4 @@ public class BiedAction extends ActionSupport implements /*ModelDriven<Bod>,*/ S
 	public void setSession(Map<String, Object> session) {
 		account = (Account)session.get("account");
 	}
-
 }
