@@ -16,7 +16,7 @@ public class Veiling {
 	private Account account;
 	private Date eindDatum;
 	private byte[] image;
-//	private Set<Bod> biedingen = new HashSet<Bod>();
+	private Set<Bod> biedingen = new HashSet<Bod>();
 	
 	public int getId() {
 		return id;
@@ -24,18 +24,18 @@ public class Veiling {
 	public void setId(int id) {
 		this.id = id;
 	}	
-//	
-//	public void addBod(Bod bod) {
-//		this.biedingen.add(bod);
-//	}
-//	
-//	public Set<Bod> getBiedingen() {
-//		return biedingen;
-//	}
-//
-//	public void setBiedingen(Set<Bod> biedingen) {
-//		this.biedingen = biedingen;
-//	}
+	
+	public void addBod(Bod bod) {
+		this.biedingen.add(bod);
+	}
+	
+	public Set<Bod> getBiedingen() {
+		return biedingen;
+	}
+
+	public void setBiedingen(Set<Bod> biedingen) {
+		this.biedingen = biedingen;
+	}
 	
 	public Date getEindDatum() {
 		return eindDatum;

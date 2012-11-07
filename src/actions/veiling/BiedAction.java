@@ -64,8 +64,8 @@ public class BiedAction extends ActionSupport implements /*ModelDriven<Bod>,*/ S
 			bod.setVeiling(veiling);
 //			bodDAO.saveBod(bod);
 //			veiling.addBod(bod);
-			bodDAO.makePersistent(bod);
-//			veiling.addBod(bod);
+//			bodDAO.makePersistent(bod);
+			veiling.addBod(bod);
 			return SUCCESS;
 //		}
 		

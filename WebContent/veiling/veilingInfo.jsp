@@ -39,6 +39,21 @@
 			<h3><i>Omschrijving:</i></h3>
 			<p><s:property value="veiling.omschrijving" /></p>
 			</div>
+			
+			<div class="span3">
+			<table>
+		    <tr class="thcolor">
+			    <th>Bieder naam</th>
+			    <th>Bod</th> 
+		    </tr>
+		    <s:iterator value="veiling.biedingen">
+			    <tr class="tdcolor">
+				    <td><s:property value="bod.account.voornaam" />
+				    <td><s:property value="bod.geld" />
+		        </tr>
+ 		    </s:iterator>
+	    </table>
+	    </div>
 		</div>
 	</div>
 	
