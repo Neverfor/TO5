@@ -23,7 +23,7 @@ public class VeilingDBoard extends ActionSupport {
 	}
 
 	public String execute(){
-		veilingen = (List<Veiling>) veilingDAO.findPopuleerste();
+		veilingen = (List<Veiling>) veilingDAO.findAll();
 		System.out.println(veilingen);
 		return SUCCESS;
 	}
