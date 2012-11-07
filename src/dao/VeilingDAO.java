@@ -22,10 +22,10 @@ public class VeilingDAO extends GenericHibernateDAO<Veiling, Integer> {
 		}	
 		
 		public List<Veiling> findPopuleerte(){
-			List<Veiling> uniqueResult = (List<Veiling>) hSession.createQuery("from Veiling, Bod where BOD.VEILING_ID = VEILING.ID order by VEILING.ID").list();
+			List<Veiling> uniqueResult = (List<Veiling>) hSession.createQuery("from Veiling, Bod where BOD.VEILING = VEILING").list();
 			return uniqueResult;
 		}	
-		
+		// order by VEILING.ID
 		public List<Veiling> zoekVeilingen(int rubriekId, String zoekTerm){
 			if(zoekTerm == null) zoekTerm = "";
 			List<Veiling> uniqueResult = (List<Veiling>) hSession.createQuery("from Veiling where RUBRIEK_ID = :rId AND TITEL LIKE :zTerm ").setInteger("rId", rubriekId).setString("zTerm",  "%" + zoekTerm + "%").list();
