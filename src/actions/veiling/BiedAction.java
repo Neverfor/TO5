@@ -94,6 +94,11 @@ public class BiedAction extends ActionSupport implements
 		Account acc = (Account) accountDAO.findById(id);
 		veiling = (Veiling) veilingDAO.findById(veilingId);
 		huidigeBod = veilingDAO.getLastBod(veilingId);
+		int vid = huidigeBod.getAccount().getId();
+		Account vorigeBieder = accountDAO.findById(vid);		
+		if(acc.getId()==vorigeBieder.getId()){
+			addActionMessage("Je bent al de hoogste bieder!");
+		}
 		if (gelds == null) {
 			addFieldError("geld", "Geld veld mag niet leeg zijn!");
 		}
