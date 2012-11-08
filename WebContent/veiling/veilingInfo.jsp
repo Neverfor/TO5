@@ -6,14 +6,18 @@
 			<s:property value="veiling.titel" />
 		</h1>
 		<div class="row-fluid">
-
 			<div class="span3">
 				<!-- left  -->
+				<s:if test="veiling.image == null">
+					<img src= "http://scharrelplein.nl/images/geen-afbeelding.png" class="img-polaroid" />
+				</s:if>
+				<s:else>
 				<img
 					src="<s:url action="ImageAction" namespace="/veilingen">
-    <s:param name="id"><s:property value="veiling.id"/></s:param>
-	</s:url>"
+					    <s:param name="id"><s:property value="veiling.id"/></s:param>
+						</s:url>"
 					class="img-polaroid" />
+					</s:else>
 			</div>
 
 			<div class="span9">
