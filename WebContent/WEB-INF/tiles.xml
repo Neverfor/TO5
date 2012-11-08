@@ -40,6 +40,7 @@
 		<put-attribute name="title" value="Registreren succesvol" />
 		<put-attribute name="body" value="/account/registreerBevestiging.jsp" />
 	</definition>
+	
 	<definition name="login" extends="baseLayout">
 		<put-attribute name="title" value="Login" />
 		<put-attribute name="body" value="/account/login.jsp" />
