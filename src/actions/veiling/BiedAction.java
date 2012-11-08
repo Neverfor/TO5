@@ -62,13 +62,13 @@ public class BiedAction extends ActionSupport implements
 			account.setCredits(nCredits);
 			
 			int vid = huidigeBod.getAccount().getId();
-			Account vorigeBieder = accountDAO2.findById(vid);
-			double terugCredits = account.getCredits() + huidigeBod.getGeld();
+			Account vorigeBieder = accountDAO.findById(vid);
+			double terugCredits = vorigeBieder.getCredits() + huidigeBod.getGeld();
 			vorigeBieder.setCredits(terugCredits);
 //			accountDAO.makePersistent(account);
 			accountDAO.makePersistentMerge(account);
 //			HibernateUtil.getCurrentSession.flush();
-			accountDAO2.makePersistent(vorigeBieder);
+			accountDAO.makePersistent(vorigeBieder);
 //			accountDAO2.makePersistentMerge(vorigeBieder);
 			return SUCCESS;
 		} else {
