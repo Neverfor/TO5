@@ -38,7 +38,6 @@ public class BiedAction extends ActionSupport implements
 	}
 
 	public String execute() {
-		huidigeBod = veilingDAO.getLastBod(veilingId);
 		veiling = (Veiling) veilingDAO.findById(veilingId);
 		if (!account.hasRecht("bieder")) {
 			addActionMessage("Niet genoeg rechten om een veiling te plaatsen");
@@ -49,6 +48,7 @@ public class BiedAction extends ActionSupport implements
 			return LOGIN;
 		}
 		if (huidigeBod != null) {
+			huidigeBod = veilingDAO.getLastBod(veilingId);
 			int id = account.getId();
 			Account acc = (Account) accountDAO.findById(id);
 			Date dT = new Date();
@@ -71,7 +71,9 @@ public class BiedAction extends ActionSupport implements
 			accountDAO.makePersistent(vorigeBieder);
 //			accountDAO2.makePersistentMerge(vorigeBieder);
 			return SUCCESS;
-		} else {
+			
+		} 
+		if (huidigeBod==null) {
 			int id = account.getId();
 			Account acc = (Account) accountDAO.findById(id);
 			Date dT = new Date();
@@ -86,18 +88,27 @@ public class BiedAction extends ActionSupport implements
 			accountDAO.makePersistent(account);
 			return SUCCESS;
 		}
+		else {
+			return INPUT;
+		}
 
 	}
 
 	public void validate() {
 		int id = account.getId();
-		Account acc = (Account) accountDAO.findById(id);
+		int vid = 1;
+//		Account acc = (Account) accountDAO.findById(id);
 		veiling = (Veiling) veilingDAO.findById(veilingId);
 		huidigeBod = veilingDAO.getLastBod(veilingId);
-		int vid = huidigeBod.getAccount().getId();
-		Account vorigeBieder = accountDAO.findById(vid);		
-		if(acc.getId()==vorigeBieder.getId()){
-			addActionMessage("Je bent al de hoogste bieder!");
+//		System.out.println("/nabc " + huidigeBod.getGeld());
+		if (huidigeBod!=null){
+			vid = huidigeBod.getAccount().getId();
+		}
+		Account vorigeBieder = accountDAO.findById(vid);
+//		System.out.println("/nBlabla" + vorigeBieder.getId());
+		
+		if(id==vorigeBieder.getId()){
+			addActionError("Je bent al de hoogste bieder!");
 		}
 		if (gelds == null) {
 			addFieldError("geld", "Geld veld mag niet leeg zijn!");
