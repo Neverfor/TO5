@@ -18,8 +18,7 @@
 				<param name="actionName">gebruikerspaneel</param>
 				<param name="namespace">/gebruiker</param>
 				</result>
-		</action>
-		
+		</action>	
 
 		<action name="registreren">
 			<result type="tiles">registreren</result>

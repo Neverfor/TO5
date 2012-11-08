@@ -1,6 +1,6 @@
 <%@ taglib prefix="s" uri="/struts-tags"%>
 <s:actionmessage theme="bootstrap"/>
-<h1>Populeerste Veilingen</h1>
+<h1>Populairste Veilingen</h1>
 
 <table class="table">
 	<tr>
