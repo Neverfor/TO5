@@ -5,7 +5,7 @@
 
 <struts>
 
-	<constant name="struts.devMode" value="true" />
+	<constant name="struts.devMode" value="false" />
 	<constant name="struts.custom.i18n.resources" value="global" />
 
 	<package name="default" extends="struts-default">
